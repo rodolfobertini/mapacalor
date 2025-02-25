@@ -1,3 +1,4 @@
+import sys
 import folium
 from geopy.distance import geodesic
 from branca.colormap import LinearColormap
@@ -7,8 +8,24 @@ import locale
 # Configurar o locale para formato de moeda brasileira
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
+# Definir valores padrão para grid_size e valor_minimo
+grid_size = 250  # Tamanho padrão do quadrante em metros
+valor_minimo = 100  # Valor mínimo padrão para exibir o quadrante
+
+# Verificar argumentos da linha de comando
+if len(sys.argv) == 3:
+    try:
+        grid_size = int(sys.argv[1])  # Tamanho do quadrante em metros
+        valor_minimo = int(sys.argv[2])  # Valor mínimo de soma para exibir o quadrante
+    except ValueError:
+        print("Erro: Os argumentos devem ser números inteiros.")
+        sys.exit(1)
+elif len(sys.argv) > 1:
+    print("Uso: python3 mapa.py <tamanho_do_quadrante> <valor_minimo>")
+    sys.exit(1)
+
 # Carregar os dados
-dados = pd.read_csv('/home/rodolfo/dev/mapacalor/bezerra-v3.csv')
+dados = pd.read_csv('/home/rodolfo/dev/mapacalor/bezerra-v4.csv')  # Substitua pelo caminho do seu arquivo
 
 # Agrupar os dados por localização (latitude e longitude)
 agrupado = dados.groupby(['ven_lati', 'ven_long']).agg(
@@ -17,22 +34,24 @@ agrupado = dados.groupby(['ven_lati', 'ven_long']).agg(
 ).reset_index()
 
 # Criar o mapa principal
-mapa = folium.Map(location=[-3.73367, -38.5543], zoom_start=13)
+mapa = folium.Map(location=[-3.73367, -38.5543], zoom_start=14)
 
 # Adicionar um marcador no ponto central do mapa (local da loja)
 folium.Marker(
     location=[-3.73367, -38.5543],
-    popup="Loja Central",
+    popup="Azilados Bezerra",
     icon=folium.Icon(color='blue', icon='info-sign')
 ).add_to(mapa)
 
+# Função para calcular deslocamento em latitude e longitude
 def deslocar_coordenadas(lat, lon, deslocamento_lat, deslocamento_lon):
     nova_lat = geodesic(meters=deslocamento_lat).destination((lat, lon), bearing=0).latitude
     nova_lon = geodesic(meters=deslocamento_lon).destination((lat, lon), bearing=90).longitude
     return nova_lat, nova_lon
 
-def gerar_mapa(grid_size=1200, valor_minimo=200):
-    area_km = 10
+# Função para gerar o mapa
+def gerar_mapa(grid_size, valor_minimo):
+    area_km = 10  # Extensão da área em latitude e longitude (10 km para cada lado)
     quadrantes = []
 
     for i in range(-area_km * 1000 // grid_size, area_km * 1000 // grid_size):
@@ -65,7 +84,7 @@ def gerar_mapa(grid_size=1200, valor_minimo=200):
         colors=["green", "yellow", "orange", "red"],
         vmin=0,
         vmax=len(quadrantes) - 1,
-        caption='Valor Total das Vendas'
+        caption='Valor Total das Vendas (Numero de Quadrantes)',
     )
 
     for idx, quadrante in enumerate(quadrantes):
@@ -95,8 +114,6 @@ def gerar_mapa(grid_size=1200, valor_minimo=200):
                     color: black; 
                     text-align: center; 
                     transform: translate(-50%, -50%);
-                    width: {grid_size * 0.7}px;
-                    height: {grid_size * 0.7}px;
                     display: flex;
                     align-items: center;
                     justify-content: center;">
@@ -107,5 +124,9 @@ def gerar_mapa(grid_size=1200, valor_minimo=200):
 
     colormap_valor.add_to(mapa)
 
-gerar_mapa(grid_size=1000, valor_minimo=300)
-mapa.save("/home/rodolfo/dev/mapacalor/mapa_quadrantes_calor_com_valores.html")
+# Gerar o mapa com os argumentos fornecidos ou valores padrão
+gerar_mapa(grid_size, valor_minimo)
+
+# Salvar o mapa final com os quadrantes coloridos integrados e valores exibidos
+mapa.save("/home/rodolfo/dev/mapacalor/mapa_quadrantes_calor_com_valores.html")  # Substitua pelo caminho do seu arquivo
+print(f"Mapa salvo com sucesso! Tamanho do quadrante: {grid_size}m | Valor mínimo: R${valor_minimo}")
