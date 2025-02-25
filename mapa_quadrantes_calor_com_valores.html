@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8736347b2b92328d327790df11991fe5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_8736347b2b92328d327790df11991fe5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_8736347b2b92328d327790df11991fe5 = L.map(
+                "map_8736347b2b92328d327790df11991fe5",
+                {
+                    center: [-3.73367, -38.5543],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_70bef0679d7843eba9cb628dc2d592ac = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_70bef0679d7843eba9cb628dc2d592ac.addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_d4600e4f2b9b1ceaec6ceca21f508437 = L.marker(
+                [-3.73367, -38.5543],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var icon_c34fc604085bfb11f6c24deb7efdba23 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d4600e4f2b9b1ceaec6ceca21f508437.setIcon(icon_c34fc604085bfb11f6c24deb7efdba23);
+        
+    
+        var popup_6efe6298eaba1e6f95153418040c0409 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dc6aa351bfa1beb64a45779ae23e0581 = $(`<div id="html_dc6aa351bfa1beb64a45779ae23e0581" style="width: 100.0%; height: 100.0%;">Loja Central</div>`)[0];
+                popup_6efe6298eaba1e6f95153418040c0409.setContent(html_dc6aa351bfa1beb64a45779ae23e0581);
+            
+        
+
+        marker_d4600e4f2b9b1ceaec6ceca21f508437.bindPopup(popup_6efe6298eaba1e6f95153418040c0409)
+        ;
+
+        
+    
+    
+            var polygon_491f99e414497fe6fe4cf7d48518bc62 = L.polygon(
+                [[-3.7065400625801526, -38.57230426430138], [-3.7065400625801526, -38.563302132151634], [-3.697496746402265, -38.563302132151634], [-3.697496746402265, -38.57230426430138]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008000ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_5a3defdda463fb8a84d8117a02532e1d = L.marker(
+                [-3.702018404491209, -38.56780319822651],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_5059d3a409b9fd9ec39e0ff6557de186 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 339,17\n                \u003c/div\u003e\n            "});
+            marker_5a3defdda463fb8a84d8117a02532e1d.setIcon(div_icon_5059d3a409b9fd9ec39e0ff6557de186);
+        
+    
+            var polygon_6955a889815c5c853f6bf287822a0198 = L.polygon(
+                [[-3.7788865250512083, -38.5543], [-3.7788865250512083, -38.54529786784836], [-3.7698432237934187, -38.54529786784836], [-3.7698432237934187, -38.5543]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0a8500ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_d0a1f62f26314383a4d591479ef8e267 = L.marker(
+                [-3.7743648744223135, -38.54979893392418],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_0ccba51c2dc10e2348f11e383796ba90 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 422,68\n                \u003c/div\u003e\n            "});
+            marker_d0a1f62f26314383a4d591479ef8e267.setIcon(div_icon_0ccba51c2dc10e2348f11e383796ba90);
+        
+    
+            var polygon_320e6aea13b80fe542415a71979855b4 = L.polygon(
+                [[-3.7246266893835056, -38.60831279284384], [-3.7246266893835056, -38.59931066072048], [-3.7155833769087283, -38.59931066072048], [-3.7155833769087283, -38.60831279284384]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#158a00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_36194e673b7e2574d53b5ff110e613fd = L.marker(
+                [-3.720105033146117, -38.603811726782155],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_a9e7dbd997ea1742ce5013afbc3999fc = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 486,17\n                \u003c/div\u003e\n            "});
+            marker_36194e673b7e2574d53b5ff110e613fd.setIcon(div_icon_a9e7dbd997ea1742ce5013afbc3999fc);
+        
+    
+            var polygon_7e3a5b010d752d867e5f1c4baee026b3 = L.polygon(
+                [[-3.7065400625801526, -38.59030852858769], [-3.7065400625801526, -38.58130639644737], [-3.697496746402265, -38.58130639644737], [-3.697496746402265, -38.59030852858769]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f9000ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_ae4add24971fb94273a55f379beb39d9 = L.marker(
+                [-3.702018404491209, -38.58580746251753],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_6cda4e09e550617752377051309651e0 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 501,60\n                \u003c/div\u003e\n            "});
+            marker_ae4add24971fb94273a55f379beb39d9.setIcon(div_icon_6cda4e09e550617752377051309651e0);
+        
+    
+            var polygon_9587337f93992a67bb979ef015407c04 = L.polygon(
+                [[-3.742713308753723, -38.50928933927952], [-3.742713308753723, -38.500287207156155], [-3.73367, -38.500287207156155], [-3.73367, -38.50928933927952]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a9500ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_226644fa1c60d5bc5580e910dcdf1cb5 = L.marker(
+                [-3.7381916543768616, -38.50478827321784],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_fc8efacf0aa3fc5813b0783eb997550e = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 525,85\n                \u003c/div\u003e\n            "});
+            marker_226644fa1c60d5bc5580e910dcdf1cb5.setIcon(div_icon_fc8efacf0aa3fc5813b0783eb997550e);
+        
+    
+            var polygon_d647788531db19998e92a3cda34d054f = L.polygon(
+                [[-3.7788865250512083, -38.58130639644737], [-3.7788865250512083, -38.57230426430138], [-3.7698432237934187, -38.57230426430138], [-3.7698432237934187, -38.58130639644737]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#349a00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_5a75efc6eae99469d7af95f70d7d75c7 = L.marker(
+                [-3.7743648744223135, -38.57680533037437],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_3d443b467d689e61cd7298b246e5a0cd = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 526,52\n                \u003c/div\u003e\n            "});
+            marker_5a75efc6eae99469d7af95f70d7d75c7.setIcon(div_icon_3d443b467d689e61cd7298b246e5a0cd);
+        
+    
+            var polygon_9fbc4bb62711b2b6b788132ecd0220ec = L.polygon(
+                [[-3.7788865250512083, -38.536295735698616], [-3.7788865250512083, -38.52729360355263], [-3.7698432237934187, -38.52729360355263], [-3.7698432237934187, -38.536295735698616]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3f9f00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_a6195bdca21eab89957bb06014bd54f9 = L.marker(
+                [-3.7743648744223135, -38.531794669625626],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_3245920f35eb6351d16e3aa3e3e66122 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.004,57\n                \u003c/div\u003e\n            "});
+            marker_a6195bdca21eab89957bb06014bd54f9.setIcon(div_icon_3245920f35eb6351d16e3aa3e3e66122);
+        
+    
+            var polygon_a10bbdeddd1e9e215882d45a190a108c = L.polygon(
+                [[-3.760799920654918, -38.518291471412304], [-3.760799920654918, -38.50928933927952], [-3.751756615640191, -38.50928933927952], [-3.751756615640191, -38.518291471412304]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#49a500ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_8e2878b76b57cff898b6200aeba811a1 = L.marker(
+                [-3.756278268147555, -38.513790405345915],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_fe27a5c904bfcdb3d803e04cfa5cca52 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.071,79\n                \u003c/div\u003e\n            "});
+            marker_8e2878b76b57cff898b6200aeba811a1.setIcon(div_icon_fe27a5c904bfcdb3d803e04cfa5cca52);
+        
+    
+            var polygon_52749459022c473693e5b1ac724a61f8 = L.polygon(
+                [[-3.73367, -38.60831279284384], [-3.73367, -38.59931066072048], [-3.7246266893835056, -38.59931066072048], [-3.7246266893835056, -38.60831279284384]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#54aa00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_156c2f453a123e678e2c0f9dd2086e1b = L.marker(
+                [-3.729148344691753, -38.603811726782155],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_13be518232662c4472233053c346076d = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.085,40\n                \u003c/div\u003e\n            "});
+            marker_156c2f453a123e678e2c0f9dd2086e1b.setIcon(div_icon_13be518232662c4472233053c346076d);
+        
+    
+            var polygon_28f60d5ab05a1c790961eaf9c02b0261 = L.polygon(
+                [[-3.73367, -38.50928933927952], [-3.73367, -38.500287207156155], [-3.7246266893835056, -38.500287207156155], [-3.7246266893835056, -38.50928933927952]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5eaf00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_4a58547024025f48f701db712f1e3fc9 = L.marker(
+                [-3.729148344691753, -38.50478827321784],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_b8b8bd9069384a2c585b53bc46610032 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.134,76\n                \u003c/div\u003e\n            "});
+            marker_4a58547024025f48f701db712f1e3fc9.setIcon(div_icon_b8b8bd9069384a2c585b53bc46610032);
+        
+    
+            var polygon_e39ab57f666c3564d28f2d53cb681a49 = L.polygon(
+                [[-3.7155833769087283, -38.59030852858769], [-3.7155833769087283, -38.58130639644737], [-3.7065400625801526, -38.58130639644737], [-3.7065400625801526, -38.59030852858769]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#69b400ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_5f01b505351328f1beccca06ca84f760 = L.marker(
+                [-3.7110617197444404, -38.58580746251753],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_cd83ebbd864da1a77bcf4f4228d14ef4 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.402,52\n                \u003c/div\u003e\n            "});
+            marker_5f01b505351328f1beccca06ca84f760.setIcon(div_icon_cd83ebbd864da1a77bcf4f4228d14ef4);
+        
+    
+            var polygon_0fdcf0de3b930c7f2a99b57c471a82e9 = L.polygon(
+                [[-3.7788865250512083, -38.563302132151634], [-3.7788865250512083, -38.5543], [-3.7698432237934187, -38.5543], [-3.7698432237934187, -38.563302132151634]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#73ba00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_d8fd206d3afd9d0aa1f6ba2a7e729316 = L.marker(
+                [-3.7743648744223135, -38.558801066075816],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_cfcb14bcc5161eff746856c62d6402fc = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.628,05\n                \u003c/div\u003e\n            "});
+            marker_d8fd206d3afd9d0aa1f6ba2a7e729316.setIcon(div_icon_cfcb14bcc5161eff746856c62d6402fc);
+        
+    
+            var polygon_e71ecd8b8265df11c3ff3e3ae7bcc7bc = L.polygon(
+                [[-3.7246266893835056, -38.59931066072048], [-3.7246266893835056, -38.59030852858769], [-3.7155833769087283, -38.59030852858769], [-3.7155833769087283, -38.59931066072048]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7ebf00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_b86b63c2ec96691eed77c81adc2a67c7 = L.marker(
+                [-3.720105033146117, -38.59480959465408],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_424747a1a920c1bab541ac7e010e7f17 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.661,00\n                \u003c/div\u003e\n            "});
+            marker_b86b63c2ec96691eed77c81adc2a67c7.setIcon(div_icon_424747a1a920c1bab541ac7e010e7f17);
+        
+    
+            var polygon_2b55bbe2e02707867a92e279f5d90f5a = L.polygon(
+                [[-3.7246266893835056, -38.59030852858769], [-3.7246266893835056, -38.58130639644737], [-3.7155833769087283, -38.58130639644737], [-3.7155833769087283, -38.59030852858769]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#88c400ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_9ed43e5e7c915e2ddf0d854b295d7c4f = L.marker(
+                [-3.720105033146117, -38.58580746251753],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_4fb4fd6fffefff1880402bfa0d5f1abc = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.813,72\n                \u003c/div\u003e\n            "});
+            marker_9ed43e5e7c915e2ddf0d854b295d7c4f.setIcon(div_icon_4fb4fd6fffefff1880402bfa0d5f1abc);
+        
+    
+            var polygon_7701161ec117e617cb9ac4364308d02d = L.polygon(
+                [[-3.7246266893835056, -38.58130639644737], [-3.7246266893835056, -38.57230426430138], [-3.7155833769087283, -38.57230426430138], [-3.7155833769087283, -38.58130639644737]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#93c900ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_9bbf680ad2b9a584094096423cb5ac96 = L.marker(
+                [-3.720105033146117, -38.57680533037437],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_aeb7f8958a4c68493cc14699b5392a1e = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.910,09\n                \u003c/div\u003e\n            "});
+            marker_9bbf680ad2b9a584094096423cb5ac96.setIcon(div_icon_aeb7f8958a4c68493cc14699b5392a1e);
+        
+    
+            var polygon_fce0b248e3b3519ca177fce0b165aa8d = L.polygon(
+                [[-3.7155833769087283, -38.59931066072048], [-3.7155833769087283, -38.59030852858769], [-3.7065400625801526, -38.59030852858769], [-3.7065400625801526, -38.59931066072048]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9dcf00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_a38e46331c220cac0ea90cf61792cb63 = L.marker(
+                [-3.7110617197444404, -38.59480959465408],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_e2e8052d2cb7dc8d8b8f6bc4d4108177 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 1.984,73\n                \u003c/div\u003e\n            "});
+            marker_a38e46331c220cac0ea90cf61792cb63.setIcon(div_icon_e2e8052d2cb7dc8d8b8f6bc4d4108177);
+        
+    
+            var polygon_64beb8687638ecb64b742256a80fa78e = L.polygon(
+                [[-3.7155833769087283, -38.58130639644737], [-3.7155833769087283, -38.57230426430138], [-3.7065400625801526, -38.57230426430138], [-3.7065400625801526, -38.58130639644737]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a8d400ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_043bf09e76f1da4439676c00e44c1d23 = L.marker(
+                [-3.7110617197444404, -38.57680533037437],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_627e0868f1f316007a898cfebc51dc18 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 2.958,32\n                \u003c/div\u003e\n            "});
+            marker_043bf09e76f1da4439676c00e44c1d23.setIcon(div_icon_627e0868f1f316007a898cfebc51dc18);
+        
+    
+            var polygon_d1804a4f70cf945735e52af5d223b1b4 = L.polygon(
+                [[-3.751756615640191, -38.518291471412304], [-3.751756615640191, -38.50928933927952], [-3.742713308753723, -38.50928933927952], [-3.742713308753723, -38.518291471412304]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2d900ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_fccdb0979ecdfe31767f7965ce79cda9 = L.marker(
+                [-3.7472349621969574, -38.513790405345915],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_2fff61de561925e9ea1e3b25687b5fc2 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 3.686,64\n                \u003c/div\u003e\n            "});
+            marker_fccdb0979ecdfe31767f7965ce79cda9.setIcon(div_icon_2fff61de561925e9ea1e3b25687b5fc2);
+        
+    
+            var polygon_84a4b445693bc321ee334fc0fa1d5cce = L.polygon(
+                [[-3.751756615640191, -38.58130639644737], [-3.751756615640191, -38.57230426430138], [-3.742713308753723, -38.57230426430138], [-3.742713308753723, -38.58130639644737]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bdde00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_838f5adb9701b180760c685b5bb6ff71 = L.marker(
+                [-3.7472349621969574, -38.57680533037437],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_41db042b990d96a4dea4018ccf2721cf = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 4.124,04\n                \u003c/div\u003e\n            "});
+            marker_838f5adb9701b180760c685b5bb6ff71.setIcon(div_icon_41db042b990d96a4dea4018ccf2721cf);
+        
+    
+            var polygon_5a7248a443d1fec687b0af6d3e30616f = L.polygon(
+                [[-3.7698432237934187, -38.59030852858769], [-3.7698432237934187, -38.58130639644737], [-3.760799920654918, -38.58130639644737], [-3.760799920654918, -38.59030852858769]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c7e400ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_f0ef97cded741cb137bbfead441c3b12 = L.marker(
+                [-3.7653215722241686, -38.58580746251753],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_f01334a49b2b06cefd232db5a93c8498 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 4.230,47\n                \u003c/div\u003e\n            "});
+            marker_f0ef97cded741cb137bbfead441c3b12.setIcon(div_icon_f01334a49b2b06cefd232db5a93c8498);
+        
+    
+            var polygon_f0da5e5ba50cf87254552c80de45d416 = L.polygon(
+                [[-3.73367, -38.59931066072048], [-3.73367, -38.59030852858769], [-3.7246266893835056, -38.59030852858769], [-3.7246266893835056, -38.59931066072048]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d2e900ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_5cf80be4d9296277b30638ce61f5561b = L.marker(
+                [-3.729148344691753, -38.59480959465408],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_d5d409ce2085b7e98c862d4391ce4a58 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 6.512,22\n                \u003c/div\u003e\n            "});
+            marker_5cf80be4d9296277b30638ce61f5561b.setIcon(div_icon_d5d409ce2085b7e98c862d4391ce4a58);
+        
+    
+            var polygon_f5eff732cbdb3e619716627d7e417f22 = L.polygon(
+                [[-3.760799920654918, -38.59931066072048], [-3.760799920654918, -38.59030852858769], [-3.751756615640191, -38.59030852858769], [-3.751756615640191, -38.59931066072048]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dcee00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_8b668d0ca61123a6854576c453437d21 = L.marker(
+                [-3.756278268147555, -38.59480959465408],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_67b714fbb0e178077ff1480cac170d80 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 7.061,69\n                \u003c/div\u003e\n            "});
+            marker_8b668d0ca61123a6854576c453437d21.setIcon(div_icon_67b714fbb0e178077ff1480cac170d80);
+        
+    
+            var polygon_d32b4ca85e9aab55f3fadc8339c5bd9f = L.polygon(
+                [[-3.7788865250512083, -38.54529786784836], [-3.7788865250512083, -38.536295735698616], [-3.7698432237934187, -38.536295735698616], [-3.7698432237934187, -38.54529786784836]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e7f300ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_3a2300317187ab99e9ac609bac8a913f = L.marker(
+                [-3.7743648744223135, -38.54079680177349],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_7b4dd420a731b4ce2b62d748ea2fe2c7 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 7.522,16\n                \u003c/div\u003e\n            "});
+            marker_3a2300317187ab99e9ac609bac8a913f.setIcon(div_icon_7b4dd420a731b4ce2b62d748ea2fe2c7);
+        
+    
+            var polygon_d266c75a5758ae152994368552a9a854 = L.polygon(
+                [[-3.73367, -38.59030852858769], [-3.73367, -38.58130639644737], [-3.7246266893835056, -38.58130639644737], [-3.7246266893835056, -38.59030852858769]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f1f900ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_76484c3fdc7e87cf3cae7972dd309c21 = L.marker(
+                [-3.729148344691753, -38.58580746251753],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_d45fc5c8cf870533b1f36603e7f46079 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 8.204,22\n                \u003c/div\u003e\n            "});
+            marker_76484c3fdc7e87cf3cae7972dd309c21.setIcon(div_icon_d45fc5c8cf870533b1f36603e7f46079);
+        
+    
+            var polygon_1b21c0e02bfd51a943134d194bad89cb = L.polygon(
+                [[-3.73367, -38.518291471412304], [-3.73367, -38.50928933927952], [-3.7246266893835056, -38.50928933927952], [-3.7246266893835056, -38.518291471412304]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fcfe00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_12176939a7adc24295e4923cb0bdf577 = L.marker(
+                [-3.729148344691753, -38.513790405345915],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_d6c2196b9201f57ecc65590a631ce33b = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 10.870,78\n                \u003c/div\u003e\n            "});
+            marker_12176939a7adc24295e4923cb0bdf577.setIcon(div_icon_d6c2196b9201f57ecc65590a631ce33b);
+        
+    
+            var polygon_f250f0238a2975237731d53b4e104d0e = L.polygon(
+                [[-3.742713308753723, -38.518291471412304], [-3.742713308753723, -38.50928933927952], [-3.73367, -38.50928933927952], [-3.73367, -38.518291471412304]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fffd00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_d7a30a033ab545f20502b8bfbe39584d = L.marker(
+                [-3.7381916543768616, -38.513790405345915],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_4e0e2ec625ecb1752e665a9a111effdb = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 11.886,67\n                \u003c/div\u003e\n            "});
+            marker_d7a30a033ab545f20502b8bfbe39584d.setIcon(div_icon_4e0e2ec625ecb1752e665a9a111effdb);
+        
+    
+            var polygon_8723e61b5a91f458a75677c279a9bdba = L.polygon(
+                [[-3.760799920654918, -38.58130639644737], [-3.760799920654918, -38.57230426430138], [-3.751756615640191, -38.57230426430138], [-3.751756615640191, -38.58130639644737]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff900ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_fe06e189d4a317d1260fa44495ec7f44 = L.marker(
+                [-3.756278268147555, -38.57680533037437],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_eb29334e46a411e43c0f7386f3063554 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 14.687,84\n                \u003c/div\u003e\n            "});
+            marker_fe06e189d4a317d1260fa44495ec7f44.setIcon(div_icon_eb29334e46a411e43c0f7386f3063554);
+        
+    
+            var polygon_8e7e8f201b3d98808d0c578a64d0bbd9 = L.polygon(
+                [[-3.7246266893835056, -38.52729360355263], [-3.7246266893835056, -38.518291471412304], [-3.7155833769087283, -38.518291471412304], [-3.7155833769087283, -38.52729360355263]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff600ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_80aac527a3cc83beeb208f3eeeea10ab = L.marker(
+                [-3.720105033146117, -38.52279253748247],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_b7fab18ceb7a3e9661bff7844bc5975e = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 15.101,59\n                \u003c/div\u003e\n            "});
+            marker_80aac527a3cc83beeb208f3eeeea10ab.setIcon(div_icon_b7fab18ceb7a3e9661bff7844bc5975e);
+        
+    
+            var polygon_290094d318460f8066c05618f1c626ed = L.polygon(
+                [[-3.7246266893835056, -38.518291471412304], [-3.7246266893835056, -38.50928933927952], [-3.7155833769087283, -38.50928933927952], [-3.7155833769087283, -38.518291471412304]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fff200ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_37ebb4690bec296d27d734abf491dcf3 = L.marker(
+                [-3.720105033146117, -38.513790405345915],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_ef9d723db2ac2bcfe9ebb4cf2671c69f = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 17.307,45\n                \u003c/div\u003e\n            "});
+            marker_37ebb4690bec296d27d734abf491dcf3.setIcon(div_icon_ef9d723db2ac2bcfe9ebb4cf2671c69f);
+        
+    
+            var polygon_e67d790b45eceaadcc89c7adde7ad282 = L.polygon(
+                [[-3.751756615640191, -38.59931066072048], [-3.751756615640191, -38.59030852858769], [-3.742713308753723, -38.59030852858769], [-3.742713308753723, -38.59931066072048]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffee00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_3740b2b063f9673d0c169b384d249fd3 = L.marker(
+                [-3.7472349621969574, -38.59480959465408],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_dfa24784dc20b87ce33a20d94f6764d5 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 21.806,01\n                \u003c/div\u003e\n            "});
+            marker_3740b2b063f9673d0c169b384d249fd3.setIcon(div_icon_dfa24784dc20b87ce33a20d94f6764d5);
+        
+    
+            var polygon_5587f91e463eef646cc00c09eebd2f14 = L.polygon(
+                [[-3.7155833769087283, -38.5543], [-3.7155833769087283, -38.54529786784836], [-3.7065400625801526, -38.54529786784836], [-3.7065400625801526, -38.5543]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffea00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_e17c91569e00f32b7f0217a629769700 = L.marker(
+                [-3.7110617197444404, -38.54979893392418],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_fbf613e7f11e3fe5382b824e9826120e = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 26.768,39\n                \u003c/div\u003e\n            "});
+            marker_e17c91569e00f32b7f0217a629769700.setIcon(div_icon_fbf613e7f11e3fe5382b824e9826120e);
+        
+    
+            var polygon_ae1281e12a7c40bada21a744b8539858 = L.polygon(
+                [[-3.751756615640191, -38.59030852858769], [-3.751756615640191, -38.58130639644737], [-3.742713308753723, -38.58130639644737], [-3.742713308753723, -38.59030852858769]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe700ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_d487e63c3f9211bca49a07664a213211 = L.marker(
+                [-3.7472349621969574, -38.58580746251753],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_03c4d069f149ae38a199a9f61440f4f4 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 32.707,56\n                \u003c/div\u003e\n            "});
+            marker_d487e63c3f9211bca49a07664a213211.setIcon(div_icon_03c4d069f149ae38a199a9f61440f4f4);
+        
+    
+            var polygon_8a26aac2bd14dd6b6e9d36bd50bd6305 = L.polygon(
+                [[-3.742713308753723, -38.59931066072048], [-3.742713308753723, -38.59030852858769], [-3.73367, -38.59030852858769], [-3.73367, -38.59931066072048]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffe300ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_c50a05cc5a7d6c5f7130670bb50a0db6 = L.marker(
+                [-3.7381916543768616, -38.59480959465408],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_aa92a69119c2e38e7c9cfa89111dfcbb = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 40.358,71\n                \u003c/div\u003e\n            "});
+            marker_c50a05cc5a7d6c5f7130670bb50a0db6.setIcon(div_icon_aa92a69119c2e38e7c9cfa89111dfcbb);
+        
+    
+            var polygon_9e6e94b26bebe48febb27bb371e3509e = L.polygon(
+                [[-3.7698432237934187, -38.58130639644737], [-3.7698432237934187, -38.57230426430138], [-3.760799920654918, -38.57230426430138], [-3.760799920654918, -38.58130639644737]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffdf00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_0b395880735599567cef019365da1527 = L.marker(
+                [-3.7653215722241686, -38.57680533037437],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_830c0ca67c995fca642a539705cd1673 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 41.172,18\n                \u003c/div\u003e\n            "});
+            marker_0b395880735599567cef019365da1527.setIcon(div_icon_830c0ca67c995fca642a539705cd1673);
+        
+    
+            var polygon_7075fb465b0683e97f2fbe80b9b61b01 = L.polygon(
+                [[-3.760799920654918, -38.59030852858769], [-3.760799920654918, -38.58130639644737], [-3.751756615640191, -38.58130639644737], [-3.751756615640191, -38.59030852858769]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffdc00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_0e9d365385f9dbfcd6921fe3cd92c986 = L.marker(
+                [-3.756278268147555, -38.58580746251753],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_810bd6aed39e997c2a30b5696ee337cf = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 45.462,09\n                \u003c/div\u003e\n            "});
+            marker_0e9d365385f9dbfcd6921fe3cd92c986.setIcon(div_icon_810bd6aed39e997c2a30b5696ee337cf);
+        
+    
+            var polygon_2e5f6c0887b5815cee7d47e77d34fbc0 = L.polygon(
+                [[-3.7698432237934187, -38.5543], [-3.7698432237934187, -38.54529786784836], [-3.760799920654918, -38.54529786784836], [-3.760799920654918, -38.5543]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffd800ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_10c7be71dad5a0cf44317dc9a2f91c76 = L.marker(
+                [-3.7653215722241686, -38.54979893392418],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_0704aa7e19e83d3dadf0a58d611b5aca = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 47.001,23\n                \u003c/div\u003e\n            "});
+            marker_10c7be71dad5a0cf44317dc9a2f91c76.setIcon(div_icon_0704aa7e19e83d3dadf0a58d611b5aca);
+        
+    
+            var polygon_716062fcf7ddcc2995a1e6ff1116167a = L.polygon(
+                [[-3.7698432237934187, -38.563302132151634], [-3.7698432237934187, -38.5543], [-3.760799920654918, -38.5543], [-3.760799920654918, -38.563302132151634]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffd400ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_9e51a85c11eacbe9b64cfe4633e3d861 = L.marker(
+                [-3.7653215722241686, -38.558801066075816],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_e703a05fed6c3453421d15481a6da696 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 47.673,76\n                \u003c/div\u003e\n            "});
+            marker_9e51a85c11eacbe9b64cfe4633e3d861.setIcon(div_icon_e703a05fed6c3453421d15481a6da696);
+        
+    
+            var polygon_21fa2dd232f826b92accce8dacd43dbf = L.polygon(
+                [[-3.7698432237934187, -38.536295735698616], [-3.7698432237934187, -38.52729360355263], [-3.760799920654918, -38.52729360355263], [-3.760799920654918, -38.536295735698616]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffd000ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_938d90e43760330b6a1f41680feaf2a8 = L.marker(
+                [-3.7653215722241686, -38.531794669625626],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_d06c2b9c9372ff06ac43e70b8a1cf508 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 52.999,15\n                \u003c/div\u003e\n            "});
+            marker_938d90e43760330b6a1f41680feaf2a8.setIcon(div_icon_d06c2b9c9372ff06ac43e70b8a1cf508);
+        
+    
+            var polygon_6740f1f6b641a3fc47956bc95dfa813f = L.polygon(
+                [[-3.7698432237934187, -38.57230426430138], [-3.7698432237934187, -38.563302132151634], [-3.760799920654918, -38.563302132151634], [-3.760799920654918, -38.57230426430138]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffcd00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_bd8420f515d495c1d346d75f6966264e = L.marker(
+                [-3.7653215722241686, -38.56780319822651],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_8816a90e355caa6d1b7a175b522d68fd = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 55.888,75\n                \u003c/div\u003e\n            "});
+            marker_bd8420f515d495c1d346d75f6966264e.setIcon(div_icon_8816a90e355caa6d1b7a175b522d68fd);
+        
+    
+            var polygon_b74bbdd66ee8016507f62f7c5ee5f464 = L.polygon(
+                [[-3.760799920654918, -38.57230426430138], [-3.760799920654918, -38.563302132151634], [-3.751756615640191, -38.563302132151634], [-3.751756615640191, -38.57230426430138]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffc900ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_a07c52a5070d3f502af7e0ad7678e6de = L.marker(
+                [-3.756278268147555, -38.56780319822651],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_cf0c548ae7879854306d28db4d81d6cc = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 63.822,98\n                \u003c/div\u003e\n            "});
+            marker_a07c52a5070d3f502af7e0ad7678e6de.setIcon(div_icon_cf0c548ae7879854306d28db4d81d6cc);
+        
+    
+            var polygon_fac69ceaf8e8a59d9602243d5a9670af = L.polygon(
+                [[-3.73367, -38.52729360355263], [-3.73367, -38.518291471412304], [-3.7246266893835056, -38.518291471412304], [-3.7246266893835056, -38.52729360355263]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffc500ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_f9ec153d90f1ce72851ec54e1e0cf48d = L.marker(
+                [-3.729148344691753, -38.52279253748247],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_b910d5e091140ed95ea70665335a0f22 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 71.583,28\n                \u003c/div\u003e\n            "});
+            marker_f9ec153d90f1ce72851ec54e1e0cf48d.setIcon(div_icon_b910d5e091140ed95ea70665335a0f22);
+        
+    
+            var polygon_313d311fa876991a853abc51fc3f25ad = L.polygon(
+                [[-3.7246266893835056, -38.536295735698616], [-3.7246266893835056, -38.52729360355263], [-3.7155833769087283, -38.52729360355263], [-3.7155833769087283, -38.536295735698616]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffc200ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_f7006e366b3de6557ef74c0c38783a55 = L.marker(
+                [-3.720105033146117, -38.531794669625626],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_0d3a94dfbaf70cf1026c3f26e4aa97e2 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 75.416,81\n                \u003c/div\u003e\n            "});
+            marker_f7006e366b3de6557ef74c0c38783a55.setIcon(div_icon_0d3a94dfbaf70cf1026c3f26e4aa97e2);
+        
+    
+            var polygon_c1322a733409aaf661dbf5cac2e43481 = L.polygon(
+                [[-3.7155833769087283, -38.57230426430138], [-3.7155833769087283, -38.563302132151634], [-3.7065400625801526, -38.563302132151634], [-3.7065400625801526, -38.57230426430138]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffbe00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_6607d34d1d55f633610a998e08e7141c = L.marker(
+                [-3.7110617197444404, -38.56780319822651],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_c68741e26981e9739d37bee66b3077cb = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 78.695,00\n                \u003c/div\u003e\n            "});
+            marker_6607d34d1d55f633610a998e08e7141c.setIcon(div_icon_c68741e26981e9739d37bee66b3077cb);
+        
+    
+            var polygon_5cfd063071ea19a5ea7b9354c9fc155e = L.polygon(
+                [[-3.751756615640191, -38.57230426430138], [-3.751756615640191, -38.563302132151634], [-3.742713308753723, -38.563302132151634], [-3.742713308753723, -38.57230426430138]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffba00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_7aa9cb4f45dc1c8ad9d3ca27150ee7b3 = L.marker(
+                [-3.7472349621969574, -38.56780319822651],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_5c4bf07c6080cba450b03c7a56115e5e = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 80.759,94\n                \u003c/div\u003e\n            "});
+            marker_7aa9cb4f45dc1c8ad9d3ca27150ee7b3.setIcon(div_icon_5c4bf07c6080cba450b03c7a56115e5e);
+        
+    
+            var polygon_1762cfc56f85cdd677068bf110b558bd = L.polygon(
+                [[-3.7155833769087283, -38.563302132151634], [-3.7155833769087283, -38.5543], [-3.7065400625801526, -38.5543], [-3.7065400625801526, -38.563302132151634]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffb600ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_762c923902d26c3b51c8bc824c5c457a = L.marker(
+                [-3.7110617197444404, -38.558801066075816],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_0534f89d7a8931905a6f3c0c51de84ea = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 85.086,68\n                \u003c/div\u003e\n            "});
+            marker_762c923902d26c3b51c8bc824c5c457a.setIcon(div_icon_0534f89d7a8931905a6f3c0c51de84ea);
+        
+    
+            var polygon_b923b137c0950015f616e3f82389d450 = L.polygon(
+                [[-3.742713308753723, -38.59030852858769], [-3.742713308753723, -38.58130639644737], [-3.73367, -38.58130639644737], [-3.73367, -38.59030852858769]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffb300ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_22dc85191adc03af139887034f584779 = L.marker(
+                [-3.7381916543768616, -38.58580746251753],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_cd646b054df0dde74f3cefa96ee49dd2 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 87.541,07\n                \u003c/div\u003e\n            "});
+            marker_22dc85191adc03af139887034f584779.setIcon(div_icon_cd646b054df0dde74f3cefa96ee49dd2);
+        
+    
+            var polygon_7489cb1f577f8439b674906152ca28a3 = L.polygon(
+                [[-3.760799920654918, -38.52729360355263], [-3.760799920654918, -38.518291471412304], [-3.751756615640191, -38.518291471412304], [-3.751756615640191, -38.52729360355263]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaf00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_45643f00faa6b2fe33893512af2bf112 = L.marker(
+                [-3.756278268147555, -38.52279253748247],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_d341574e1029fcfa0c9c46a72247ca45 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 91.188,09\n                \u003c/div\u003e\n            "});
+            marker_45643f00faa6b2fe33893512af2bf112.setIcon(div_icon_d341574e1029fcfa0c9c46a72247ca45);
+        
+    
+            var polygon_2458486e3b4445099814c5f1aa47b68b = L.polygon(
+                [[-3.7698432237934187, -38.54529786784836], [-3.7698432237934187, -38.536295735698616], [-3.760799920654918, -38.536295735698616], [-3.760799920654918, -38.54529786784836]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffab00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_e793cfd3a7e90cb7acfc3690abd623ac = L.marker(
+                [-3.7653215722241686, -38.54079680177349],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_299bf65d67236f8fa83488a4120e566e = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 93.971,85\n                \u003c/div\u003e\n            "});
+            marker_e793cfd3a7e90cb7acfc3690abd623ac.setIcon(div_icon_299bf65d67236f8fa83488a4120e566e);
+        
+    
+            var polygon_d0836c6d2ba10356295fb8a76631a7e0 = L.polygon(
+                [[-3.73367, -38.58130639644737], [-3.73367, -38.57230426430138], [-3.7246266893835056, -38.57230426430138], [-3.7246266893835056, -38.58130639644737]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa800ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_6f8dca379e38df7d2ad92996746466d9 = L.marker(
+                [-3.729148344691753, -38.57680533037437],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_aa2c48daee81d438954670447936d5a9 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 100.626,97\n                \u003c/div\u003e\n            "});
+            marker_6f8dca379e38df7d2ad92996746466d9.setIcon(div_icon_aa2c48daee81d438954670447936d5a9);
+        
+    
+            var polygon_7328f0cb8c4e3a7f6fc75bdacc18e8d3 = L.polygon(
+                [[-3.742713308753723, -38.58130639644737], [-3.742713308753723, -38.57230426430138], [-3.73367, -38.57230426430138], [-3.73367, -38.58130639644737]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa300ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_f4c52cec873fb40a469881259829f48a = L.marker(
+                [-3.7381916543768616, -38.57680533037437],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_5316a8c1130405490b5904c8aec5a377 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 133.519,41\n                \u003c/div\u003e\n            "});
+            marker_f4c52cec873fb40a469881259829f48a.setIcon(div_icon_5316a8c1130405490b5904c8aec5a377);
+        
+    
+            var polygon_c8822ccfefbc9f5628ca0393519bbc08 = L.polygon(
+                [[-3.73367, -38.536295735698616], [-3.73367, -38.52729360355263], [-3.7246266893835056, -38.52729360355263], [-3.7246266893835056, -38.536295735698616]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff9c00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_aeb9323180c8b982bfe5641cef3b1d1c = L.marker(
+                [-3.729148344691753, -38.531794669625626],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_78a8858b0454fba71066bfeb4b65559e = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 135.609,01\n                \u003c/div\u003e\n            "});
+            marker_aeb9323180c8b982bfe5641cef3b1d1c.setIcon(div_icon_78a8858b0454fba71066bfeb4b65559e);
+        
+    
+            var polygon_61fac60367325ff1e5fef1fd30fbaa91 = L.polygon(
+                [[-3.742713308753723, -38.52729360355263], [-3.742713308753723, -38.518291471412304], [-3.73367, -38.518291471412304], [-3.73367, -38.52729360355263]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff9500ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_00c33c9e2ae1717ad521011468f21acc = L.marker(
+                [-3.7381916543768616, -38.52279253748247],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_947bc66591dde445cd4fc752d496e570 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 141.998,33\n                \u003c/div\u003e\n            "});
+            marker_00c33c9e2ae1717ad521011468f21acc.setIcon(div_icon_947bc66591dde445cd4fc752d496e570);
+        
+    
+            var polygon_ef3f7630496b2b525753e9bc406df50c = L.polygon(
+                [[-3.760799920654918, -38.563302132151634], [-3.760799920654918, -38.5543], [-3.751756615640191, -38.5543], [-3.751756615640191, -38.563302132151634]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff8e00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_d21f1a7d1f978001c33fae1d842b7146 = L.marker(
+                [-3.756278268147555, -38.558801066075816],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_d3ca323938bef8fa12f8560d049b8787 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 142.375,02\n                \u003c/div\u003e\n            "});
+            marker_d21f1a7d1f978001c33fae1d842b7146.setIcon(div_icon_d3ca323938bef8fa12f8560d049b8787);
+        
+    
+            var polygon_468bd9c1a11208d441c3a55ba7fb898f = L.polygon(
+                [[-3.751756615640191, -38.52729360355263], [-3.751756615640191, -38.518291471412304], [-3.742713308753723, -38.518291471412304], [-3.742713308753723, -38.52729360355263]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff8800ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_da2275c1e0bdabb860fae1a4bf5229e3 = L.marker(
+                [-3.7472349621969574, -38.52279253748247],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_42966b5edf4e582c2c2553f918ba6827 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 157.660,86\n                \u003c/div\u003e\n            "});
+            marker_da2275c1e0bdabb860fae1a4bf5229e3.setIcon(div_icon_42966b5edf4e582c2c2553f918ba6827);
+        
+    
+            var polygon_a88acce59deb97a725b43d862d3300bc = L.polygon(
+                [[-3.760799920654918, -38.54529786784836], [-3.760799920654918, -38.536295735698616], [-3.751756615640191, -38.536295735698616], [-3.751756615640191, -38.54529786784836]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff8100ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_ddbb8cb5ac59a2fdf062c97a2649e09a = L.marker(
+                [-3.756278268147555, -38.54079680177349],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_78b5ae5eebedf09e1259dd9e942816e5 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 165.509,74\n                \u003c/div\u003e\n            "});
+            marker_ddbb8cb5ac59a2fdf062c97a2649e09a.setIcon(div_icon_78b5ae5eebedf09e1259dd9e942816e5);
+        
+    
+            var polygon_ce781f4ca5d1ff42ea80c3553b1c2977 = L.polygon(
+                [[-3.760799920654918, -38.536295735698616], [-3.760799920654918, -38.52729360355263], [-3.751756615640191, -38.52729360355263], [-3.751756615640191, -38.536295735698616]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7a00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_ff5845feff0fc1f1cb238eb3ca899a9b = L.marker(
+                [-3.756278268147555, -38.531794669625626],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_5bcee8aeafc04662386a89ce2b683d03 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 211.942,34\n                \u003c/div\u003e\n            "});
+            marker_ff5845feff0fc1f1cb238eb3ca899a9b.setIcon(div_icon_5bcee8aeafc04662386a89ce2b683d03);
+        
+    
+            var polygon_12a96ecdc419f1c56a58852333bae107 = L.polygon(
+                [[-3.751756615640191, -38.536295735698616], [-3.751756615640191, -38.52729360355263], [-3.742713308753723, -38.52729360355263], [-3.742713308753723, -38.536295735698616]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7300ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_94c2c5dbb9b6cdeed586516c9753de64 = L.marker(
+                [-3.7472349621969574, -38.531794669625626],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_0320db82c94adaafca702bb2437367f9 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 215.255,61\n                \u003c/div\u003e\n            "});
+            marker_94c2c5dbb9b6cdeed586516c9753de64.setIcon(div_icon_0320db82c94adaafca702bb2437367f9);
+        
+    
+            var polygon_287bfd9aec1b6854a6aa1b04c6f834a1 = L.polygon(
+                [[-3.73367, -38.54529786784836], [-3.73367, -38.536295735698616], [-3.7246266893835056, -38.536295735698616], [-3.7246266893835056, -38.54529786784836]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6c00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_bfc347ffedfa199af5359d14e1e22fd6 = L.marker(
+                [-3.729148344691753, -38.54079680177349],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_b5438212d8399458902c32479790e683 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 246.161,24\n                \u003c/div\u003e\n            "});
+            marker_bfc347ffedfa199af5359d14e1e22fd6.setIcon(div_icon_b5438212d8399458902c32479790e683);
+        
+    
+            var polygon_8342b8d829bac65ab283597b1a6a031d = L.polygon(
+                [[-3.7246266893835056, -38.54529786784836], [-3.7246266893835056, -38.536295735698616], [-3.7155833769087283, -38.536295735698616], [-3.7155833769087283, -38.54529786784836]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_c0930ceb6d87c62377c23bdf3a3bcef2 = L.marker(
+                [-3.720105033146117, -38.54079680177349],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_caaee0462041d528177eba2e4f3cac0f = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 283.524,16\n                \u003c/div\u003e\n            "});
+            marker_c0930ceb6d87c62377c23bdf3a3bcef2.setIcon(div_icon_caaee0462041d528177eba2e4f3cac0f);
+        
+    
+            var polygon_b8f708e87be2f22536c0f566a556d9fc = L.polygon(
+                [[-3.7246266893835056, -38.563302132151634], [-3.7246266893835056, -38.5543], [-3.7155833769087283, -38.5543], [-3.7155833769087283, -38.563302132151634]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff5f00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_265824bf8053913bc2dd4747d987ac45 = L.marker(
+                [-3.720105033146117, -38.558801066075816],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_5faaeecc2a5d421417fbbaa414cbf3b9 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 300.220,73\n                \u003c/div\u003e\n            "});
+            marker_265824bf8053913bc2dd4747d987ac45.setIcon(div_icon_5faaeecc2a5d421417fbbaa414cbf3b9);
+        
+    
+            var polygon_0b9009a8b0dcdc5885f76464a9d8770e = L.polygon(
+                [[-3.751756615640191, -38.54529786784836], [-3.751756615640191, -38.536295735698616], [-3.742713308753723, -38.536295735698616], [-3.742713308753723, -38.54529786784836]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff5800ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_db855f1e910091f6d9e64af07cda8b9f = L.marker(
+                [-3.7472349621969574, -38.54079680177349],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_c8dae4ab03962802321847e632b01406 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 300.615,59\n                \u003c/div\u003e\n            "});
+            marker_db855f1e910091f6d9e64af07cda8b9f.setIcon(div_icon_c8dae4ab03962802321847e632b01406);
+        
+    
+            var polygon_1c0e126597b54aabc67ff17964fe91d3 = L.polygon(
+                [[-3.760799920654918, -38.5543], [-3.760799920654918, -38.54529786784836], [-3.751756615640191, -38.54529786784836], [-3.751756615640191, -38.5543]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff5100ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_1bb8402e7104c47d1f574ed1c09791d1 = L.marker(
+                [-3.756278268147555, -38.54979893392418],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_ab685dded22992f63f7db64e8a741b22 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 319.409,29\n                \u003c/div\u003e\n            "});
+            marker_1bb8402e7104c47d1f574ed1c09791d1.setIcon(div_icon_ab685dded22992f63f7db64e8a741b22);
+        
+    
+            var polygon_4838067324b5634d13f7d85fa83cd437 = L.polygon(
+                [[-3.7246266893835056, -38.57230426430138], [-3.7246266893835056, -38.563302132151634], [-3.7155833769087283, -38.563302132151634], [-3.7155833769087283, -38.57230426430138]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff4a00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_79f58e627d098182745f422d2528f8ca = L.marker(
+                [-3.720105033146117, -38.56780319822651],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_d42c6f7b36cd753226ac6cff7427780a = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 320.531,58\n                \u003c/div\u003e\n            "});
+            marker_79f58e627d098182745f422d2528f8ca.setIcon(div_icon_d42c6f7b36cd753226ac6cff7427780a);
+        
+    
+            var polygon_55726db3b0cc7d6183805517592e7567 = L.polygon(
+                [[-3.751756615640191, -38.5543], [-3.751756615640191, -38.54529786784836], [-3.742713308753723, -38.54529786784836], [-3.742713308753723, -38.5543]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff4400ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_620554665a02e6c7324f904e38df6df1 = L.marker(
+                [-3.7472349621969574, -38.54979893392418],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_82d6d660da8f315b5091e3a7be3b3bf9 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 320.638,83\n                \u003c/div\u003e\n            "});
+            marker_620554665a02e6c7324f904e38df6df1.setIcon(div_icon_82d6d660da8f315b5091e3a7be3b3bf9);
+        
+    
+            var polygon_1f4f41f56f7a3ebedbc6fb8cb13565ad = L.polygon(
+                [[-3.751756615640191, -38.563302132151634], [-3.751756615640191, -38.5543], [-3.742713308753723, -38.5543], [-3.742713308753723, -38.563302132151634]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff3d00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_50584a352c3f656b2ef74450322c7e62 = L.marker(
+                [-3.7472349621969574, -38.558801066075816],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_6acb9a16e5b620bbc03e2412517c8e3d = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 392.917,46\n                \u003c/div\u003e\n            "});
+            marker_50584a352c3f656b2ef74450322c7e62.setIcon(div_icon_6acb9a16e5b620bbc03e2412517c8e3d);
+        
+    
+            var polygon_fa7c1868a5abac4acbee9eed161e9bab = L.polygon(
+                [[-3.73367, -38.57230426430138], [-3.73367, -38.563302132151634], [-3.7246266893835056, -38.563302132151634], [-3.7246266893835056, -38.57230426430138]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff3600ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_a62497785e12f803a183c44c3295f98d = L.marker(
+                [-3.729148344691753, -38.56780319822651],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_e53459d5f7a094d4397961132f862987 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 399.998,94\n                \u003c/div\u003e\n            "});
+            marker_a62497785e12f803a183c44c3295f98d.setIcon(div_icon_e53459d5f7a094d4397961132f862987);
+        
+    
+            var polygon_625da9704dc337dad0992bf883977558 = L.polygon(
+                [[-3.7246266893835056, -38.5543], [-3.7246266893835056, -38.54529786784836], [-3.7155833769087283, -38.54529786784836], [-3.7155833769087283, -38.5543]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff2f00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_14a4daf9a494f0bbc5b40be404158111 = L.marker(
+                [-3.720105033146117, -38.54979893392418],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_6e600439e80788c144dd2eb7cd37defc = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 436.884,66\n                \u003c/div\u003e\n            "});
+            marker_14a4daf9a494f0bbc5b40be404158111.setIcon(div_icon_6e600439e80788c144dd2eb7cd37defc);
+        
+    
+            var polygon_c01ea8846f274ef25831d93cf9606648 = L.polygon(
+                [[-3.742713308753723, -38.54529786784836], [-3.742713308753723, -38.536295735698616], [-3.73367, -38.536295735698616], [-3.73367, -38.54529786784836]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff2800ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_0ff7b2104ebaaed84074f9bcf1934070 = L.marker(
+                [-3.7381916543768616, -38.54079680177349],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_04befd90e151885b9c0d327a53d0e538 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 482.609,08\n                \u003c/div\u003e\n            "});
+            marker_0ff7b2104ebaaed84074f9bcf1934070.setIcon(div_icon_04befd90e151885b9c0d327a53d0e538);
+        
+    
+            var polygon_54e778fc49de86736a30d937eb001e2b = L.polygon(
+                [[-3.742713308753723, -38.536295735698616], [-3.742713308753723, -38.52729360355263], [-3.73367, -38.52729360355263], [-3.73367, -38.536295735698616]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff2200ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_95c4f75fb36355c12228e9c056d3af3c = L.marker(
+                [-3.7381916543768616, -38.531794669625626],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_b01c07bf82f297d19fe4d153fec3dcf4 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 566.172,94\n                \u003c/div\u003e\n            "});
+            marker_95c4f75fb36355c12228e9c056d3af3c.setIcon(div_icon_b01c07bf82f297d19fe4d153fec3dcf4);
+        
+    
+            var polygon_c121546d3a394e778431701fac3e7279 = L.polygon(
+                [[-3.742713308753723, -38.5543], [-3.742713308753723, -38.54529786784836], [-3.73367, -38.54529786784836], [-3.73367, -38.5543]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff1b00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_aa1cd4da4f168c56d276dd7d0f853dfb = L.marker(
+                [-3.7381916543768616, -38.54979893392418],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_c81ba8a8c9cc48daa9b310f1eb0f89ee = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 633.191,53\n                \u003c/div\u003e\n            "});
+            marker_aa1cd4da4f168c56d276dd7d0f853dfb.setIcon(div_icon_c81ba8a8c9cc48daa9b310f1eb0f89ee);
+        
+    
+            var polygon_066c48c1df4a1d4e6a14b70ec60be3d2 = L.polygon(
+                [[-3.742713308753723, -38.57230426430138], [-3.742713308753723, -38.563302132151634], [-3.73367, -38.563302132151634], [-3.73367, -38.57230426430138]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff1400ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_ac9f70dd9772cfd10f434fb32617f27a = L.marker(
+                [-3.7381916543768616, -38.56780319822651],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_c8a22630b08730b84e0975cb4c88423c = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 660.302,55\n                \u003c/div\u003e\n            "});
+            marker_ac9f70dd9772cfd10f434fb32617f27a.setIcon(div_icon_c8a22630b08730b84e0975cb4c88423c);
+        
+    
+            var polygon_f31d717a353f9e6adb00a5384e6b541f = L.polygon(
+                [[-3.73367, -38.563302132151634], [-3.73367, -38.5543], [-3.7246266893835056, -38.5543], [-3.7246266893835056, -38.563302132151634]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0d00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_f0ff70017bb643aad4136df4edf4e30c = L.marker(
+                [-3.729148344691753, -38.558801066075816],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_13f88a6d88b10623b11d0c810723cb35 = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 805.278,86\n                \u003c/div\u003e\n            "});
+            marker_f0ff70017bb643aad4136df4edf4e30c.setIcon(div_icon_13f88a6d88b10623b11d0c810723cb35);
+        
+    
+            var polygon_55191c98f44a9f539e0a6b864a65805f = L.polygon(
+                [[-3.73367, -38.5543], [-3.73367, -38.54529786784836], [-3.7246266893835056, -38.54529786784836], [-3.7246266893835056, -38.5543]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0600ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_6de0fcf51add81641fd1341ed900dcb8 = L.marker(
+                [-3.729148344691753, -38.54979893392418],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_ea3167412247d841e776e53fbf47cb6b = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 840.731,08\n                \u003c/div\u003e\n            "});
+            marker_6de0fcf51add81641fd1341ed900dcb8.setIcon(div_icon_ea3167412247d841e776e53fbf47cb6b);
+        
+    
+            var polygon_cc97e8a450ecf1d716feab0d4eaac3c6 = L.polygon(
+                [[-3.742713308753723, -38.563302132151634], [-3.742713308753723, -38.5543], [-3.73367, -38.5543], [-3.73367, -38.563302132151634]],
+                {"bubblingMouseEvents": true, "color": null, "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 0}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var marker_2f32c57b1c410802b9d1d321e37b068b = L.marker(
+                [-3.7381916543768616, -38.558801066075816],
+                {}
+            ).addTo(map_8736347b2b92328d327790df11991fe5);
+        
+    
+            var div_icon_e844bff170a5b7c15461d410159eca3a = L.divIcon({"className": "empty", "html": "\n                \u003cdiv style=\"\n                    font-size: 12px; \n                    color: black; \n                    text-align: center; \n                    transform: translate(-50%, -50%);\n                    width: 700.0px;\n                    height: 700.0px;\n                    display: flex;\n                    align-items: center;\n                    justify-content: center;\"\u003e\n                    R$ 870.981,03\n                \u003c/div\u003e\n            "});
+            marker_2f32c57b1c410802b9d1d321e37b068b.setIcon(div_icon_e844bff170a5b7c15461d410159eca3a);
+        
+    
+    var color_map_5ff34eb5a65deabdfa11f085c6415373 = {};
+
+    
+    color_map_5ff34eb5a65deabdfa11f085c6415373.color = d3.scale.threshold()
+              .domain([0.0, 0.1462925851703407, 0.2925851703406814, 0.43887775551102204, 0.5851703406813628, 0.7314629258517034, 0.8777555110220441, 1.0240480961923848, 1.1703406813627255, 1.3166332665330662, 1.4629258517034067, 1.6092184368737474, 1.7555110220440882, 1.9018036072144289, 2.0480961923847696, 2.19438877755511, 2.340681362725451, 2.4869739478957915, 2.6332665330661325, 2.779559118236473, 2.9258517034068134, 3.0721442885771544, 3.218436873747495, 3.364729458917836, 3.5110220440881763, 3.6573146292585172, 3.8036072144288577, 3.9498997995991982, 4.096192384769539, 4.24248496993988, 4.38877755511022, 4.5350701402805615, 4.681362725450902, 4.8276553106212425, 4.973947895791583, 5.1202404809619235, 5.266533066132265, 5.412825651302605, 5.559118236472946, 5.705410821643286, 5.851703406813627, 5.997995991983968, 6.144288577154309, 6.290581162324649, 6.43687374749499, 6.58316633266533, 6.729458917835672, 6.875751503006012, 7.022044088176353, 7.168336673346693, 7.3146292585170345, 7.460921843687375, 7.6072144288577155, 7.753507014028056, 7.8997995991983965, 8.046092184368737, 8.192384769539078, 8.338677354709418, 8.48496993987976, 8.6312625250501, 8.77755511022044, 8.923847695390782, 9.070140280561123, 9.216432865731463, 9.362725450901804, 9.509018036072144, 9.655310621242485, 9.801603206412826, 9.947895791583166, 10.094188376753507, 10.240480961923847, 10.386773547094188, 10.53306613226453, 10.67935871743487, 10.82565130260521, 10.97194388777555, 11.118236472945892, 11.264529058116233, 11.410821643286573, 11.557114228456914, 11.703406813627254, 11.849699398797595, 11.995991983967937, 12.142284569138276, 12.288577154308618, 12.434869739478957, 12.581162324649299, 12.72745490981964, 12.87374749498998, 13.02004008016032, 13.16633266533066, 13.312625250501002, 13.458917835671343, 13.605210420841683, 13.751503006012024, 13.897795591182364, 14.044088176352705, 14.190380761523047, 14.336673346693386, 14.482965931863728, 14.629258517034069, 14.775551102204409, 14.92184368737475, 15.06813627254509, 15.214428857715431, 15.360721442885772, 15.507014028056112, 15.653306613226453, 15.799599198396793, 15.945891783567134, 16.092184368737474, 16.238476953907817, 16.384769539078157, 16.531062124248496, 16.677354709418836, 16.82364729458918, 16.96993987975952, 17.11623246492986, 17.2625250501002, 17.40881763527054, 17.55511022044088, 17.701402805611224, 17.847695390781563, 17.993987975951903, 18.140280561122246, 18.286573146292586, 18.432865731462925, 18.579158316633265, 18.725450901803608, 18.871743486973948, 19.018036072144287, 19.16432865731463, 19.31062124248497, 19.45691382765531, 19.603206412825653, 19.749498997995993, 19.895791583166332, 20.04208416833667, 20.188376753507015, 20.334669338677354, 20.480961923847694, 20.627254509018037, 20.773547094188377, 20.919839679358716, 21.06613226452906, 21.2124248496994, 21.35871743486974, 21.50501002004008, 21.65130260521042, 21.79759519038076, 21.9438877755511, 22.090180360721444, 22.236472945891784, 22.382765531062123, 22.529058116232466, 22.675350701402806, 22.821643286573146, 22.96793587174349, 23.11422845691383, 23.260521042084168, 23.406813627254508, 23.55310621242485, 23.69939879759519, 23.84569138276553, 23.991983967935873, 24.138276553106213, 24.284569138276552, 24.430861723446895, 24.577154308617235, 24.723446893787575, 24.869739478957914, 25.016032064128257, 25.162324649298597, 25.308617234468937, 25.45490981963928, 25.60120240480962, 25.74749498997996, 25.893787575150302, 26.04008016032064, 26.18637274549098, 26.33266533066132, 26.478957915831664, 26.625250501002004, 26.771543086172343, 26.917835671342687, 27.064128256513026, 27.210420841683366, 27.35671342685371, 27.50300601202405, 27.649298597194388, 27.795591182364728, 27.94188376753507, 28.08817635270541, 28.23446893787575, 28.380761523046093, 28.527054108216433, 28.673346693386772, 28.819639278557116, 28.965931863727455, 29.112224448897795, 29.258517034068138, 29.404809619238478, 29.551102204408817, 29.697394789579157, 29.8436873747495, 29.98997995991984, 30.13627254509018, 30.282565130260522, 30.428857715430862, 30.5751503006012, 30.721442885771545, 30.867735470941884, 31.014028056112224, 31.160320641282564, 31.306613226452907, 31.452905811623246, 31.599198396793586, 31.74549098196393, 31.89178356713427, 32.03807615230461, 32.18436873747495, 32.33066132264529, 32.476953907815634, 32.62324649298597, 32.76953907815631, 32.91583166332666, 33.06212424849699, 33.208416833667336, 33.35470941883767, 33.501002004008015, 33.64729458917836, 33.793587174348694, 33.93987975951904, 34.08617234468938, 34.23246492985972, 34.37875751503006, 34.5250501002004, 34.67134268537074, 34.81763527054108, 34.963927855711425, 35.11022044088176, 35.256513026052104, 35.40280561122245, 35.549098196392784, 35.69539078156313, 35.84168336673347, 35.987975951903806, 36.13426853707415, 36.28056112224449, 36.42685370741483, 36.57314629258517, 36.71943887775551, 36.86573146292585, 37.012024048096194, 37.15831663326653, 37.30460921843687, 37.450901803607216, 37.59719438877755, 37.743486973947896, 37.88977955911824, 38.036072144288575, 38.18236472945892, 38.32865731462926, 38.4749498997996, 38.62124248496994, 38.76753507014028, 38.91382765531062, 39.06012024048096, 39.206412825651306, 39.35270541082164, 39.498997995991985, 39.64529058116233, 39.791583166332664, 39.93787575150301, 40.08416833667334, 40.23046092184369, 40.37675350701403, 40.523046092184366, 40.66933867735471, 40.81563126252505, 40.96192384769539, 41.10821643286573, 41.254509018036075, 41.40080160320641, 41.547094188376754, 41.6933867735471, 41.83967935871743, 41.985971943887776, 42.13226452905812, 42.278557114228455, 42.4248496993988, 42.57114228456914, 42.71743486973948, 42.86372745490982, 43.01002004008016, 43.1563126252505, 43.30260521042084, 43.44889779559118, 43.59519038076152, 43.741482965931866, 43.8877755511022, 44.034068136272545, 44.18036072144289, 44.326653306613224, 44.47294589178357, 44.61923847695391, 44.765531062124246, 44.91182364729459, 45.05811623246493, 45.20440881763527, 45.35070140280561, 45.496993987975955, 45.64328657314629, 45.789579158316634, 45.93587174348698, 46.08216432865731, 46.22845691382766, 46.37474949899799, 46.521042084168336, 46.66733466933868, 46.813627254509015, 46.95991983967936, 47.1062124248497, 47.25250501002004, 47.39879759519038, 47.545090180360724, 47.69138276553106, 47.8376753507014, 47.983967935871746, 48.13026052104208, 48.276553106212425, 48.42284569138277, 48.569138276553105, 48.71543086172345, 48.86172344689379, 49.00801603206413, 49.15430861723447, 49.300601202404806, 49.44689378757515, 49.59318637274549, 49.73947895791583, 49.88577154308617, 50.032064128256515, 50.17835671342685, 50.324649298597194, 50.47094188376754, 50.61723446893787, 50.763527054108216, 50.90981963927856, 51.056112224448896, 51.20240480961924, 51.34869739478958, 51.49498997995992, 51.64128256513026, 51.787575150300604, 51.93386773547094, 52.08016032064128, 52.22645290581163, 52.37274549098196, 52.519038076152306, 52.66533066132264, 52.811623246492985, 52.95791583166333, 53.104208416833664, 53.25050100200401, 53.39679358717435, 53.54308617234469, 53.68937875751503, 53.83567134268537, 53.98196392785571, 54.12825651302605, 54.274549098196395, 54.42084168336673, 54.567134268537075, 54.71342685370742, 54.859719438877754, 55.0060120240481, 55.15230460921844, 55.298597194388776, 55.44488977955912, 55.591182364729455, 55.7374749498998, 55.88376753507014, 56.03006012024048, 56.17635270541082, 56.322645290581164, 56.4689378757515, 56.61523046092184, 56.76152304609219, 56.90781563126252, 57.054108216432866, 57.20040080160321, 57.346693386773545, 57.49298597194389, 57.63927855711423, 57.78557114228457, 57.93186372745491, 58.078156312625254, 58.22444889779559, 58.37074148296593, 58.517034068136276, 58.66332665330661, 58.809619238476955, 58.95591182364729, 59.102204408817634, 59.24849699398798, 59.394789579158314, 59.54108216432866, 59.687374749499, 59.833667334669336, 59.97995991983968, 60.12625250501002, 60.27254509018036, 60.4188376753507, 60.565130260521045, 60.71142284569138, 60.857715430861724, 61.00400801603207, 61.1503006012024, 61.296593186372746, 61.44288577154309, 61.589178356713425, 61.73547094188377, 61.88176352705411, 62.02805611222445, 62.17434869739479, 62.32064128256513, 62.46693386773547, 62.61322645290581, 62.75951903807615, 62.90581162324649, 63.052104208416836, 63.19839679358717, 63.344689378757515, 63.49098196392786, 63.637274549098194, 63.78356713426854, 63.92985971943888, 64.07615230460922, 64.22244488977955, 64.3687374749499, 64.51503006012024, 64.66132264529058, 64.80761523046093, 64.95390781563127, 65.1002004008016, 65.24649298597194, 65.39278557114228, 65.53907815631263, 65.68537074148297, 65.83166332665331, 65.97795591182364, 66.12424849699399, 66.27054108216433, 66.41683366733467, 66.56312625250501, 66.70941883767534, 66.85571142284569, 67.00200400801603, 67.14829659318637, 67.29458917835672, 67.44088176352706, 67.58717434869739, 67.73346693386773, 67.87975951903807, 68.02605210420842, 68.17234468937876, 68.3186372745491, 68.46492985971943, 68.61122244488978, 68.75751503006012, 68.90380761523046, 69.0501002004008, 69.19639278557115, 69.34268537074148, 69.48897795591182, 69.63527054108216, 69.78156312625251, 69.92785571142285, 70.07414829659318, 70.22044088176352, 70.36673346693387, 70.51302605210421, 70.65931863727455, 70.8056112224449, 70.95190380761522, 71.09819639278557, 71.24448897795591, 71.39078156312625, 71.5370741482966, 71.68336673346694, 71.82965931863727, 71.97595190380761, 72.12224448897796, 72.2685370741483, 72.41482965931864, 72.56112224448898, 72.70741482965931, 72.85370741482966, 73.0])
+              .range(['#008000ff', '#018100ff', '#038200ff', '#048200ff', '#068300ff', '#078400ff', '#098500ff', '#0a8500ff', '#0c8600ff', '#0d8700ff', '#0f8800ff', '#108800ff', '#128900ff', '#148a00ff', '#158b00ff', '#178b00ff', '#188c00ff', '#1a8d00ff', '#1b8e00ff', '#1d8f00ff', '#1e8f00ff', '#209000ff', '#219100ff', '#239200ff', '#249200ff', '#269300ff', '#289400ff', '#299500ff', '#2b9500ff', '#2c9600ff', '#2e9700ff', '#2f9800ff', '#319900ff', '#329900ff', '#349a00ff', '#359b00ff', '#379c00ff', '#389c00ff', '#3a9d00ff', '#3c9e00ff', '#3d9f00ff', '#3f9f00ff', '#40a000ff', '#42a100ff', '#43a200ff', '#45a200ff', '#46a300ff', '#48a400ff', '#49a500ff', '#4ba600ff', '#4ca600ff', '#4ea700ff', '#50a800ff', '#51a900ff', '#53a900ff', '#54aa00ff', '#56ab00ff', '#57ac00ff', '#59ac00ff', '#5aad00ff', '#5cae00ff', '#5daf00ff', '#5fb000ff', '#60b000ff', '#62b100ff', '#64b200ff', '#65b300ff', '#67b300ff', '#68b400ff', '#6ab500ff', '#6bb600ff', '#6db600ff', '#6eb700ff', '#70b800ff', '#71b900ff', '#73b900ff', '#74ba00ff', '#76bb00ff', '#78bc00ff', '#79bd00ff', '#7bbd00ff', '#7cbe00ff', '#7ebf00ff', '#7fc000ff', '#81c000ff', '#82c100ff', '#84c200ff', '#85c300ff', '#87c300ff', '#88c400ff', '#8ac500ff', '#8cc600ff', '#8dc700ff', '#8fc700ff', '#90c800ff', '#92c900ff', '#93ca00ff', '#95ca00ff', '#96cb00ff', '#98cc00ff', '#99cd00ff', '#9bcd00ff', '#9cce00ff', '#9ecf00ff', '#a0d000ff', '#a1d000ff', '#a3d100ff', '#a4d200ff', '#a6d300ff', '#a7d400ff', '#a9d400ff', '#aad500ff', '#acd600ff', '#add700ff', '#afd700ff', '#b0d800ff', '#b2d900ff', '#b4da00ff', '#b5da00ff', '#b7db00ff', '#b8dc00ff', '#badd00ff', '#bbde00ff', '#bdde00ff', '#bedf00ff', '#c0e000ff', '#c1e100ff', '#c3e100ff', '#c5e200ff', '#c6e300ff', '#c8e400ff', '#c9e400ff', '#cbe500ff', '#cce600ff', '#cee700ff', '#cfe700ff', '#d1e800ff', '#d2e900ff', '#d4ea00ff', '#d5eb00ff', '#d7eb00ff', '#d9ec00ff', '#daed00ff', '#dcee00ff', '#ddee00ff', '#dfef00ff', '#e0f000ff', '#e2f100ff', '#e3f100ff', '#e5f200ff', '#e6f300ff', '#e8f400ff', '#e9f500ff', '#ebf500ff', '#edf600ff', '#eef700ff', '#f0f800ff', '#f1f800ff', '#f3f900ff', '#f4fa00ff', '#f6fb00ff', '#f7fb00ff', '#f9fc00ff', '#fafd00ff', '#fcfe00ff', '#fdfe00ff', '#ffff00ff', '#ffff00ff', '#ffff00ff', '#fffe00ff', '#fffe00ff', '#fffd00ff', '#fffc00ff', '#fffc00ff', '#fffb00ff', '#fffb00ff', '#fffa00ff', '#fffa00ff', '#fff900ff', '#fff900ff', '#fff800ff', '#fff800ff', '#fff700ff', '#fff600ff', '#fff600ff', '#fff500ff', '#fff500ff', '#fff400ff', '#fff400ff', '#fff300ff', '#fff300ff', '#fff200ff', '#fff200ff', '#fff100ff', '#fff000ff', '#fff000ff', '#ffef00ff', '#ffef00ff', '#ffee00ff', '#ffee00ff', '#ffed00ff', '#ffed00ff', '#ffec00ff', '#ffec00ff', '#ffeb00ff', '#ffea00ff', '#ffea00ff', '#ffe900ff', '#ffe900ff', '#ffe800ff', '#ffe800ff', '#ffe700ff', '#ffe700ff', '#ffe600ff', '#ffe600ff', '#ffe500ff', '#ffe500ff', '#ffe400ff', '#ffe300ff', '#ffe300ff', '#ffe200ff', '#ffe200ff', '#ffe100ff', '#ffe100ff', '#ffe000ff', '#ffe000ff', '#ffdf00ff', '#ffdf00ff', '#ffde00ff', '#ffdd00ff', '#ffdd00ff', '#ffdc00ff', '#ffdc00ff', '#ffdb00ff', '#ffdb00ff', '#ffda00ff', '#ffda00ff', '#ffd900ff', '#ffd900ff', '#ffd800ff', '#ffd700ff', '#ffd700ff', '#ffd600ff', '#ffd600ff', '#ffd500ff', '#ffd500ff', '#ffd400ff', '#ffd400ff', '#ffd300ff', '#ffd300ff', '#ffd200ff', '#ffd200ff', '#ffd100ff', '#ffd000ff', '#ffd000ff', '#ffcf00ff', '#ffcf00ff', '#ffce00ff', '#ffce00ff', '#ffcd00ff', '#ffcd00ff', '#ffcc00ff', '#ffcc00ff', '#ffcb00ff', '#ffca00ff', '#ffca00ff', '#ffc900ff', '#ffc900ff', '#ffc800ff', '#ffc800ff', '#ffc700ff', '#ffc700ff', '#ffc600ff', '#ffc600ff', '#ffc500ff', '#ffc400ff', '#ffc400ff', '#ffc300ff', '#ffc300ff', '#ffc200ff', '#ffc200ff', '#ffc100ff', '#ffc100ff', '#ffc000ff', '#ffc000ff', '#ffbf00ff', '#ffbe00ff', '#ffbe00ff', '#ffbd00ff', '#ffbd00ff', '#ffbc00ff', '#ffbc00ff', '#ffbb00ff', '#ffbb00ff', '#ffba00ff', '#ffba00ff', '#ffb900ff', '#ffb900ff', '#ffb800ff', '#ffb700ff', '#ffb700ff', '#ffb600ff', '#ffb600ff', '#ffb500ff', '#ffb500ff', '#ffb400ff', '#ffb400ff', '#ffb300ff', '#ffb300ff', '#ffb200ff', '#ffb100ff', '#ffb100ff', '#ffb000ff', '#ffb000ff', '#ffaf00ff', '#ffaf00ff', '#ffae00ff', '#ffae00ff', '#ffad00ff', '#ffad00ff', '#ffac00ff', '#ffab00ff', '#ffab00ff', '#ffaa00ff', '#ffaa00ff', '#ffa900ff', '#ffa900ff', '#ffa800ff', '#ffa800ff', '#ffa700ff', '#ffa700ff', '#ffa600ff', '#ffa600ff', '#ffa500ff', '#ffa400ff', '#ffa300ff', '#ffa200ff', '#ffa100ff', '#ffa000ff', '#ff9f00ff', '#ff9e00ff', '#ff9d00ff', '#ff9c00ff', '#ff9b00ff', '#ff9a00ff', '#ff9900ff', '#ff9800ff', '#ff9700ff', '#ff9600ff', '#ff9500ff', '#ff9400ff', '#ff9300ff', '#ff9200ff', '#ff9100ff', '#ff9000ff', '#ff8f00ff', '#ff8e00ff', '#ff8d00ff', '#ff8c00ff', '#ff8b00ff', '#ff8a00ff', '#ff8900ff', '#ff8800ff', '#ff8700ff', '#ff8600ff', '#ff8500ff', '#ff8400ff', '#ff8300ff', '#ff8200ff', '#ff8100ff', '#ff8000ff', '#ff7f00ff', '#ff7e00ff', '#ff7d00ff', '#ff7c00ff', '#ff7b00ff', '#ff7a00ff', '#ff7900ff', '#ff7800ff', '#ff7700ff', '#ff7600ff', '#ff7500ff', '#ff7400ff', '#ff7300ff', '#ff7200ff', '#ff7100ff', '#ff7000ff', '#ff6f00ff', '#ff6e00ff', '#ff6d00ff', '#ff6c00ff', '#ff6b00ff', '#ff6a00ff', '#ff6900ff', '#ff6800ff', '#ff6700ff', '#ff6600ff', '#ff6500ff', '#ff6400ff', '#ff6300ff', '#ff6200ff', '#ff6100ff', '#ff6000ff', '#ff5f00ff', '#ff5e00ff', '#ff5d00ff', '#ff5c00ff', '#ff5b00ff', '#ff5a00ff', '#ff5900ff', '#ff5800ff', '#ff5700ff', '#ff5600ff', '#ff5500ff', '#ff5400ff', '#ff5300ff', '#ff5200ff', '#ff5100ff', '#ff5000ff', '#ff4f00ff', '#ff4e00ff', '#ff4d00ff', '#ff4c00ff', '#ff4b00ff', '#ff4a00ff', '#ff4900ff', '#ff4800ff', '#ff4700ff', '#ff4600ff', '#ff4500ff', '#ff4400ff', '#ff4300ff', '#ff4200ff', '#ff4100ff', '#ff4000ff', '#ff3f00ff', '#ff3e00ff', '#ff3d00ff', '#ff3c00ff', '#ff3b00ff', '#ff3a00ff', '#ff3900ff', '#ff3800ff', '#ff3700ff', '#ff3600ff', '#ff3500ff', '#ff3400ff', '#ff3300ff', '#ff3200ff', '#ff3100ff', '#ff3000ff', '#ff2f00ff', '#ff2e00ff', '#ff2d00ff', '#ff2c00ff', '#ff2b00ff', '#ff2a00ff', '#ff2900ff', '#ff2800ff', '#ff2700ff', '#ff2600ff', '#ff2500ff', '#ff2400ff', '#ff2300ff', '#ff2200ff', '#ff2100ff', '#ff2000ff', '#ff1f00ff', '#ff1e00ff', '#ff1d00ff', '#ff1c00ff', '#ff1b00ff', '#ff1a00ff', '#ff1900ff', '#ff1800ff', '#ff1700ff', '#ff1600ff', '#ff1500ff', '#ff1400ff', '#ff1300ff', '#ff1200ff', '#ff1100ff', '#ff1000ff', '#ff0f00ff', '#ff0e00ff', '#ff0d00ff', '#ff0c00ff', '#ff0b00ff', '#ff0a00ff', '#ff0900ff', '#ff0800ff', '#ff0700ff', '#ff0600ff', '#ff0500ff', '#ff0400ff', '#ff0300ff', '#ff0200ff', '#ff0100ff', '#ff0000ff', '#ff0000ff']);
+    
+
+    color_map_5ff34eb5a65deabdfa11f085c6415373.x = d3.scale.linear()
+              .domain([0.0, 73.0])
+              .range([0, 450 - 50]);
+
+    color_map_5ff34eb5a65deabdfa11f085c6415373.legend = L.control({position: 'topright'});
+    color_map_5ff34eb5a65deabdfa11f085c6415373.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_5ff34eb5a65deabdfa11f085c6415373.legend.addTo(map_8736347b2b92328d327790df11991fe5);
+
+    color_map_5ff34eb5a65deabdfa11f085c6415373.xAxis = d3.svg.axis()
+        .scale(color_map_5ff34eb5a65deabdfa11f085c6415373.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([0.0, 24.333333333333332, 48.666666666666664, 73.0]);
+
+    color_map_5ff34eb5a65deabdfa11f085c6415373.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_5ff34eb5a65deabdfa11f085c6415373.g = color_map_5ff34eb5a65deabdfa11f085c6415373.svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    color_map_5ff34eb5a65deabdfa11f085c6415373.g.selectAll("rect")
+        .data(color_map_5ff34eb5a65deabdfa11f085c6415373.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_5ff34eb5a65deabdfa11f085c6415373.x(color_map_5ff34eb5a65deabdfa11f085c6415373.color.domain()[i - 1]) : color_map_5ff34eb5a65deabdfa11f085c6415373.x.range()[0],
+            x1: i < color_map_5ff34eb5a65deabdfa11f085c6415373.color.domain().length ? color_map_5ff34eb5a65deabdfa11f085c6415373.x(color_map_5ff34eb5a65deabdfa11f085c6415373.color.domain()[i]) : color_map_5ff34eb5a65deabdfa11f085c6415373.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_5ff34eb5a65deabdfa11f085c6415373.g.call(color_map_5ff34eb5a65deabdfa11f085c6415373.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text("Valor Total das Vendas");
+</script>
+</html>

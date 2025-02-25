@@ -1,26 +1,15 @@
 import folium
-from folium.plugins import HeatMap
+from folium.plugins import HeatMap, FeatureGroupSubGroup
 import pandas as pd
 from branca.colormap import LinearColormap
 
 # Carregar os dados
-dados = pd.read_csv('/home/rodolfo/dev/mapacalor/dados.csv')  # Substitua pelo caminho do seu arquivo
-
-# Remover as aspas simples e limpar os valores
-dados['ven_lati'] = dados['ven_lati'].str.replace("'", "").astype(float)  # Converter para float
-dados['ven_long'] = dados['ven_long'].str.replace("'", "").astype(float)  # Converter para float
-dados['ven_vlrven'] = (
-    dados['ven_vlrven']
-    .str.replace("'", "")
-    .str.replace("R\$", "", regex=True)
-    .str.replace(",", ".", regex=False)
-    .astype(float)
-)
+dados = pd.read_csv('/home/rodolfo/dev/mapacalor/bezerra-v2.csv')  # Substitua pelo caminho do seu arquivo
 
 # Agrupar os dados por localização (latitude e longitude)
 agrupado = dados.groupby(['ven_lati', 'ven_long']).agg(
-    quantidade_vendas=('ven_vlrven', 'count'),  # Contar número de vendas
-    valor_total=('ven_vlrven', 'sum')          # Somar valores das vendas
+    quantidade_vendas=('ven_vlrpag', 'count'),  # Contar número de vendas
+    valor_total=('ven_vlrpag', 'sum')          # Somar valores das vendas
 ).reset_index()
 
 # Criar um colormap para a legenda (baseado no valor total das vendas)
@@ -53,7 +42,7 @@ for _, row in agrupado.iterrows():
     ).add_to(grupo_quantidade)
 
 # Adicionar marcadores com base no valor total das vendas (filtro por valor mínimo)
-valor_minimo = 5000  # Exemplo: Exibir apenas valores acima de R$5000
+valor_minimo = 2000  # Exemplo: Exibir apenas valores acima de R$2000
 for _, row in agrupado[agrupado['valor_total'] >= valor_minimo].iterrows():
     folium.Marker(
         location=[row['ven_lati'], row['ven_long']],
@@ -64,20 +53,5 @@ for _, row in agrupado[agrupado['valor_total'] >= valor_minimo].iterrows():
 # Adicionar controle de camadas ao mapa
 folium.LayerControl(collapsed=False).add_to(mapa)
 
-# Adicionar um botão fixo no mapa exibindo o valor mínimo atual (simulação de campo interativo)
-html_minimo = f"""
-<div style="position: fixed; 
-            bottom: 50px; left: 50px; width: 300px; height: 50px;
-            background-color: white; border:2px solid grey; z-index:9999; font-size:14px;
-            padding: 10px;">
-<b>Filtro Ativo:</b> Exibindo valores acima de <b>R$ {valor_minimo:.2f}</b><br>
-<i>(Altere "valor_minimo" no código para ajustar)</i>
-</div>
-"""
-folium.map.Marker(
-    location=[-3.73367, -38.5543],  # Posição central (ou qualquer coordenada que você queira)
-    icon=folium.DivIcon(html=html_minimo),
-).add_to(mapa)
-
 # Salvar o mapa completo com filtros e botões
-mapa.save("/home/rodolfo/dev/mapacalor/mapa_completo_com_valor_minimo.html")
+mapa.save("/home/rodolfo/dev/mapacalor/mapa_completo_com_filtros.html")
