@@ -106,7 +106,13 @@ router.get('/', async (req, res) => {
             '<div>' +
             '<img src="/img/rodolfo.jpg" alt="Foto de Rodolfo Bertini" style="width: 100%; border-radius: 50%; margin-bottom: 20px;">' +
             '<form method="GET" class="form-container">' +
-            `<label><i class="fas fa-store"></i> Loja: <select name="ven_nrloja">${[1,2,3,4,5].map(n => `<option value="${n}" ${n == ven_nrloja ? 'selected' : ''}>${n}</option>`).join('')}</select></label>` +
+            `<label><i class="fas fa-store"></i> Loja: <select name="ven_nrloja">` +
+            `<option value="1" ${ven_nrloja == 1 ? 'selected' : ''}>1. Azilados Cocó</option>` +
+            `<option value="2" ${ven_nrloja == 2 ? 'selected' : ''}>2. Azilados Maraponga</option>` +
+            `<option value="3" ${ven_nrloja == 3 ? 'selected' : ''}>3. Azilados Bezerra</option>` +
+            `<option value="4" ${ven_nrloja == 4 ? 'selected' : ''}>4. Azilados Cidade</option>` +
+            `<option value="5" ${ven_nrloja == 5 ? 'selected' : ''}>5. Azilados Eusébio</option>` +
+            `</select></label>` +
             `<label><i class="fas fa-th"></i> Grid Size: <input type="number" name="grid_size" value="${gridSize}" min="100" max="3000"></label>` +
             `<label><i class="fas fa-dollar-sign"></i> Valor Mínimo: <input type="number" name="valor_minimo" value="${valorMinimo}"></label>` +
             `<label><i class="fas fa-calendar-alt"></i> Data Inicial: <input type="date" name="startDate" value="${startDate}"></label>` +
