@@ -1,9 +1,3 @@
-const express = require('express');
-const { getSalesData } = require('../services/mapService'); // Importar o serviço do mapa
-
-const router = express.Router();
-
-// Rota principal para gerar a página do mapa
 router.get('/', async (req, res) => {
     try {
         const { startDate, endDate, ven_nrloja, ven_status } = req.query;
@@ -32,13 +26,14 @@ router.get('/', async (req, res) => {
 
           // Adicionar camada de mapa de calor
           var heatData = ${JSON.stringify(
-              data.map((row) => [row.ven_lati, row.ven_long, row.ven_vlrnot])
+              data.map((row) => [row.ven_lati, row.ven_long, parseFloat(row.ven_vlrnot) || 0])
           )};
           L.heatLayer(heatData, { radius: 25 }).addTo(map);
         `;
 
         // Adicionar quadrantes com popups
         data.forEach((row) => {
+            const valorTotal = parseFloat(row.ven_vlrnot) || 0; // Converte para número ou usa 0 como fallback
             html += `
               L.rectangle([
                   [${row.ven_lati - 0.001}, ${row.ven_long - 0.001}],
@@ -47,7 +42,7 @@ router.get('/', async (req, res) => {
                   color: 'blue',
                   weight: 1,
                   fillOpacity: 0.4
-              }).addTo(map).bindPopup("Valor Total: R$ ${row.ven_vlrnot.toFixed(2)}");
+              }).addTo(map).bindPopup("Valor Total: R$ ${valorTotal.toFixed(2)}");
             `;
         });
 
@@ -58,5 +53,3 @@ router.get('/', async (req, res) => {
         res.status(500).send('Erro ao gerar o mapa.');
     }
 });
-
-module.exports = router;
