@@ -21,8 +21,6 @@ function validarParametros(req) {
     const gridSize = req.query.grid_size ? Number(req.query.grid_size) : 450;
     const valorMinimo = req.query.valor_minimo ? Number(req.query.valor_minimo) : 100;
 
-    console.log('Parâmetros recebidos:', { gridSize, valorMinimo }); // Log para depuração
-
     if (isNaN(gridSize) || gridSize <= 0) {
         errors.push('Grid size inválido');
     }
