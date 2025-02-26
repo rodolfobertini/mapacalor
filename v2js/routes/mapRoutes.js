@@ -1,4 +1,5 @@
 const express = require('express');
+const chroma = require('chroma-js'); // Biblioteca para gerar escalas de cores
 const { getSalesData } = require('../services/mapService'); // Importar o serviço do banco
 const router = express.Router();
 
@@ -10,17 +11,9 @@ function deslocarCoordenadas(lat, lon, deslocamentoLat, deslocamentoLon) {
     return { lat: novaLat, lon: novaLon };
 }
 
-// Função para gerar uma escala de cores proporcional ao número de quadrantes
+// Função para gerar uma escala de cores usando chroma.js
 function gerarEscalaDeCores(numQuadrantes) {
-    const gradiente = [];
-    for (let i = 0; i < numQuadrantes; i++) {
-        const proporcao = i / (numQuadrantes - 1); // Normaliza entre 0 e 1
-        const r = Math.floor(255 * proporcao); // Vermelho aumenta com a proporção
-        const g = Math.floor(255 * (1 - proporcao)); // Verde diminui com a proporção
-        const b = 0; // Azul é sempre 0 para criar o degradê verde → vermelho
-        gradiente.push(`rgb(${r},${g},${b})`);
-    }
-    return gradiente;
+    return chroma.scale(['green', 'yellow', 'orange', 'red']).colors(numQuadrantes); // Retorna um array com as cores
 }
 
 // Rota principal para gerar o mapa
@@ -99,6 +92,18 @@ router.get('/', async (req, res) => {
           L.marker([${lojaLat}, ${lojaLon}]).addTo(map).bindPopup("Azilados Bezerra");
 
           // Adicionar quadrantes com cores e valores centrais
+          var legend = L.control({ position: "topright" });
+          legend.onAdd = function () {
+              var div = L.DomUtil.create("div", "info legend");
+              div.innerHTML += "<h4>Escala de Cores</h4>";
+              ${escalaDeCores.map(
+                  (cor, index) =>
+                      `div.innerHTML += '<i style="background:${cor}; width:20px; height:20px; display:inline-block;"></i> Quadrante ${index +
+                          1}<br>'`
+              ).join(";")}
+              return div;
+          };
+          legend.addTo(map);
         `;
 
         quadrantes.forEach((quadrante) => {
