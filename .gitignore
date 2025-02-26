@@ -1,3 +1,4 @@
 .env
 mapa/node_modules/
 mapa/.env
+node_modules/
