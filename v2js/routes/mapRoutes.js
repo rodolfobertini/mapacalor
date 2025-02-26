@@ -10,16 +10,30 @@ function deslocarCoordenadas(lat, lon, deslocamentoLat, deslocamentoLon) {
     return { lat: novaLat, lon: novaLon };
 }
 
-// Função para gerar uma escala de cores proporcional ao número de quadrantes
+// Função para gerar uma escala de cores com degradê verde → amarelo → laranja → vermelho
 function gerarEscalaDeCoresPorPosicao(quadrantes) {
     const numQuadrantes = quadrantes.length;
 
-    // Função para interpolar cores na escala de verde a vermelho
+    // Função para interpolar cores na escala verde → amarelo → laranja → vermelho
     function interpolarCor(posicao) {
         const proporcao = posicao / (numQuadrantes - 1); // Normaliza entre 0 e 1
-        const r = Math.floor(255 * proporcao); // Vermelho aumenta com a posição
-        const g = Math.floor(255 * (1 - proporcao)); // Verde diminui com a posição
-        return `rgb(${r},${g},0)`; // Retorna a cor no formato RGB
+
+        if (proporcao <= 0.33) {
+            // Verde → Amarelo
+            const g = Math.floor(255); // Verde fixo
+            const r = Math.floor(255 * (proporcao / 0.33)); // Vermelho aumenta gradualmente até 33%
+            return `rgb(${r},${g},0)`;
+        } else if (proporcao <= 0.66) {
+            // Amarelo → Laranja
+            const r = 255; // Vermelho fixo
+            const g = Math.floor(255 * ((0.66 - proporcao) / 0.33)); // Verde diminui gradualmente entre 33% e 66%
+            return `rgb(${r},${g},0)`;
+        } else {
+            // Laranja → Vermelho
+            const r = 255; // Vermelho fixo
+            const g = Math.floor(128 * ((1 - proporcao) / 0.34)); // Verde diminui ainda mais até desaparecer no vermelho puro
+            return `rgb(${r},${g},0)`;
+        }
     }
 
     // Ordenar os quadrantes pelo valor total e atribuir cores
