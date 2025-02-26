@@ -118,8 +118,8 @@ router.get('/', async (req, res) => {
           var legend = L.control({ position: "topright" });
           legend.onAdd = function () {
               var div = L.DomUtil.create("div", "info legend");
-              div.innerHTML += '<div class="legend-bar"></div>';
-              div.innerHTML += '<span>Menor Valor</span> <span style="float:right;">Maior Valor</span>';
+              div.innerHTML += '<div class="legend-bar" style="width: 200px; margin-bottom: 5px;"></div>';
+              div.innerHTML += '<span style="float: left;">Menor Valor</span> <span style="float: right;">Maior Valor</span>';
               return div;
           };
           legend.addTo(map);
