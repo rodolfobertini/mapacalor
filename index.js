@@ -182,11 +182,13 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
+    console.log(`Login attempt with username: ${username} and password: ${password}`);
     // Verificar credenciais (substitua pela lógica de autenticação real)
     if (username === process.env.MP_LOGIN && password === process.env.MP_SENHA) {
         req.session.user = username;
         res.redirect('/map');
     } else {
+        console.log('Invalid credentials');
         res.send(`
             <!DOCTYPE html>
             <html lang="pt-br">

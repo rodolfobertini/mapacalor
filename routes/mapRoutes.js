@@ -18,19 +18,24 @@ function obterIntervaloDatas() {
 // Função para validar parâmetros de entrada
 function validarParametros(req) {
     const errors = [];
-    if (isNaN(req.query.grid_size) || req.query.grid_size <= 0) {
+    const gridSize = req.query.grid_size ? Number(req.query.grid_size) : 450;
+    const valorMinimo = req.query.valor_minimo ? Number(req.query.valor_minimo) : 100;
+
+    console.log('Parâmetros recebidos:', { gridSize, valorMinimo }); // Log para depuração
+
+    if (isNaN(gridSize) || gridSize <= 0) {
         errors.push('Grid size inválido');
     }
-    if (isNaN(req.query.valor_minimo) || req.query.valor_minimo < 0) {
+    if (isNaN(valorMinimo) || valorMinimo < 0) {
         errors.push('Valor mínimo inválido');
     }
-    return errors;
+    return { errors, gridSize, valorMinimo };
 }
 
 // Rota principal para gerar o mapa
 router.get('/', async (req, res) => {
     try {
-        const errors = validarParametros(req);
+        const { errors, gridSize, valorMinimo } = validarParametros(req);
         if (errors.length > 0) {
             return res.status(400).send(errors.join(', '));
         }
@@ -39,8 +44,6 @@ router.get('/', async (req, res) => {
         const { dataInicial, dataFinal } = obterIntervaloDatas();
         const ven_nrloja = req.query.ven_nrloja || 3;
         const ven_status = req.query.ven_status || 0; // Fixo como padrão
-        const grid_size = req.query.grid_size || 450;
-        const valor_minimo = req.query.valor_minimo || 100;
         const startDate = req.query.startDate || dataInicial;
         const endDate = req.query.endDate || dataFinal;
 
@@ -53,10 +56,10 @@ router.get('/', async (req, res) => {
         let quadrantes = [];
 
         // Gerar os quadrantes
-        for (let i = -Math.floor((10 * 1000) / grid_size); i <= Math.floor((10 * 1000) / grid_size); i++) {
-            for (let j = -Math.floor((10 * 1000) / grid_size); j <= Math.floor((10 * 1000) / grid_size); j++) {
-                const { lat: lat1, lon: lon1 } = deslocarCoordenadas(lojaLat, lojaLon, i * grid_size, j * grid_size);
-                const { lat: lat3, lon: lon3 } = deslocarCoordenadas(lojaLat, lojaLon, (i + 1) * grid_size, (j + 1) * grid_size);
+        for (let i = -Math.floor((10 * 1000) / gridSize); i <= Math.floor((10 * 1000) / gridSize); i++) {
+            for (let j = -Math.floor((10 * 1000) / gridSize); j <= Math.floor((10 * 1000) / gridSize); j++) {
+                const { lat: lat1, lon: lon1 } = deslocarCoordenadas(lojaLat, lojaLon, i * gridSize, j * gridSize);
+                const { lat: lat3, lon: lon3 } = deslocarCoordenadas(lojaLat, lojaLon, (i + 1) * gridSize, (j + 1) * gridSize);
 
                 // Filtrar os dados dentro do quadrante
                 const dentroDoQuadrante = data.filter(
@@ -69,7 +72,7 @@ router.get('/', async (req, res) => {
 
                 const valorTotalQuadrante = dentroDoQuadrante.reduce((sum, row) => sum + parseFloat(row.ven_vlrnot || 0), 0);
 
-                if (valorTotalQuadrante > valor_minimo) {
+                if (valorTotalQuadrante > valorMinimo) {
                     quadrantes.push({
                         lat1,
                         lon1,
@@ -106,8 +109,8 @@ router.get('/', async (req, res) => {
             '<img src="/img/rodolfo.jpg" alt="Foto de Rodolfo Bertini" style="width: 100%; border-radius: 50%; margin-bottom: 20px;">' +
             '<form method="GET" class="form-container">' +
             `<label><i class="fas fa-store"></i> Loja: <select name="ven_nrloja">${[1,2,3,4,5].map(n => `<option value="${n}" ${n == ven_nrloja ? 'selected' : ''}>${n}</option>`).join('')}</select></label>` +
-            `<label><i class="fas fa-th"></i> Grid Size: <input type="number" name="grid_size" value="${grid_size}" min="100" max="3000"></label>` +
-            `<label><i class="fas fa-dollar-sign"></i> Valor Mínimo: <input type="number" name="valor_minimo" value="${valor_minimo}"></label>` +
+            `<label><i class="fas fa-th"></i> Grid Size: <input type="number" name="grid_size" value="${gridSize}" min="100" max="3000"></label>` +
+            `<label><i class="fas fa-dollar-sign"></i> Valor Mínimo: <input type="number" name="valor_minimo" value="${valorMinimo}"></label>` +
             `<label><i class="fas fa-calendar-alt"></i> Data Inicial: <input type="date" name="startDate" value="${startDate}"></label>` +
             `<label><i class="fas fa-calendar-alt"></i> Data Final: <input type="date" name="endDate" value="${endDate}"></label>` +
             '<button type="submit"><i class="fas fa-sync-alt"></i> Atualizar</button>' +
