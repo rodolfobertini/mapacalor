@@ -1,7 +1,15 @@
+const express = require('express');
+const { getSalesData } = require('../services/mapService'); // Importar o serviço do mapa
+
+// Criar uma instância do roteador
+const router = express.Router();
+
+// Rota principal para gerar a página do mapa
 router.get('/', async (req, res) => {
     try {
         const { startDate, endDate, ven_nrloja, ven_status } = req.query;
 
+        // Verificar se os parâmetros obrigatórios estão presentes
         if (!startDate || !endDate || !ven_nrloja || !ven_status) {
             return res.status(400).send('Os parâmetros startDate, endDate, ven_nrloja e ven_status são obrigatórios.');
         }
@@ -53,3 +61,6 @@ router.get('/', async (req, res) => {
         res.status(500).send('Erro ao gerar o mapa.');
     }
 });
+
+// Exportar o roteador para ser usado no app principal
+module.exports = router;
