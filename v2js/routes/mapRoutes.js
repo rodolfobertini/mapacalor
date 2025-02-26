@@ -79,6 +79,7 @@ router.get('/', async (req, res) => {
             '<!DOCTYPE html><html><head><title>Mapa de Calor</title>' +
             '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>' +
             '<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>' +
+            '<style>.legend-bar { width: 300px; height: 20px; background: linear-gradient(to right, green , yellow , orange , red); border: 1px solid black; margin-bottom: 10px; }</style>' +
             '</head><body><div id="map" style="width: 100%; height: 100vh;"></div>' +
             '<script>';
 
@@ -91,19 +92,18 @@ router.get('/', async (req, res) => {
           // Adicionar marcador da loja
           L.marker([${lojaLat}, ${lojaLon}]).addTo(map).bindPopup("Azilados Bezerra");
 
-          // Adicionar quadrantes com cores e valores centrais
+          // Adicionar legenda com barra de escala
           var legend = L.control({ position: "topright" });
           legend.onAdd = function () {
               var div = L.DomUtil.create("div", "info legend");
               div.innerHTML += "<h4>Escala de Cores</h4>";
-              ${escalaDeCores.map(
-                  (cor, index) =>
-                      `div.innerHTML += '<i style="background:${cor}; width:20px; height:20px; display:inline-block;"></i> Quadrante ${index +
-                          1}<br>'`
-              ).join(";")}
+              div.innerHTML += '<div class="legend-bar"></div>';
+              div.innerHTML += '<span>Menor Valor</span> <span style="float:right;">Maior Valor</span>';
               return div;
           };
           legend.addTo(map);
+
+          // Adicionar quadrantes com cores e valores centrais
         `;
 
         quadrantes.forEach((quadrante) => {
