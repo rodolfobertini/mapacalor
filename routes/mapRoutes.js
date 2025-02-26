@@ -1,6 +1,6 @@
 const express = require('express');
-const chroma = require('chroma-js'); // Biblioteca para gerar escalas de cores
 const { getSalesData } = require('../services/mapService'); // Importar o serviço do banco
+const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils'); // Importar funções utilitárias
 const router = express.Router();
 
 // Função para calcular deslocamento geográfico
