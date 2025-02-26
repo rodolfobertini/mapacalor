@@ -1,7 +1,11 @@
 const express = require('express');
+const path = require('path');
 const { getSalesData } = require('../services/mapService'); // Importar o serviço do banco
 const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils'); // Importar funções utilitárias
 const router = express.Router();
+
+// Servir arquivos estáticos da pasta 'public'
+router.use(express.static(path.join(__dirname, '../public')));
 
 // Função para calcular as datas padrão (últimos 30 dias)
 function obterIntervaloDatas() {
