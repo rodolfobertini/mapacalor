@@ -3,27 +3,59 @@ const { getSalesData } = require('../services/mapService'); // Importar o servi�
 
 const router = express.Router();
 
-// Rota principal para gerar os dados do mapa
+// Rota principal para gerar a página do mapa
 router.get('/', async (req, res) => {
     try {
-        // Obter parâmetros da query string
         const { startDate, endDate, ven_nrloja, ven_status } = req.query;
 
-        // Validar os parâmetros obrigatórios
         if (!startDate || !endDate || !ven_nrloja || !ven_status) {
-            return res.status(400).json({ 
-                error: 'Os parâmetros startDate, endDate, ven_nrloja e ven_status são obrigatórios.' 
-            });
+            return res.status(400).send('Os parâmetros startDate, endDate, ven_nrloja e ven_status são obrigatórios.');
         }
 
-        // Chamar a função que consulta o banco de dados
+        // Obter os dados do banco de dados
         const data = await getSalesData(startDate, endDate, ven_nrloja, ven_status);
 
-        // Retornar os dados em formato JSON
-        res.json(data);
+        // Gerar o HTML da página com o mapa
+        let html =
+            '<!DOCTYPE html><html><head><title>Mapa de Calor</title>' +
+            '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>' +
+            '<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>' +
+            '<script src="https://cdn.jsdelivr.net/npm/leaflet.heat/dist/leaflet-heat.js"></script>' +
+            '</head><body><div id="map" style="width: 100%; height: 100vh;"></div>' +
+            '<script>';
+
+        html += `
+          var map = L.map('map').setView([-3.73367, -38.5543], 14);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              maxZoom: 19
+          }).addTo(map);
+
+          // Adicionar camada de mapa de calor
+          var heatData = ${JSON.stringify(
+              data.map((row) => [row.ven_lati, row.ven_long, row.ven_vlrnot])
+          )};
+          L.heatLayer(heatData, { radius: 25 }).addTo(map);
+        `;
+
+        // Adicionar quadrantes com popups
+        data.forEach((row) => {
+            html += `
+              L.rectangle([
+                  [${row.ven_lati - 0.001}, ${row.ven_long - 0.001}],
+                  [${row.ven_lati + 0.001}, ${row.ven_long + 0.001}]
+              ], {
+                  color: 'blue',
+                  weight: 1,
+                  fillOpacity: 0.4
+              }).addTo(map).bindPopup("Valor Total: R$ ${row.ven_vlrnot.toFixed(2)}");
+            `;
+        });
+
+        html += '</script></body></html>';
+        res.send(html);
     } catch (err) {
-        console.error('Erro ao obter dados do mapa:', err);
-        res.status(500).json({ error: 'Erro ao obter dados do mapa.' });
+        console.error('Erro ao gerar o mapa:', err);
+        res.status(500).send('Erro ao gerar o mapa.');
     }
 });
 
