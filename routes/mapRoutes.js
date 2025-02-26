@@ -123,7 +123,7 @@ router.get('/', async (req, res) => {
             `<option value="5" ${ven_nrloja == 5 ? 'selected' : ''}>5. Azilados Eusébio</option>` +
             `</select></label>` +
             `<label><i class="fas fa-th"></i> Tamanho Área: <input type="number" name="grid_size" value="${gridSize}" min="100" max="3000"></label>` +
-            `<label><i class="fas fa-dollar-sign"></i> VLR acima de: <input type="number" name="valor_minimo" value="${valorMinimo}"></label>` +
+            `<label><i class="fas fa-dollar-sign"></i> Acima de: <input type="number" name="valor_minimo" value="${valorMinimo}"></label>` +
             `<label><i class="fas fa-calendar-alt"></i> Data Inicial: <input type="date" name="startDate" value="${startDate}"></label>` +
             `<label><i class="fas fa-calendar-alt"></i> Data Final: <input type="date" name="endDate" value="${endDate}"></label>` +
             '<button type="submit"><i class="fas fa-sync-alt"></i> Atualizar</button>' +
