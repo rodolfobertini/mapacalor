@@ -16,27 +16,37 @@ function gerarEscalaDeCores(numQuadrantes) {
     return chroma.scale(['green', 'yellow', 'orange', 'red']).colors(numQuadrantes); // Retorna um array com as cores
 }
 
+// Função para calcular as datas padrão (últimos 30 dias)
+function obterIntervaloDatas() {
+    const hoje = new Date();
+    const dataFinal = hoje.toISOString().split('T')[0]; // Data final no formato YYYY-MM-DD
+    const dataInicial = new Date(hoje.setDate(hoje.getDate() - 30)).toISOString().split('T')[0]; // Últimos 30 dias
+    return { dataInicial, dataFinal };
+}
+
 // Rota principal para gerar o mapa
 router.get('/', async (req, res) => {
     try {
-        const { startDate, endDate, ven_nrloja, ven_status, grid_size = 250, valor_minimo = 100 } = req.query;
-
-        if (!startDate || !endDate || !ven_nrloja || !ven_status) {
-            return res.status(400).send('Os parâmetros startDate, endDate, ven_nrloja e ven_status são obrigatórios.');
-        }
+        // Valores padrão
+        const { dataInicial, dataFinal } = obterIntervaloDatas();
+        const ven_nrloja = req.query.ven_nrloja || 3;
+        const ven_status = req.query.ven_status || 0; // Fixo como padrão
+        const grid_size = req.query.grid_size || 450;
+        const valor_minimo = req.query.valor_minimo || 100;
+        const startDate = req.query.startDate || dataInicial;
+        const endDate = req.query.endDate || dataFinal;
 
         // Obter os dados do banco
         const data = await getSalesData(startDate, endDate, ven_nrloja, ven_status);
 
-        // Configurações iniciais
+        // Configurações iniciais do mapa
         const lojaLat = -3.73367;
         const lojaLon = -38.5543;
-        const areaKm = 10; // Extensão da área (10 km)
         let quadrantes = [];
 
         // Gerar os quadrantes
-        for (let i = -Math.floor((areaKm * 1000) / grid_size); i <= Math.floor((areaKm * 1000) / grid_size); i++) {
-            for (let j = -Math.floor((areaKm * 1000) / grid_size); j <= Math.floor((areaKm * 1000) / grid_size); j++) {
+        for (let i = -Math.floor((10 * 1000) / grid_size); i <= Math.floor((10 * 1000) / grid_size); i++) {
+            for (let j = -Math.floor((10 * 1000) / grid_size); j <= Math.floor((10 * 1000) / grid_size); j++) {
                 const { lat: lat1, lon: lon1 } = deslocarCoordenadas(lojaLat, lojaLon, i * grid_size, j * grid_size);
                 const { lat: lat3, lon: lon3 } = deslocarCoordenadas(lojaLat, lojaLon, (i + 1) * grid_size, (j + 1) * grid_size);
 
@@ -74,13 +84,22 @@ router.get('/', async (req, res) => {
             quadrante.cor = escalaDeCores[index];
         });
 
-        // Gerar HTML do mapa
+        // Gerar HTML do mapa e formulário interativo
         let html =
             '<!DOCTYPE html><html><head><title>Mapa de Calor</title>' +
             '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>' +
             '<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>' +
             '<style>.legend-bar { width: 300px; height: 20px; background: linear-gradient(to right, green , yellow , orange , red); border: 1px solid black; margin-bottom: 10px; }</style>' +
-            '</head><body><div id="map" style="width: 100%; height: 100vh;"></div>' +
+            '</head><body>' +
+            '<form method="GET" style="margin-bottom:20px;">' +
+            `<label>Loja: <select name="ven_nrloja">${[1,2,3,4,5].map(n => `<option value="${n}" ${n == ven_nrloja ? 'selected' : ''}>${n}</option>`).join('')}</select></label>` +
+            `<label>Grid Size: <input type="number" name="grid_size" value="${grid_size}" min="100" max="3000"></label>` +
+            `<label>Valor Mínimo: <input type="number" name="valor_minimo" value="${valor_minimo}"></label>` +
+            `<label>Data Inicial: <input type="date" name="startDate" value="${startDate}"></label>` +
+            `<label>Data Final: <input type="date" name="endDate" value="${endDate}"></label>` +
+            '<button type="submit">Atualizar</button>' +
+            '</form>' +
+            '<div id="map" style="width: 100%; height: calc(100vh - 120px);"></div>' +
             '<script>';
 
         html += `
