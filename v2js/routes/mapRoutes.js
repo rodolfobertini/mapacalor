@@ -10,6 +10,26 @@ function deslocarCoordenadas(lat, lon, deslocamentoLat, deslocamentoLon) {
     return { lat: novaLat, lon: novaLon };
 }
 
+// Função para gerar uma escala de cores proporcional
+function gerarEscalaDeCores(quadrantes) {
+    const valores = quadrantes.map((q) => q.valorTotal);
+    const minValor = Math.min(...valores);
+    const maxValor = Math.max(...valores);
+
+    // Função para interpolar cores na escala de verde a vermelho
+    function interpolarCor(valor) {
+        const proporcao = (valor - minValor) / (maxValor - minValor); // Normaliza entre 0 e 1
+        const r = Math.floor(255 * proporcao); // Vermelho aumenta com o valor
+        const g = Math.floor(255 * (1 - proporcao)); // Verde diminui com o valor
+        return `rgb(${r},${g},0)`; // Retorna a cor no formato RGB
+    }
+
+    return quadrantes.map((q) => ({
+        ...q,
+        cor: interpolarCor(q.valorTotal),
+    }));
+}
+
 // Rota principal para gerar o mapa
 router.get('/', async (req, res) => {
     try {
@@ -26,7 +46,7 @@ router.get('/', async (req, res) => {
         const lojaLat = -3.73367;
         const lojaLon = -38.5543;
         const areaKm = 10; // Extensão da área (10 km)
-        const quadrantes = [];
+        let quadrantes = [];
 
         // Gerar os quadrantes
         for (let i = -Math.floor((areaKm * 1000) / grid_size); i <= Math.floor((areaKm * 1000) / grid_size); i++) {
@@ -59,6 +79,9 @@ router.get('/', async (req, res) => {
             }
         }
 
+        // Aplicar a escala de cores aos quadrantes
+        quadrantes = gerarEscalaDeCores(quadrantes);
+
         // Gerar HTML do mapa
         let html =
             '<!DOCTYPE html><html><head><title>Mapa de Calor</title>' +
@@ -76,7 +99,7 @@ router.get('/', async (req, res) => {
           // Adicionar marcador da loja
           L.marker([${lojaLat}, ${lojaLon}]).addTo(map).bindPopup("Azilados Bezerra");
 
-          // Adicionar quadrantes
+          // Adicionar quadrantes com cores e valores centrais
         `;
 
         quadrantes.forEach((quadrante) => {
@@ -85,10 +108,21 @@ router.get('/', async (req, res) => {
                   [${quadrante.lat1}, ${quadrante.lon1}],
                   [${quadrante.lat3}, ${quadrante.lon3}]
               ], {
-                  color: 'blue',
+                  color: '${quadrante.cor}',
                   weight: 1,
-                  fillOpacity: 0.4
-              }).addTo(map).bindPopup("Valor Total: R$ ${quadrante.valorTotal.toFixed(2)}");
+                  fillOpacity: 0.6,
+                  fillColor: '${quadrante.cor}'
+              }).addTo(map);
+
+              L.marker([${quadrante.centroLat}, ${quadrante.centroLon}], {
+                  icon: L.divIcon({
+                      className: 'custom-icon',
+                      html: '<div style="text-align:center; font-size:12px; color:black;">R$ ${quadrante.valorTotal.toFixed(
+                          2
+                      )}</div>',
+                      iconSize: [30, 30],
+                  })
+              }).addTo(map);
             `;
         });
 
