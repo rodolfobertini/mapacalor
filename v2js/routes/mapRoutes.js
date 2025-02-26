@@ -1,56 +1,94 @@
 const express = require('express');
-const { getSalesData } = require('../services/mapService'); // Importar o serviço do mapa
-
-// Criar uma instância do roteador
+const { getSalesData } = require('../services/mapService'); // Importar o serviço do banco
 const router = express.Router();
 
-// Rota principal para gerar a página do mapa
+// Função para calcular deslocamento geográfico
+function deslocarCoordenadas(lat, lon, deslocamentoLat, deslocamentoLon) {
+    const R = 6378137; // Raio da Terra em metros
+    const novaLat = lat + (deslocamentoLat / R) * (180 / Math.PI);
+    const novaLon = lon + (deslocamentoLon / R) * (180 / Math.PI) / Math.cos((lat * Math.PI) / 180);
+    return { lat: novaLat, lon: novaLon };
+}
+
+// Rota principal para gerar o mapa
 router.get('/', async (req, res) => {
     try {
-        const { startDate, endDate, ven_nrloja, ven_status } = req.query;
+        const { startDate, endDate, ven_nrloja, ven_status, grid_size = 250, valor_minimo = 100 } = req.query;
 
-        // Verificar se os parâmetros obrigatórios estão presentes
         if (!startDate || !endDate || !ven_nrloja || !ven_status) {
             return res.status(400).send('Os parâmetros startDate, endDate, ven_nrloja e ven_status são obrigatórios.');
         }
 
-        // Obter os dados do banco de dados
+        // Obter os dados do banco
         const data = await getSalesData(startDate, endDate, ven_nrloja, ven_status);
 
-        // Gerar o HTML da página com o mapa
+        // Configurações iniciais
+        const lojaLat = -3.73367;
+        const lojaLon = -38.5543;
+        const areaKm = 10; // Extensão da área (10 km)
+        const quadrantes = [];
+
+        // Gerar os quadrantes
+        for (let i = -Math.floor((areaKm * 1000) / grid_size); i <= Math.floor((areaKm * 1000) / grid_size); i++) {
+            for (let j = -Math.floor((areaKm * 1000) / grid_size); j <= Math.floor((areaKm * 1000) / grid_size); j++) {
+                const { lat: lat1, lon: lon1 } = deslocarCoordenadas(lojaLat, lojaLon, i * grid_size, j * grid_size);
+                const { lat: lat3, lon: lon3 } = deslocarCoordenadas(lojaLat, lojaLon, (i + 1) * grid_size, (j + 1) * grid_size);
+
+                // Filtrar os dados dentro do quadrante
+                const dentroDoQuadrante = data.filter(
+                    (row) =>
+                        row.ven_lati >= Math.min(lat1, lat3) &&
+                        row.ven_lati <= Math.max(lat1, lat3) &&
+                        row.ven_long >= Math.min(lon1, lon3) &&
+                        row.ven_long <= Math.max(lon1, lon3)
+                );
+
+                const valorTotalQuadrante = dentroDoQuadrante.reduce((sum, row) => sum + parseFloat(row.ven_vlrnot || 0), 0);
+
+                if (valorTotalQuadrante > valor_minimo) {
+                    quadrantes.push({
+                        lat1,
+                        lon1,
+                        lat3,
+                        lon3,
+                        centroLat: (lat1 + lat3) / 2,
+                        centroLon: (lon1 + lon3) / 2,
+                        valorTotal: valorTotalQuadrante,
+                    });
+                }
+            }
+        }
+
+        // Gerar HTML do mapa
         let html =
             '<!DOCTYPE html><html><head><title>Mapa de Calor</title>' +
             '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>' +
             '<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>' +
-            '<script src="https://cdn.jsdelivr.net/npm/leaflet.heat/dist/leaflet-heat.js"></script>' +
             '</head><body><div id="map" style="width: 100%; height: 100vh;"></div>' +
             '<script>';
 
         html += `
-          var map = L.map('map').setView([-3.73367, -38.5543], 14);
+          var map = L.map('map').setView([${lojaLat}, ${lojaLon}], 14);
           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
               maxZoom: 19
           }).addTo(map);
 
-          // Adicionar camada de mapa de calor
-          var heatData = ${JSON.stringify(
-              data.map((row) => [row.ven_lati, row.ven_long, parseFloat(row.ven_vlrnot) || 0])
-          )};
-          L.heatLayer(heatData, { radius: 25 }).addTo(map);
+          // Adicionar marcador da loja
+          L.marker([${lojaLat}, ${lojaLon}]).addTo(map).bindPopup("Azilados Bezerra");
+
+          // Adicionar quadrantes
         `;
 
-        // Adicionar quadrantes com popups
-        data.forEach((row) => {
-            const valorTotal = parseFloat(row.ven_vlrnot) || 0; // Converte para número ou usa 0 como fallback
+        quadrantes.forEach((quadrante) => {
             html += `
               L.rectangle([
-                  [${row.ven_lati - 0.001}, ${row.ven_long - 0.001}],
-                  [${row.ven_lati + 0.001}, ${row.ven_long + 0.001}]
+                  [${quadrante.lat1}, ${quadrante.lon1}],
+                  [${quadrante.lat3}, ${quadrante.lon3}]
               ], {
                   color: 'blue',
                   weight: 1,
                   fillOpacity: 0.4
-              }).addTo(map).bindPopup("Valor Total: R$ ${valorTotal.toFixed(2)}");
+              }).addTo(map).bindPopup("Valor Total: R$ ${quadrante.valorTotal.toFixed(2)}");
             `;
         });
 
@@ -62,5 +100,4 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Exportar o roteador para ser usado no app principal
 module.exports = router;
