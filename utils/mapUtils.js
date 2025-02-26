@@ -1,6 +1,12 @@
 const chroma = require('chroma-js'); // Biblioteca para gerar escalas de cores
 
-// Função para calcular deslocamento geográfico
+/**
+ * @param {number} lat
+ * @param {number} lon
+ * @param {number} deslocamentoLat
+ * @param {number} deslocamentoLon
+ * @returns {{lat: number, lon: number}}
+ */
 function deslocarCoordenadas(lat, lon, deslocamentoLat, deslocamentoLon) {
     const R = 6378137; // Raio da Terra em metros
     const novaLat = lat + (deslocamentoLat / R) * (180 / Math.PI);
@@ -8,7 +14,10 @@ function deslocarCoordenadas(lat, lon, deslocamentoLat, deslocamentoLon) {
     return { lat: novaLat, lon: novaLon };
 }
 
-// Função para gerar uma escala de cores usando chroma.js
+/**
+ * @param {number} numQuadrantes
+ * @returns {string[]}
+ */
 function gerarEscalaDeCores(numQuadrantes) {
     return chroma.scale(['green', 'yellow', 'orange', 'red']).colors(numQuadrantes); // Retorna um array com as cores
 }

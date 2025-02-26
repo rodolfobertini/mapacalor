@@ -9,7 +9,13 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 });
 
-// Função para consultar os dados do mapa no banco de dados
+/**
+ * @param {string} startDate
+ * @param {string} endDate
+ * @param {number} ven_nrloja
+ * @param {number} ven_status
+ * @returns {Promise<Object[]>}
+ */
 async function getSalesData(startDate, endDate, ven_nrloja, ven_status) {
     const query = `
         SELECT 
@@ -37,8 +43,8 @@ async function getSalesData(startDate, endDate, ven_nrloja, ven_status) {
         const result = await pool.query(query, values);
         return result.rows; // Retorna os resultados como um array de objetos JSON
     } catch (err) {
-        console.error('Erro ao executar a consulta:', err);
-        throw err;
+        console.error('Erro ao executar a consulta:', err.message);
+        throw new Error('Erro ao consultar dados de vendas');
     }
 }
 

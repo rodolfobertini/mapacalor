@@ -15,9 +15,26 @@ function obterIntervaloDatas() {
     return { dataInicial, dataFinal };
 }
 
+// Função para validar parâmetros de entrada
+function validarParametros(req) {
+    const errors = [];
+    if (isNaN(req.query.grid_size) || req.query.grid_size <= 0) {
+        errors.push('Grid size inválido');
+    }
+    if (isNaN(req.query.valor_minimo) || req.query.valor_minimo < 0) {
+        errors.push('Valor mínimo inválido');
+    }
+    return errors;
+}
+
 // Rota principal para gerar o mapa
 router.get('/', async (req, res) => {
     try {
+        const errors = validarParametros(req);
+        if (errors.length > 0) {
+            return res.status(400).send(errors.join(', '));
+        }
+
         // Valores padrão
         const { dataInicial, dataFinal } = obterIntervaloDatas();
         const ven_nrloja = req.query.ven_nrloja || 3;
