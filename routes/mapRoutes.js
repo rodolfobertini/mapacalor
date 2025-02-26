@@ -109,11 +109,11 @@ router.get('/', async (req, res) => {
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>' +
             '<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">' +
             '<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>' +
-            '<style>body { font-family: "Roboto", sans-serif; display: flex; } .menu { width: 300px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; } .map { flex-grow: 1; height: calc(100vh - 20px); } .legend-bar { width: 120%; height: 10px; background: linear-gradient(to right, green , yellow , orange , red); border: 1px solid black; margin-bottom: 10px; } .form-container { display: flex; flex-direction: column; gap: 10px; } .form-container label { display: flex; align-items: center; gap: 10px; font-size: 1.2em; } .footer { text-align: center; margin-top: 20px; }</style>' +
+            '<style>body { font-family: "Roboto", sans-serif; display: flex; flex-direction: column; align-items: center; } .menu { width: 100%; padding: 10px; display: flex; flex-direction: column; align-items: center; } .map { width: 100%; height: calc(100vh - 200px); } .legend-bar { width: 100%; height: 8px; background: linear-gradient(to right, green , yellow , orange , red); border: 1px solid black; margin-bottom: 10px; } .form-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; } .form-container label { display: flex; align-items: center; gap: 10px; font-size: 1.2em; } .form-container input, .form-container select { padding: 5px; font-size: 1em; } .footer { text-align: center; margin-top: 10px; } .form-container button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; font-size: 1em; } .form-container button:hover { background-color: #45a049; }</style>' +
             '</head><body>' +
             '<div class="menu">' +
             '<div>' +
-            '<img src="/img/rodolfo.jpg" alt="Foto de Rodolfo Bertini" style="width: 40%; border-radius: 50%; margin-bottom: 20px;">' +
+            '<img src="/img/rodolfo.jpg" alt="Foto de Rodolfo Bertini" style="width: 35px; border-radius: 50%; margin-bottom: 10px;">' +
             '<form method="GET" class="form-container">' +
             `<label><i class="fas fa-store"></i> Loja: <select name="ven_nrloja">` +
             `<option value="1" ${ven_nrloja == 1 ? 'selected' : ''}>1. Azilados Cocó</option>` +
@@ -129,7 +129,6 @@ router.get('/', async (req, res) => {
             '<button type="submit"><i class="fas fa-sync-alt"></i> Atualizar</button>' +
             '</form>' +
             '</div>' +
-            '<div class="footer"><a href="https://bertini.org" target="_blank" rel="noopener noreferrer">Rodolfo Bertini - bertini.org</a></div>' +
             '</div>' +
             '<div id="map" class="map"></div>' +
             '<script>';
@@ -188,7 +187,7 @@ router.get('/', async (req, res) => {
             `;
         });
 
-        html += '</script></body></html>';
+        html += '</script></body><div class="footer"><a href="https://bertini.org" target="_blank" rel="noopener noreferrer">Rodolfo Bertini - bertini.org</a></div></html>';
         res.send(html);
     } catch (err) {
         console.error('Erro ao gerar o mapa:', err);
