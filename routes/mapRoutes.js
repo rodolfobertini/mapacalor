@@ -30,6 +30,15 @@ function validarParametros(req) {
     return { errors, gridSize, valorMinimo };
 }
 
+// Coordenadas das lojas
+const coordenadasLojas = {
+    1: { lat: -3.7422788220578767, lon: -38.48681349625016 },
+    2: { lat: -3.798297659195391, lon: -38.57096246134512 },
+    3: { lat: -3.733668068898177, lon: -38.55432495949867 },
+    4: { lat: -3.7954802476885665, lon: -38.500222246003915 },
+    5: { lat: -3.876471223169551, lon: -38.461967632509136 }
+};
+
 // Rota principal para gerar o mapa
 router.get('/', async (req, res) => {
     try {
@@ -49,8 +58,8 @@ router.get('/', async (req, res) => {
         const data = await getSalesData(startDate, endDate, ven_nrloja, ven_status);
 
         // Configurações iniciais do mapa
-        const lojaLat = -3.73367;
-        const lojaLon = -38.5543;
+        const lojaLat = coordenadasLojas[ven_nrloja].lat;
+        const lojaLon = coordenadasLojas[ven_nrloja].lon;
         let quadrantes = [];
 
         // Gerar os quadrantes
@@ -104,7 +113,7 @@ router.get('/', async (req, res) => {
             '</head><body>' +
             '<div class="menu">' +
             '<div>' +
-            '<img src="/img/rodolfo.jpg" alt="Foto de Rodolfo Bertini" style="width: 100%; border-radius: 50%; margin-bottom: 20px;">' +
+            '<img src="/img/rodolfo.jpg" alt="Foto de Rodolfo Bertini" style="width: 40%; border-radius: 50%; margin-bottom: 20px;">' +
             '<form method="GET" class="form-container">' +
             `<label><i class="fas fa-store"></i> Loja: <select name="ven_nrloja">` +
             `<option value="1" ${ven_nrloja == 1 ? 'selected' : ''}>1. Azilados Cocó</option>` +
