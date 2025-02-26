@@ -22,8 +22,6 @@ router.get('/', async (req, res) => {
         const valor_minimo = req.query.valor_minimo || 100;
         const startDate = req.query.startDate || dataInicial;
         const endDate = req.query.endDate || dataFinal;
-        const menuWidth = req.query.menuWidth || '300px';
-        const mapHeight = req.query.mapHeight || 'calc(100vh - 20px)';
 
         // Obter os dados do banco
         const data = await getSalesData(startDate, endDate, ven_nrloja, ven_status);
@@ -80,19 +78,21 @@ router.get('/', async (req, res) => {
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>' +
             '<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">' +
             '<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>' +
-            '<style>body { font-family: "Roboto", sans-serif; display: flex; } .menu { width: ' + menuWidth + '; padding: 10px; } .map { flex-grow: 1; height: ' + mapHeight + '; } .legend-bar { width: 100%; height: 20px; background: linear-gradient(to right, green , yellow , orange , red); border: 1px solid black; margin-bottom: 10px; } .form-container { display: flex; flex-direction: column; gap: 10px; } .form-container label { display: flex; align-items: center; gap: 5px; }</style>' +
+            '<style>body { font-family: "Roboto", sans-serif; display: flex; } .menu { width: 300px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; } .map { flex-grow: 1; height: calc(100vh - 20px); } .legend-bar { width: 120%; height: 10px; background: linear-gradient(to right, green , yellow , orange , red); border: 1px solid black; margin-bottom: 10px; } .form-container { display: flex; flex-direction: column; gap: 10px; } .form-container label { display: flex; align-items: center; gap: 10px; font-size: 1.2em; } .footer { text-align: center; margin-top: 20px; }</style>' +
             '</head><body>' +
             '<div class="menu">' +
+            '<div>' +
+            '<img src="/img/rodolfo.jpg" alt="Foto de Rodolfo Bertini" style="width: 100%; border-radius: 50%; margin-bottom: 20px;">' +
             '<form method="GET" class="form-container">' +
             `<label><i class="fas fa-store"></i> Loja: <select name="ven_nrloja">${[1,2,3,4,5].map(n => `<option value="${n}" ${n == ven_nrloja ? 'selected' : ''}>${n}</option>`).join('')}</select></label>` +
             `<label><i class="fas fa-th"></i> Grid Size: <input type="number" name="grid_size" value="${grid_size}" min="100" max="3000"></label>` +
             `<label><i class="fas fa-dollar-sign"></i> Valor Mínimo: <input type="number" name="valor_minimo" value="${valor_minimo}"></label>` +
             `<label><i class="fas fa-calendar-alt"></i> Data Inicial: <input type="date" name="startDate" value="${startDate}"></label>` +
             `<label><i class="fas fa-calendar-alt"></i> Data Final: <input type="date" name="endDate" value="${endDate}"></label>` +
-            `<label><i class="fas fa-arrows-alt-h"></i> Largura do Menu: <input type="text" name="menuWidth" value="${menuWidth}"></label>` +
-            `<label><i class="fas fa-arrows-alt-v"></i> Altura do Mapa: <input type="text" name="mapHeight" value="${mapHeight}"></label>` +
             '<button type="submit"><i class="fas fa-sync-alt"></i> Atualizar</button>' +
             '</form>' +
+            '</div>' +
+            '<div class="footer">Rodolfo Bertini - bertini.org</div>' +
             '</div>' +
             '<div id="map" class="map"></div>' +
             '<script>';
@@ -104,13 +104,20 @@ router.get('/', async (req, res) => {
           }).addTo(map);
 
           // Adicionar marcador da loja
-          L.marker([${lojaLat}, ${lojaLon}]).addTo(map).bindPopup("Azilados Bezerra");
+          L.marker([${lojaLat}, ${lojaLon}], {
+              icon: L.icon({
+                  iconUrl: 'https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png',
+                  iconSize: [12, 20], // Reduzir o tamanho do PIN em 50%
+                  iconAnchor: [6, 20],
+                  popupAnchor: [1, -34],
+                  shadowSize: [41, 41]
+              })
+          }).addTo(map).bindPopup("Azilados Bezerra");
 
           // Adicionar legenda com barra de escala
           var legend = L.control({ position: "topright" });
           legend.onAdd = function () {
               var div = L.DomUtil.create("div", "info legend");
-              div.innerHTML += "<h4>Escala de Cores</h4>";
               div.innerHTML += '<div class="legend-bar"></div>';
               div.innerHTML += '<span>Menor Valor</span> <span style="float:right;">Maior Valor</span>';
               return div;
