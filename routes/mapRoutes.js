@@ -3,19 +3,6 @@ const { getSalesData } = require('../services/mapService'); // Importar o servi�
 const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils'); // Importar funções utilitárias
 const router = express.Router();
 
-// Função para calcular deslocamento geográfico
-function deslocarCoordenadas(lat, lon, deslocamentoLat, deslocamentoLon) {
-    const R = 6378137; // Raio da Terra em metros
-    const novaLat = lat + (deslocamentoLat / R) * (180 / Math.PI);
-    const novaLon = lon + (deslocamentoLon / R) * (180 / Math.PI) / Math.cos((lat * Math.PI) / 180);
-    return { lat: novaLat, lon: novaLon };
-}
-
-// Função para gerar uma escala de cores usando chroma.js
-function gerarEscalaDeCores(numQuadrantes) {
-    return chroma.scale(['green', 'yellow', 'orange', 'red']).colors(numQuadrantes); // Retorna um array com as cores
-}
-
 // Função para calcular as datas padrão (últimos 30 dias)
 function obterIntervaloDatas() {
     const hoje = new Date();
@@ -35,6 +22,8 @@ router.get('/', async (req, res) => {
         const valor_minimo = req.query.valor_minimo || 100;
         const startDate = req.query.startDate || dataInicial;
         const endDate = req.query.endDate || dataFinal;
+        const menuWidth = req.query.menuWidth || '300px';
+        const mapHeight = req.query.mapHeight || 'calc(100vh - 20px)';
 
         // Obter os dados do banco
         const data = await getSalesData(startDate, endDate, ven_nrloja, ven_status);
@@ -88,18 +77,24 @@ router.get('/', async (req, res) => {
         let html =
             '<!DOCTYPE html><html><head><title>Mapa de Calor</title>' +
             '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>' +
+            '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>' +
+            '<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">' +
             '<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>' +
-            '<style>.legend-bar { width: 300px; height: 20px; background: linear-gradient(to right, green , yellow , orange , red); border: 1px solid black; margin-bottom: 10px; }</style>' +
+            '<style>body { font-family: "Roboto", sans-serif; display: flex; } .menu { width: ' + menuWidth + '; padding: 10px; } .map { flex-grow: 1; height: ' + mapHeight + '; } .legend-bar { width: 100%; height: 20px; background: linear-gradient(to right, green , yellow , orange , red); border: 1px solid black; margin-bottom: 10px; } .form-container { display: flex; flex-direction: column; gap: 10px; } .form-container label { display: flex; align-items: center; gap: 5px; }</style>' +
             '</head><body>' +
-            '<form method="GET" style="margin-bottom:20px;">' +
-            `<label>Loja: <select name="ven_nrloja">${[1,2,3,4,5].map(n => `<option value="${n}" ${n == ven_nrloja ? 'selected' : ''}>${n}</option>`).join('')}</select></label>` +
-            `<label>Grid Size: <input type="number" name="grid_size" value="${grid_size}" min="100" max="3000"></label>` +
-            `<label>Valor Mínimo: <input type="number" name="valor_minimo" value="${valor_minimo}"></label>` +
-            `<label>Data Inicial: <input type="date" name="startDate" value="${startDate}"></label>` +
-            `<label>Data Final: <input type="date" name="endDate" value="${endDate}"></label>` +
-            '<button type="submit">Atualizar</button>' +
+            '<div class="menu">' +
+            '<form method="GET" class="form-container">' +
+            `<label><i class="fas fa-store"></i> Loja: <select name="ven_nrloja">${[1,2,3,4,5].map(n => `<option value="${n}" ${n == ven_nrloja ? 'selected' : ''}>${n}</option>`).join('')}</select></label>` +
+            `<label><i class="fas fa-th"></i> Grid Size: <input type="number" name="grid_size" value="${grid_size}" min="100" max="3000"></label>` +
+            `<label><i class="fas fa-dollar-sign"></i> Valor Mínimo: <input type="number" name="valor_minimo" value="${valor_minimo}"></label>` +
+            `<label><i class="fas fa-calendar-alt"></i> Data Inicial: <input type="date" name="startDate" value="${startDate}"></label>` +
+            `<label><i class="fas fa-calendar-alt"></i> Data Final: <input type="date" name="endDate" value="${endDate}"></label>` +
+            `<label><i class="fas fa-arrows-alt-h"></i> Largura do Menu: <input type="text" name="menuWidth" value="${menuWidth}"></label>` +
+            `<label><i class="fas fa-arrows-alt-v"></i> Altura do Mapa: <input type="text" name="mapHeight" value="${mapHeight}"></label>` +
+            '<button type="submit"><i class="fas fa-sync-alt"></i> Atualizar</button>' +
             '</form>' +
-            '<div id="map" style="width: 100%; height: calc(100vh - 120px);"></div>' +
+            '</div>' +
+            '<div id="map" class="map"></div>' +
             '<script>';
 
         html += `
