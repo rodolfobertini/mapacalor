@@ -41,7 +41,7 @@ app.get('/login', (req, res) => {
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     // Verificar credenciais (substitua pela lógica de autenticação real)
-    if (username === 'admin' && password === 'admin') {
+    if (username === process.env.MP_LOGIN && password === process.env.MP_SENHA) {
         req.session.user = username;
         res.redirect('/map');
     } else {
