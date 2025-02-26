@@ -10,24 +10,25 @@ function deslocarCoordenadas(lat, lon, deslocamentoLat, deslocamentoLon) {
     return { lat: novaLat, lon: novaLon };
 }
 
-// Função para gerar uma escala de cores proporcional
-function gerarEscalaDeCores(quadrantes) {
-    const valores = quadrantes.map((q) => q.valorTotal);
-    const minValor = Math.min(...valores);
-    const maxValor = Math.max(...valores);
+// Função para gerar uma escala de cores proporcional ao número de quadrantes
+function gerarEscalaDeCoresPorPosicao(quadrantes) {
+    const numQuadrantes = quadrantes.length;
 
     // Função para interpolar cores na escala de verde a vermelho
-    function interpolarCor(valor) {
-        const proporcao = (valor - minValor) / (maxValor - minValor); // Normaliza entre 0 e 1
-        const r = Math.floor(255 * proporcao); // Vermelho aumenta com o valor
-        const g = Math.floor(255 * (1 - proporcao)); // Verde diminui com o valor
+    function interpolarCor(posicao) {
+        const proporcao = posicao / (numQuadrantes - 1); // Normaliza entre 0 e 1
+        const r = Math.floor(255 * proporcao); // Vermelho aumenta com a posição
+        const g = Math.floor(255 * (1 - proporcao)); // Verde diminui com a posição
         return `rgb(${r},${g},0)`; // Retorna a cor no formato RGB
     }
 
-    return quadrantes.map((q) => ({
-        ...q,
-        cor: interpolarCor(q.valorTotal),
-    }));
+    // Ordenar os quadrantes pelo valor total e atribuir cores
+    return quadrantes
+        .sort((a, b) => a.valorTotal - b.valorTotal)
+        .map((quadrante, index) => ({
+            ...quadrante,
+            cor: interpolarCor(index),
+        }));
 }
 
 // Rota principal para gerar o mapa
@@ -79,8 +80,8 @@ router.get('/', async (req, res) => {
             }
         }
 
-        // Aplicar a escala de cores aos quadrantes
-        quadrantes = gerarEscalaDeCores(quadrantes);
+        // Aplicar a escala de cores proporcional ao número de quadrantes
+        quadrantes = gerarEscalaDeCoresPorPosicao(quadrantes);
 
         // Gerar HTML do mapa
         let html =
