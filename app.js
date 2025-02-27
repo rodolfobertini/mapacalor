@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const mapRoutes = require('./routes/mapRoutes');
+const path = require('path');
 
 const app = express();
 const PORT = 3000;
@@ -15,6 +16,8 @@ app.use(session({
 
 // Configurar middleware de body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware de autenticação
 function isAuthenticated(req, res, next) {
@@ -35,113 +38,7 @@ app.get('/login', (req, res) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Login - Mapa de Calor</title>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-            <style>
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                }
-                
-                body {
-                    background: linear-gradient(120deg, #3498db, #8e44ad);
-                    height: 100vh;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    overflow: hidden;
-                }
-                
-                .login-container {
-                    width: 100%;
-                    max-width: 400px;
-                    padding: 20px;
-                }
-                
-                .login-card {
-                    background-color: #fff;
-                    border-radius: 10px;
-                    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-                    padding: 40px;
-                    width: 100%;
-                }
-                
-                .login-header {
-                    text-align: center;
-                    margin-bottom: 30px;
-                }
-                
-                .login-header h1 {
-                    color: #333;
-                    margin-bottom: 10px;
-                }
-                
-                .login-header p {
-                    color: #777;
-                }
-                
-                .login-form {
-                    margin-bottom: 20px;
-                }
-                
-                .input-group {
-                    position: relative;
-                    margin-bottom: 20px;
-                }
-                
-                .input-group i {
-                    position: absolute;
-                    left: 15px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    color: #888;
-                }
-                
-                .input-group input {
-                    width: 100%;
-                    padding: 15px;
-                    padding-left: 45px;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    font-size: 16px;
-                    outline: none;
-                    transition: border-color 0.3s ease;
-                }
-                
-                .input-group input:focus {
-                    border-color: #3498db;
-                }
-                
-                .login-button {
-                    width: 100%;
-                    padding: 15px;
-                    background: linear-gradient(to right, #3498db, #2980b9);
-                    border: none;
-                    border-radius: 5px;
-                    color: #fff;
-                    font-size: 16px;
-                    font-weight: 600;
-                    cursor: pointer;
-                    transition: background 0.3s ease;
-                }
-                
-                .login-button:hover {
-                    background: linear-gradient(to right, #2980b9, #1c6da6);
-                }
-                
-                .login-footer {
-                    text-align: center;
-                    margin-top: 20px;
-                    color: #777;
-                    font-size: 14px;
-                }
-
-                @media (max-width: 480px) {
-                    .login-card {
-                        padding: 30px 20px;
-                    }
-                }
-            </style>
+            <link rel="stylesheet" href="/css/login.css">
         </head>
         <body>
             <div class="login-container">
