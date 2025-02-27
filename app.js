@@ -3,6 +3,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const mapRoutes = require('./routes/mapRoutes');
 const path = require('path');
+const useragent = require('express-useragent'); // Importar o middleware useragent
 const { gerarLoginPage, gerarErroLoginPage } = require('./components/loginComponent');
 
 const app = express();
@@ -20,6 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Configurar middleware useragent
+app.use(useragent.express());
+
 // Middleware de autenticação
 function isAuthenticated(req, res, next) {
     if (req.session.user) {
@@ -36,6 +40,11 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
+    const dataHora = new Date().toISOString();
+    const ip = req.ip;
+    const os = req.useragent.os;
+    const browser = req.useragent.browser;
+    console.log(`[${dataHora}] Tentativa de login: username=${username}, password=${password}, ip=${ip}, os=${os}, browser=${browser}`);
     // Verificar credenciais (usando admin/admin como exemplo)
     if (username === process.env.MP_LOGIN && password === process.env.MP_SENHA) {
         req.session.user = username;
