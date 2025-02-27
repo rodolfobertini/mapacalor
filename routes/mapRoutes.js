@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const { getSalesData } = require('../services/mapService'); // Importar o serviço do banco
 const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils'); // Importar funções utilitárias
+const { gerarMenu } = require('../components/mapMenu'); // Importar o componente de menu
+const { gerarMapa } = require('../components/mapComponent'); // Importar o componente de mapa
+const { gerarRodape } = require('../components/footerComponent'); // Importar o componente de rodapé
 const router = express.Router();
 
 // Servir arquivos estáticos da pasta 'public'
@@ -108,86 +111,18 @@ router.get('/', async (req, res) => {
             '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>' +
             '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>' +
             '<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">' +
+            '<link rel="stylesheet" href="/css/styles.css">' +
             '<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>' +
-            '<style>body { font-family: "Roboto", sans-serif; display: flex; flex-direction: column; align-items: center; } .menu { width: 100%; padding: 10px; display: flex; flex-direction: column; align-items: center; } .map { width: 100%; height: calc(100vh - 200px); } .legend-bar { width: 100%; height: 8px; background: linear-gradient(to right, green , yellow , orange , red); border: 1px solid black; margin-bottom: 10px; } .form-container { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; } .form-container label { display: flex; align-items: center; gap: 10px; font-size: 1.2em; } .form-container input, .form-container select { padding: 5px; font-size: 1em; } .footer { text-align: center; margin-top: 10px; } .form-container button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; font-size: 1em; } .form-container button:hover { background-color: #45a049; }</style>' +
             '</head><body>' +
             '<div class="menu">' +
-            '<div>' +
-            '<img src="/img/rodolfo.jpg" alt="Foto de Rodolfo Bertini" style="width: 35px; border-radius: 50%; margin-bottom: 10px;">' +
-            '<form method="GET" class="form-container">' +
-            `<label><i class="fas fa-store"></i> Loja: <select name="ven_nrloja">` +
-            `<option value="1" ${ven_nrloja == 1 ? 'selected' : ''}>1. Azilados Cocó</option>` +
-            `<option value="2" ${ven_nrloja == 2 ? 'selected' : ''}>2. Azilados Maraponga</option>` +
-            `<option value="3" ${ven_nrloja == 3 ? 'selected' : ''}>3. Azilados Bezerra</option>` +
-            `<option value="4" ${ven_nrloja == 4 ? 'selected' : ''}>4. Azilados Cidade</option>` +
-            `<option value="5" ${ven_nrloja == 5 ? 'selected' : ''}>5. Azilados Eusébio</option>` +
-            `</select></label>` +
-            `<label><i class="fas fa-th"></i> Tamanho Área: <input type="number" name="grid_size" value="${gridSize}" min="100" max="3000"></label>` +
-            `<label><i class="fas fa-dollar-sign"></i> Acima de: <input type="number" name="valor_minimo" value="${valorMinimo}"></label>` +
-            `<label><i class="fas fa-calendar-alt"></i> Data Inicial: <input type="date" name="startDate" value="${startDate}"></label>` +
-            `<label><i class="fas fa-calendar-alt"></i> Data Final: <input type="date" name="endDate" value="${endDate}"></label>` +
-            '<button type="submit"><i class="fas fa-sync-alt"></i> Atualizar</button>' +
-            '</form>' +
-            '</div>' +
+            gerarMenu(ven_nrloja, gridSize, valorMinimo, startDate, endDate) +
             '</div>' +
             '<div id="map" class="map"></div>' +
-            '<script>';
-
-        html += `
-          var map = L.map('map').setView([${lojaLat}, ${lojaLon}], 14);
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              maxZoom: 19
-          }).addTo(map);
-
-          // Adicionar marcador da loja
-          L.marker([${lojaLat}, ${lojaLon}], {
-              icon: L.icon({
-                  iconUrl: 'https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png',
-                  iconSize: [12, 20], // Reduzir o tamanho do PIN em 50%
-                  iconAnchor: [6, 20],
-                  popupAnchor: [1, -34],
-                  shadowSize: [41, 41]
-              })
-          }).addTo(map).bindPopup("Azilados Bezerra");
-
-          // Adicionar legenda com barra de escala
-          var legend = L.control({ position: "topright" });
-          legend.onAdd = function () {
-              var div = L.DomUtil.create("div", "info legend");
-              div.innerHTML += '<div class="legend-bar" style="width: 200px; margin-bottom: 5px;"></div>';
-              div.innerHTML += '<span style="float: left;">Menor Valor</span> <span style="float: right;">Maior Valor</span>';
-              return div;
-          };
-          legend.addTo(map);
-
-          // Adicionar quadrantes com cores e valores centrais
-        `;
-
-        quadrantes.forEach((quadrante) => {
-            html += `
-              L.rectangle([
-                  [${quadrante.lat1}, ${quadrante.lon1}],
-                  [${quadrante.lat3}, ${quadrante.lon3}]
-              ], {
-                  color: '${quadrante.cor}',
-                  weight: 1,
-                  fillOpacity: 0.6,
-                  fillColor: '${quadrante.cor}'
-              }).addTo(map);
-
-              L.marker([${quadrante.centroLat}, ${quadrante.centroLon}], {
-                  icon: L.divIcon({
-                      className: 'custom-icon',
-                      html: '<div style="text-align:center; font-size:12px; color:black;">R$ ${quadrante.valorTotal.toFixed(
-                          2
-                      )}</div>',
-                      iconSize: [30, 30],
-                  })
-              }).addTo(map);
-            `;
-        });
-
-        html += '</script></body><div class="footer"><a href="https://bertini.org" target="_blank" rel="noopener noreferrer">Rodolfo Bertini - bertini.org</a></div></html>';
+            '<script>' +
+            gerarMapa(lojaLat, lojaLon, quadrantes) +
+            '</script>' +
+            gerarRodape() +
+            '</body></html>';
         res.send(html);
     } catch (err) {
         console.error('Erro ao gerar o mapa:', err);

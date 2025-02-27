@@ -40,9 +40,9 @@ app.get('/login', (req, res) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Login - Mapa de Calor</title>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-            <link rel="stylesheet" href="/css/login.css">
+            <link rel="stylesheet" href="/css/styles.css">
         </head>
-        <body>
+        <body class="login-page">
             <div class="login-container">
                 <div class="login-card">
                     <div class="login-header">
