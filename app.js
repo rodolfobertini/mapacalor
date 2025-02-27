@@ -60,11 +60,10 @@ app.get('/logout', (req, res) => {
     res.redirect('/login');
 });
 
-// Proteger a rota do mapa
+ // Proteger a rota do mapa
 app.use('/map', isAuthenticated, mapRoutes);
 
-module.exports = app;
+// Rota para a página inicial
+app.use('/', isAuthenticated, mapRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+module.exports = app;

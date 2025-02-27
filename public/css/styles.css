@@ -49,7 +49,13 @@ body {
 
 .footer {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
+    height: 20px; /* Altura menor */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1; /* Cor de fundo opcional */
+    padding: 10px 0; /* Padding opcional */
 }
 
 .form-container button {
