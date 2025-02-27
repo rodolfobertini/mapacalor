@@ -38,9 +38,9 @@ app.get('/login', (req, res) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Login - Mapa de Calor</title>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-            <link rel="stylesheet" href="/css/login.css">
+            <link rel="stylesheet" href="/css/styles.css">
         </head>
-        <body>
+        <body class="login-page">
             <div class="login-container">
                 <div class="login-card">
                     <div class="login-header">
@@ -86,41 +86,7 @@ app.post('/login', (req, res) => {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Erro de Login</title>
-                <style>
-                    body {
-                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        background: linear-gradient(120deg, #3498db, #8e44ad);
-                        height: 100vh;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        text-align: center;
-                    }
-                    .error-card {
-                        background-color: #fff;
-                        border-radius: 10px;
-                        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-                        padding: 40px;
-                        max-width: 400px;
-                    }
-                    .error-title {
-                        color: #e74c3c;
-                        margin-bottom: 20px;
-                    }
-                    .back-button {
-                        display: inline-block;
-                        margin-top: 20px;
-                        padding: 10px 20px;
-                        background-color: #3498db;
-                        color: white;
-                        text-decoration: none;
-                        border-radius: 5px;
-                        transition: background-color 0.3s;
-                    }
-                    .back-button:hover {
-                        background-color: #2980b9;
-                    }
-                </style>
+                <link rel="stylesheet" href="/css/styles.css">
             </head>
             <body>
                 <div class="error-card">
