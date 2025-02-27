@@ -5,6 +5,7 @@ const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils')
 const { gerarMenu } = require('../components/mapMenu'); // Importar o componente de menu
 const { gerarMapa } = require('../components/mapComponent'); // Importar o componente de mapa
 const { gerarRodape } = require('../components/footerComponent'); // Importar o componente de rodapé
+const { gerarHtmlBasico } = require('../components/htmlComponent');
 const router = express.Router();
 
 // Servir arquivos estáticos da pasta 'public'
@@ -106,24 +107,17 @@ router.get('/', async (req, res) => {
         });
 
         // Gerar HTML do mapa e formulário interativo
-        let html =
-            '<!DOCTYPE html><html><head><title>Mapa de Calor</title>' +
-            '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>' +
-            '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>' +
-            '<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">' +
-            '<link rel="stylesheet" href="/css/styles.css">' +
-            '<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>' +
-            '</head><body>' +
-            '<div class="menu">' +
-            gerarMenu(ven_nrloja, gridSize, valorMinimo, startDate, endDate) +
-            '</div>' +
-            '<div id="map" class="map"></div>' +
-            '<script>' +
-            gerarMapa(lojaLat, lojaLon, quadrantes) +
-            '</script>' +
-            gerarRodape() +
-            '</body></html>';
-        res.send(html);
+        const conteudo = `
+            <div class="menu">
+                ${gerarMenu(ven_nrloja, gridSize, valorMinimo, startDate, endDate)}
+            </div>
+            <div id="map" class="map"></div>
+            <script>
+                ${gerarMapa(lojaLat, lojaLon, quadrantes)}
+            </script>
+            ${gerarRodape()}
+        `;
+        res.send(gerarHtmlBasico('Mapa de Calor', conteudo, '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/><script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>'));
     } catch (err) {
         console.error('Erro ao gerar o mapa:', err);
         res.status(500).send('Erro ao gerar o mapa.');
