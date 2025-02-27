@@ -8,13 +8,13 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
         // Adicionar marcador da loja
         L.marker([${lojaLat}, ${lojaLon}], {
             icon: L.icon({
-                iconUrl: 'https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png',
-                iconSize: [12, 20], // Reduzir o tamanho do PIN em 50%
+                iconUrl: '/icons/azilas-pin.png',
+                iconSize: [25, 40], 
                 iconAnchor: [6, 20],
                 popupAnchor: [1, -34],
                 shadowSize: [41, 41]
             })
-        }).addTo(map).bindPopup("Azilados Bezerra");
+        }).addTo(map).bindPopup("Azilados");
 
         // Adicionar legenda com barra de escala
         var legend = L.control({ position: "topright" });
