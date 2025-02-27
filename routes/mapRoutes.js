@@ -2,10 +2,7 @@ const express = require('express');
 const path = require('path');
 const { getSalesData } = require('../services/mapService'); // Importar o serviço do banco
 const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils'); // Importar funções utilitárias
-const { gerarMenu } = require('../components/mapMenu'); // Importar o componente de menu
-const { gerarMapa } = require('../components/mapComponent'); // Importar o componente de mapa
-const { gerarRodape } = require('../components/footerComponent'); // Importar o componente de rodapé
-const { gerarHtmlBasico } = require('../components/htmlComponent');
+const { gerarMapaPage } = require('../components/mapPageComponent');
 const router = express.Router();
 
 // Servir arquivos estáticos da pasta 'public'
@@ -107,17 +104,7 @@ router.get('/', async (req, res) => {
         });
 
         // Gerar HTML do mapa e formulário interativo
-        const conteudo = `
-            <div class="menu">
-                ${gerarMenu(ven_nrloja, gridSize, valorMinimo, startDate, endDate)}
-            </div>
-            <div id="map" class="map"></div>
-            <script>
-                ${gerarMapa(lojaLat, lojaLon, quadrantes)}
-            </script>
-            ${gerarRodape()}
-        `;
-        res.send(gerarHtmlBasico('Mapa de Calor', conteudo, '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/><script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>'));
+        res.send(gerarMapaPage(lojaLat, lojaLon, quadrantes, ven_nrloja, gridSize, valorMinimo, startDate, endDate));
     } catch (err) {
         console.error('Erro ao gerar o mapa:', err);
         res.status(500).send('Erro ao gerar o mapa.');
