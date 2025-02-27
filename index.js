@@ -1,8 +1,8 @@
 require('dotenv').config(); // Carregar variáveis de ambiente do arquivo .env
-import { listen } from './app';
+const app = require('./app'); // Corrigir a importação do módulo app
 const PORT = process.env.PORT || 3001;
 
-listen(PORT, () => {
+app.listen(PORT, () => {
     const dataHora = new Date().toISOString();
     console.log(`[${dataHora}] Servidor rodando em http://localhost:${PORT}`);
 });
