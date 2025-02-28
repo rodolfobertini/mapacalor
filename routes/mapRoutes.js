@@ -13,7 +13,7 @@ router.use(express.static(path.join(__dirname, '../public')));
 function obterIntervaloDatas() {
     const hoje = new Date();
     const dataFinal = hoje.toISOString().split('T')[0]; // Data final no formato YYYY-MM-DD
-    const dataInicial = new Date(hoje.setDate(hoje.getDate() - 30)).toISOString().split('T')[0]; // Últimos 30 dias
+    const dataInicial = new Date(hoje.setDate(hoje.getDate() - 7)).toISOString().split('T')[0]; // Últimos 30 dias
     return { dataInicial, dataFinal };
 }
 

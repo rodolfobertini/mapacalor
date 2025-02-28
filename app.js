@@ -5,6 +5,8 @@ const mapRoutes = require('./routes/mapRoutes');
 const path = require('path');
 const useragent = require('express-useragent'); // Importar o middleware useragent
 const { gerarLoginPage, gerarErroLoginPage } = require('./components/loginComponent');
+const moment = require('moment-timezone'); // Importar a biblioteca moment-timezone
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,7 +42,7 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    const dataHora = new Date().toISOString();
+    const dataHora = moment().tz('America/Fortaleza').format('DD/MM/YY - HH:mm:ss');
     const ip = req.ip;
     const os = req.useragent.os;
     const browser = req.useragent.browser;
