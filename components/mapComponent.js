@@ -6,16 +6,11 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
         }).addTo(map);
 
         // Adicionar marcador da loja
-        L.circle([${lojaLat}, ${lojaLon}], {radius: 1000, fillOpacity: 0,
-}).addTo(map);
-        L.circle([${lojaLat}, ${lojaLon}], {radius: 2000, fillOpacity: 0,
-}).addTo(map);
-        L.circle([${lojaLat}, ${lojaLon}], {radius: 3000, fillOpacity: 0,
-}).addTo(map);
-        L.circle([${lojaLat}, ${lojaLon}], {radius: 4000, fillOpacity: 0,
-}).addTo(map);
-        L.circle([${lojaLat}, ${lojaLon}], {radius: 5000, fillOpacity: 0,
-}).addTo(map);
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 1000, fillOpacity: 0}).addTo(map);
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 2000, fillOpacity: 0}).addTo(map);
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 3000, fillOpacity: 0}).addTo(map);
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 4000, fillOpacity: 0}).addTo(map);
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 5000, fillOpacity: 0}).addTo(map);
 
         L.marker([${lojaLat}, ${lojaLon}], {
             icon: L.icon({
@@ -39,23 +34,21 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
 
     quadrantes.forEach((quadrante) => {
         script += `
-            L.rectangle([
-                [${quadrante.lat1}, ${quadrante.lon1}],
-                [${quadrante.lat3}, ${quadrante.lon3}]
-            ], {
+            var bounds = [[${quadrante.lat1}, ${quadrante.lon1}], [${quadrante.lat3}, ${quadrante.lon3}]];
+            L.rectangle(bounds, {
                 color: '${quadrante.cor}',
                 weight: 1,
                 fillOpacity: 0.6,
                 fillColor: '${quadrante.cor}'
             }).addTo(map);
 
-            L.marker([${quadrante.centroLat}, ${quadrante.centroLon}], {
-                icon: L.divIcon({
-                    className: 'custom-icon',
-                    html: '<div class=quadInfo><p>R$${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}, QTD: ${quadrante.numeroOcorrencias}, TM: R$${(quadrante.valorTotal / quadrante.numeroOcorrencias).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>',
-                    iconSize: [25, 30],
-                })
-            }).addTo(map);
+            var divIcon = L.divIcon({
+                className: 'custom-icon',
+                html: '<div class="quadInfo" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">R$${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<br>${quadrante.numeroOcorrencias}<br>TM: R$${(quadrante.valorTotal / quadrante.numeroOcorrencias).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>',
+                iconSize: [Math.abs(${quadrante.lat1} - ${quadrante.lat3}) * 10000, Math.abs(${quadrante.lon1} - ${quadrante.lon3}) * 10000]
+            });
+
+            L.marker([((${quadrante.lat1} + ${quadrante.lat3}) / 2), ((${quadrante.lon1} + ${quadrante.lon3}) / 2)], { icon: divIcon }).addTo(map);
         `;
     });
 
