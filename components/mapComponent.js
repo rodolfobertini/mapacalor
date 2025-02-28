@@ -44,7 +44,7 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
 
             var divIcon = L.divIcon({
                 className: 'custom-icon',
-                html: '<div class="quadInfo" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">R$${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<br>${quadrante.numeroOcorrencias}<br>TM: R$${(quadrante.valorTotal / quadrante.numeroOcorrencias).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>',
+                html: '<div class="quadInfo" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><p>R$${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<br>Qtd ${quadrante.numeroOcorrencias}<br>T.M.: R$${(quadrante.valorTotal / quadrante.numeroOcorrencias).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p></div>',
                 iconSize: [Math.abs(${quadrante.lat1} - ${quadrante.lat3}) * 10000, Math.abs(${quadrante.lon1} - ${quadrante.lon3}) * 10000]
             });
 
