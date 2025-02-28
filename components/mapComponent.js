@@ -44,7 +44,7 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
             L.marker([${quadrante.centroLat}, ${quadrante.centroLon}], {
                 icon: L.divIcon({
                     className: 'custom-icon',
-                    html: '<div style="text-align:center; font-size:12px; color:black;">R$ ${quadrante.valorTotal.toFixed(2)}</div>',
+                    html: '<div style="text-align:center; font-size:10px; color:black;">R$ ${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>',
                     iconSize: [30, 30],
                 })
             }).addTo(map);

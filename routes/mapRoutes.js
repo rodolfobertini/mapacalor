@@ -3,6 +3,7 @@ const path = require('path');
 const { getSalesData } = require('../services/mapService'); // Importar o serviço do banco
 const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils'); // Importar funções utilitárias
 const { gerarMapaPage } = require('../components/mapPageComponent');
+const { gerarQuadrantes } = require('../components/quadrantesComponent'); // Importar a nova função de componente
 const router = express.Router();
 
 // Servir arquivos estáticos da pasta 'public'
@@ -61,38 +62,9 @@ router.get('/', async (req, res) => {
         // Configurações iniciais do mapa
         const lojaLat = coordenadasLojas[ven_nrloja].lat;
         const lojaLon = coordenadasLojas[ven_nrloja].lon;
-        let quadrantes = [];
 
         // Gerar os quadrantes
-        for (let i = -Math.floor((10 * 1000) / gridSize); i <= Math.floor((10 * 1000) / gridSize); i++) {
-            for (let j = -Math.floor((10 * 1000) / gridSize); j <= Math.floor((10 * 1000) / gridSize); j++) {
-                const { lat: lat1, lon: lon1 } = deslocarCoordenadas(lojaLat, lojaLon, i * gridSize, j * gridSize);
-                const { lat: lat3, lon: lon3 } = deslocarCoordenadas(lojaLat, lojaLon, (i + 1) * gridSize, (j + 1) * gridSize);
-
-                // Filtrar os dados dentro do quadrante
-                const dentroDoQuadrante = data.filter(
-                    (row) =>
-                        row.ven_lati >= Math.min(lat1, lat3) &&
-                        row.ven_lati <= Math.max(lat1, lat3) &&
-                        row.ven_long >= Math.min(lon1, lon3) &&
-                        row.ven_long <= Math.max(lon1, lon3)
-                );
-
-                const valorTotalQuadrante = dentroDoQuadrante.reduce((sum, row) => sum + parseFloat(row.ven_vlrnot || 0), 0);
-
-                if (valorTotalQuadrante > valorMinimo) {
-                    quadrantes.push({
-                        lat1,
-                        lon1,
-                        lat3,
-                        lon3,
-                        centroLat: (lat1 + lat3) / 2,
-                        centroLon: (lon1 + lon3) / 2,
-                        valorTotal: valorTotalQuadrante,
-                    });
-                }
-            }
-        }
+        const quadrantes = gerarQuadrantes(data, lojaLat, lojaLon, gridSize, valorMinimo);
 
         // Ordenar os quadrantes pelo valor total e gerar a escala de cores
         quadrantes.sort((a, b) => a.valorTotal - b.valorTotal);
