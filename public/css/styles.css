@@ -48,7 +48,7 @@ body {
 .form-container input,
 .form-container select {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
   border: 2px solid transparent;
   width: 8em;
   height: 2em;
