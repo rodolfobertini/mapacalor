@@ -7,7 +7,7 @@ const useragent = require('express-useragent'); // Importar o middleware userage
 const { gerarLoginPage, gerarErroLoginPage } = require('./components/loginComponent');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Configurar middleware de sessão
 app.use(session({
