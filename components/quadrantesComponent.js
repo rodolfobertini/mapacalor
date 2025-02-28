@@ -17,7 +17,7 @@ function gerarQuadrantes(data, lojaLat, lojaLon, gridSize, valorMinimo) {
                     row.ven_long <= Math.max(lon1, lon3)
             );
 
-            const valorTotalQuadrante = dentroDoQuadrante.reduce((sum, row) => sum + parseFloat(row.ven_vlrnot || 0), 0);
+            const valorTotalQuadrante = dentroDoQuadrante.reduce((sum, row) => sum + parseFloat(row.sum_ven_vlrnot || 0), 0);
 
             if (valorTotalQuadrante > valorMinimo) {
                 quadrantes.push({
