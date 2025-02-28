@@ -18,6 +18,7 @@ function gerarQuadrantes(data, lojaLat, lojaLon, gridSize, valorMinimo) {
             );
 
             const valorTotalQuadrante = dentroDoQuadrante.reduce((sum, row) => sum + parseFloat(row.sum_ven_vlrnot || 0), 0);
+            const numeroOcorrenciasQuadrante = dentroDoQuadrante.reduce((sum, row) => sum + parseInt(row.count_ven_vlrnot || 0), 0);
 
             if (valorTotalQuadrante > valorMinimo) {
                 quadrantes.push({
@@ -28,6 +29,7 @@ function gerarQuadrantes(data, lojaLat, lojaLon, gridSize, valorMinimo) {
                     centroLat: (lat1 + lat3) / 2,
                     centroLon: (lon1 + lon3) / 2,
                     valorTotal: valorTotalQuadrante,
+                    numeroOcorrencias: numeroOcorrenciasQuadrante,
                 });
             }
         }
