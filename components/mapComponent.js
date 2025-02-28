@@ -44,14 +44,19 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
             L.marker([${quadrante.centroLat}, ${quadrante.centroLon}], {
                 icon: L.divIcon({
                     className: 'custom-icon',
-                    html: '<div style="text-align:center; font-size:10px; color:black;">R$ ${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>',
-                    iconSize: [30, 30],
+                    html: '<div style="text-align:center; font-size:10px; color:black;">R$${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>',
+                    iconSize: [25, 30],
                 })
             }).addTo(map);
         `;
     });
 
-    return script;
+    return `
+    <div id="map" class="map">
+    <script>
+    ${script}
+    </script>
+    </div>`;
 }
 
 module.exports = { gerarMapa };

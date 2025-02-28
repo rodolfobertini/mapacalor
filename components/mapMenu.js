@@ -1,6 +1,6 @@
 function gerarMenu(ven_nrloja, gridSize, valorMinimo, startDate, endDate) {
     return `
-        <div>
+        <div class="menu">
             <img src="/img/rodolfo.jpg" alt="Foto de Rodolfo Bertini" style="width: 35px; border-radius: 50%; margin-bottom: 10px;">
             <form method="GET" class="form-container">
                 <label><i class="fas fa-store"></i> Loja: <select name="ven_nrloja">
