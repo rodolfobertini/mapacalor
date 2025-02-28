@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // Configurar middleware de sessão
 app.use(session({
-    secret: 'seuSegredoAqui',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
 }));

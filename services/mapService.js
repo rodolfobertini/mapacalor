@@ -19,9 +19,10 @@ const pool = new Pool({
 async function getSalesData(startDate, endDate, ven_nrloja, ven_status) {
     const query = `
         SELECT 
-            REPLACE(VEN_LATI, ',', '.')::DOUBLE PRECISION AS ven_lati,
-            REPLACE(VEN_LONG, ',', '.')::DOUBLE PRECISION AS ven_long,
-            SUM(VEN_VLRNOT) AS ven_vlrnot
+            REPLACE(VEN_LATI, ',', '.')::DOUBLE PRECISION AS VEN_LATI,
+            REPLACE(VEN_LONG, ',', '.')::DOUBLE PRECISION AS VEN_LONG,
+            SUM(VEN_VLRNOT) AS SUM_VEN_VLRNOT,
+            COUNT(VEN_VLRNOT) AS COUNT_VEN_VLRNOT
         FROM TB_MOVVENDA
         WHERE 
             VEN_NRLOJA = $1 
@@ -34,7 +35,7 @@ async function getSalesData(startDate, endDate, ven_nrloja, ven_status) {
         GROUP BY 
             REPLACE(VEN_LATI, ',', '.')::DOUBLE PRECISION,
             REPLACE(VEN_LONG, ',', '.')::DOUBLE PRECISION
-        ORDER BY ven_vlrnot DESC;
+        ORDER BY SUM_VEN_VLRNOT DESC;
     `;
 
     const values = [ven_nrloja, ven_status, startDate, endDate];
