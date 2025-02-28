@@ -1,26 +1,29 @@
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: radial-gradient(circle at calc(-50% + 50%) calc(-50% + 50%), rgb(182, 217, 225) 0%, rgba(182, 217, 225, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(-50% + 50%), rgb(172, 193, 200) 0%, rgba(172, 193, 200, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(50% + 50%), rgb(235, 191, 151) 0%, rgba(235, 191, 151, 0) 60%), radial-gradient(circle at calc(-50% + 50%) calc(50% + 50%), rgb(252, 240, 217) 0%, rgba(252, 240, 217, 0) 60%);
 }
 
 .menu {
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    height: 90px;
+
 }
 
 .map {
-    width: 80%;
-    height: calc(100vh - 200px);
+    width: 100%;
+    height: calc(100vh - 140px);
 }
 
 .legend-bar {
     width: 100%;
-    height: 8px;
+    height: 10px;
     background: linear-gradient(to right, green, yellow, orange, red);
     border: 1px solid black;
     margin-bottom: 10px;
@@ -29,7 +32,7 @@ body {
 .form-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
     width: 100%;
 }
@@ -37,38 +40,61 @@ body {
 .form-container label {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1.2em;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .form-container input,
 .form-container select {
-    padding: 5px;
-    font-size: 1em;
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  width: 8em;
+  height: 2em;
+  padding-left: 0.2em;
+  outline: none;
+  overflow: hidden;
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.form-container input:hover,
+.form-container select:hover,
+.form-container input:focus,
+.form-container select:focus {
+  border: 2px solid #4A9DEC;
+  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+  background-color: white;
 }
 
 .footer {
     text-align: center;
+    font-size: 13px;
+    font-weight: 600;
     margin-top: 5px;
-    height: 20px; /* Altura menor */
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #f1f1f1; /* Cor de fundo opcional */
-    padding: 10px 0; /* Padding opcional */
+    height: 40px;
+    padding: 5px;
 }
 
 .form-container button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
+    padding: 0px 8px;
+    background: linear-gradient(to right, #3498db, #2980b9);
     border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 1em;
+    transition: background 0.3s ease;
 }
 
 .form-container button:hover {
-    background-color: #45a049;
+    background: linear-gradient(to right, #2980b9, #1c6da6);
 }
 
 /* Conteúdo do login.css */
