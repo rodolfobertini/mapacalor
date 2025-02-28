@@ -1,8 +1,8 @@
 function gerarMapa(lojaLat, lojaLon, quadrantes) {
     let script = `
         var map = L.map('map').setView([${lojaLat}, ${lojaLon}], 14);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { minZoom: 13.5,
+            maxZoom: 18
         }).addTo(map);
 
         // Adicionar marcador da loja
