@@ -20,8 +20,8 @@ function obterIntervaloDatas() {
 // Função para validar parâmetros de entrada
 function validarParametros(req) {
     const errors = [];
-    const gridSize = req.query.grid_size ? Number(req.query.grid_size) : 450;
-    const valorMinimo = req.query.valor_minimo ? Number(req.query.valor_minimo) : 100;
+    const gridSize = req.query.grid_size ? Number(req.query.grid_size) : 1000;
+    const valorMinimo = req.query.valor_minimo ? Number(req.query.valor_minimo) : 1;
 
     if (isNaN(gridSize) || gridSize <= 0) {
         errors.push('Grid size inválido');

@@ -6,13 +6,21 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
         }).addTo(map);
 
         // Adicionar marcador da loja
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 1000, fillOpacity: 0,
+}).addTo(map);
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 2000, fillOpacity: 0,
+}).addTo(map);
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 3000, fillOpacity: 0,
+}).addTo(map);
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 4000, fillOpacity: 0,
+}).addTo(map);
+        L.circle([${lojaLat}, ${lojaLon}], {radius: 5000, fillOpacity: 0,
+}).addTo(map);
+
         L.marker([${lojaLat}, ${lojaLon}], {
             icon: L.icon({
                 iconUrl: '/icons/azilas-pin.png',
                 iconSize: [25, 40], 
-                iconAnchor: [6, 20],
-                popupAnchor: [1, -34],
-                shadowSize: [41, 41]
             })
         }).addTo(map).bindPopup("Azilados");
 
@@ -21,7 +29,7 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
         legend.onAdd = function () {
             var div = L.DomUtil.create("div", "info legend");
             div.innerHTML += '<div class="legend-bar" style="width: 200px; margin-bottom: 5px;"></div>';
-            div.innerHTML += '<span style="float: left;">Menor Valor</span> <span style="float: right;">Maior Valor</span>';
+            div.innerHTML += '<span style="float: left;">Menor</span> <span style="float: right;">Maior</span>';
             return div;
         };
         legend.addTo(map);
@@ -44,7 +52,7 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
             L.marker([${quadrante.centroLat}, ${quadrante.centroLon}], {
                 icon: L.divIcon({
                     className: 'custom-icon',
-                    html: '<div class=quadInfo>R$${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<br>QTD: ${quadrante.numeroOcorrencias}<br>TM: R$${(quadrante.valorTotal / quadrante.numeroOcorrencias).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>',
+                    html: '<div class=quadInfo><p>R$${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}, QTD: ${quadrante.numeroOcorrencias}, TM: R$${(quadrante.valorTotal / quadrante.numeroOcorrencias).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>',
                     iconSize: [25, 30],
                 })
             }).addTo(map);
