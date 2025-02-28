@@ -106,7 +106,7 @@ body {
 }
 
 body.login-page {
-    background: linear-gradient(120deg, #3498db, #8e44ad);
+    background: radial-gradient(circle at calc(-50% + 50%) calc(-50% + 50%), rgb(182, 217, 225) 0%, rgba(182, 217, 225, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(-50% + 50%), rgb(172, 193, 200) 0%, rgba(172, 193, 200, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(50% + 50%), rgb(235, 191, 151) 0%, rgba(235, 191, 151, 0) 60%), radial-gradient(circle at calc(-50% + 50%) calc(50% + 50%), rgb(252, 240, 217) 0%, rgba(252, 240, 217, 0) 60%);   
     height: 100vh;
     display: flex;
     justify-content: center;
