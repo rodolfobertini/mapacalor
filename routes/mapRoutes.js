@@ -4,6 +4,7 @@ const { getSalesData } = require('../services/mapService'); // Importar o servi�
 const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils'); // Importar funções utilitárias
 const { gerarMapaPage } = require('../components/mapPageComponent');
 const { gerarQuadrantes } = require('../components/quadrantesComponent'); // Importar a nova função de componente
+const { isAuthenticated } = require('./authRoutes'); // Importar o middleware de autenticação
 const router = express.Router();
 
 // Servir arquivos estáticos da pasta 'public'
@@ -42,7 +43,7 @@ const coordenadasLojas = {
 };
 
 // Rota principal para gerar o mapa
-router.get('/', async (req, res) => {
+router.get('/', isAuthenticated, async (req, res) => {
     try {
         const { errors, gridSize, valorMinimo } = validarParametros(req);
         if (errors.length > 0) {
