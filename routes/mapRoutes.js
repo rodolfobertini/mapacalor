@@ -55,6 +55,7 @@ router.get('/', async (req, res) => {
         const ven_status = req.query.ven_status || 0; // Fixo como padrão
         const startDate = req.query.startDate || dataInicial;
         const endDate = req.query.endDate || dataFinal;
+        const menuPosition = req.query.menuPosition || 'top';
 
         // Obter os dados do banco
         const data = await getSalesData(startDate, endDate, ven_nrloja, ven_status);
@@ -76,7 +77,7 @@ router.get('/', async (req, res) => {
         });
 
         // Gerar HTML do mapa e formulário interativo
-        res.send(gerarMapaPage(lojaLat, lojaLon, quadrantes, ven_nrloja, gridSize, valorMinimo, startDate, endDate));
+        res.send(gerarMapaPage(lojaLat, lojaLon, quadrantes, ven_nrloja, gridSize, valorMinimo, startDate, endDate, menuPosition));
     } catch (err) {
         console.error('Erro ao gerar o mapa:', err);
         res.status(500).send('Erro ao gerar o mapa.');
