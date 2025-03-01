@@ -1,3 +1,5 @@
+const { gerarRodape } = require('./footerComponent');
+
 function gerarHtmlBasico(titulo, conteudo, estilosExtras = '') {
     return `
         <!DOCTYPE html>
@@ -12,6 +14,7 @@ function gerarHtmlBasico(titulo, conteudo, estilosExtras = '') {
         </head>
         <body>
             ${conteudo}
+            ${gerarRodape()}
         </body>
         </html>
     `;

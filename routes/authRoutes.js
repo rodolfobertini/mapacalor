@@ -1,6 +1,7 @@
 const express = require('express');
 const moment = require('moment-timezone');
 const { gerarLoginPage, gerarErroLoginPage } = require('../components/loginComponent');
+const { gerarHomePage } = require('../components/homeComponent'); // Importar o componente da página inicial
 
 const router = express.Router();
 
@@ -28,7 +29,7 @@ router.post('/login', (req, res) => {
     // Verificar credenciais (usando admin/admin como exemplo)
     if (username === process.env.MP_LOGIN && password === process.env.MP_SENHA) {
         req.session.user = username;
-        res.redirect('/map');
+        res.redirect('/');
     } else {
         res.send(gerarErroLoginPage());
     }
@@ -38,6 +39,11 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/login');
+});
+
+// Rota para a página inicial após login
+router.get('/', isAuthenticated, (req, res) => {
+    res.send(gerarHomePage());
 });
 
 module.exports = { router, isAuthenticated };

@@ -1,4 +1,5 @@
 const { gerarHtmlBasico } = require('./htmlComponent');
+const { gerarRodape } = require('./footerComponent');
 
 function gerarLoginPage() {
     const conteudo = `
@@ -22,25 +23,24 @@ function gerarLoginPage() {
                     
                     <button type="submit" class="login-button">Entrar</button>
                 </form>
-                
-                <div class="login-footer">
-                    <p>© ${new Date().getFullYear()} - Mapa de Calor - Rodolfo Bertini</p>
-                </div>
             </div>
         </div>
+            ${gerarRodape()}
     `;
     return gerarHtmlBasico('Login - Mapa de Calor', conteudo, '<body class="login-page">');
 }
 
 function gerarErroLoginPage() {
     const conteudo = `
-        <div class="error-card">
-            <h2 class="error-title">Credenciais Inválidas</h2>
-            <p>Nome de usuário ou senha incorretos.</p>
-            <a href="/login" class="back-button">Tentar Novamente</a>
+        <div class="login-container">
+            <div class="error-card">
+                <h2 class="error-title">Credenciais Inválidas</h2>
+                <p>Nome de usuário ou senha incorretos.</p>
+                <a href="/login" class="back-button">Tentar Novamente</a>
+            </div>
         </div>
     `;
-    return gerarHtmlBasico('Erro de Login', conteudo);
+    return gerarHtmlBasico('Erro de Login', conteudo, '<body class="login-page">');
 }
 
 module.exports = { gerarLoginPage, gerarErroLoginPage };
