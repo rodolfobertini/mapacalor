@@ -3,7 +3,7 @@ const { gerarRodape } = require('./footerComponent');
 
 function gerarLoginPage() {
     const conteudo = `
-        <div class="login-container">
+        <div class="card">
             <div class="login-card">
                 <div class="login-header">
                     <h1>Login</h1>
@@ -32,7 +32,7 @@ function gerarLoginPage() {
 
 function gerarErroLoginPage() {
     const conteudo = `
-        <div class="login-container">
+        <div class="card">
             <div class="error-card">
                 <h2 class="error-title">Credenciais Inválidas</h2>
                 <p>Nome de usuário ou senha incorretos.</p>

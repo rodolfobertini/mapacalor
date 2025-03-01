@@ -6,7 +6,7 @@ const path = require('path');
 const useragent = require('express-useragent'); // Importar o middleware useragent
 const { gerarLoginPage, gerarErroLoginPage } = require('./components/loginComponent');
 const moment = require('moment-timezone'); // Importar a biblioteca moment-timezone
-
+const { gerarHomePage } = require('./components/homeComponent'); // Importar o componente homeComponent
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -50,10 +50,15 @@ app.post('/login', (req, res) => {
     // Verificar credenciais (usando admin/admin como exemplo)
     if (username === process.env.MP_LOGIN && password === process.env.MP_SENHA) {
         req.session.user = username;
-        res.redirect('/map');
+        res.redirect('/home'); // Redirecionar para a página inicial após o login
     } else {
         res.send(gerarErroLoginPage());
     }
+});
+
+// Rota para a página inicial
+app.get('/home', isAuthenticated, (req, res) => {
+    res.send(gerarHomePage());
 });
 
 // Rota de logout

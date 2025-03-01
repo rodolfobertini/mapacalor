@@ -13,7 +13,6 @@ body {
     flex-direction: row;
     align-items: center;
     height: 100px;
-
 }
 
 .map {
@@ -47,26 +46,26 @@ body {
 
 .form-container input,
 .form-container select {
-  font-size: 12px;
-  font-weight: 200;
-  border: 2px solid transparent;
-  width: 7em;
-  height: 1.7em;
-  padding-left: 0.2em;
-  outline: none;
-  overflow: hidden;
-  background-color: #F3F3F3;
-  border-radius: 10px;
-  transition: all 0.5s;
+    font-size: 12px;
+    font-weight: 200;
+    border: 2px solid transparent;
+    width: 7em;
+    height: 1.7em;
+    padding-left: 0.2em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
 }
 
 .form-container input:hover,
 .form-container select:hover,
 .form-container input:focus,
 .form-container select:focus {
-  border: 2px solid #4A9DEC;
-  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
-  background-color: white;
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
 }
 
 .footer {
@@ -235,4 +234,105 @@ body.login-page {
 
 .back-button:hover {
     background-color: #2980b9;
+}
+
+/* Estilos para o card */
+.card {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.card-text {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilos para botões */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+/* Estilos para a página de login */
+.login-page .card {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.login-card .login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-card .login-form .input-group {
+    margin-bottom: 15px;
+}
+
+.login-card .login-form .input-group i {
+    margin-right: 10px;
+}
+
+.login-card .login-form .input-group input {
+    width: calc(100% - 30px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-card .login-form .login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Estilos para a página de erro */
+.error-card {
+    text-align: center;
+}
+
+.error-title {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
 }
