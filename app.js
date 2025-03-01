@@ -5,6 +5,7 @@ const mapRoutes = require('./routes/mapRoutes');
 const path = require('path');
 const useragent = require('express-useragent'); // Importar o middleware useragent
 const { gerarLoginPage  } = require('./components/gerarLoginPage');
+const { gerarErroLoginPage } = require('./components/gerarErroLoginPage'); // Corrigir o caminho de importação
 const moment = require('moment-timezone'); // Importar a biblioteca moment-timezone
 const { gerarHomePage } = require('./components/gerarHomePage'); // Importar o componente homeComponent
 
