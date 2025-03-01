@@ -1,7 +1,8 @@
 const express = require('express');
 const moment = require('moment-timezone');
-const { gerarLoginPage, gerarErroLoginPage } = require('../components/loginComponent');
-const { gerarHomePage } = require('../components/homeComponent'); // Importar o componente da página inicial
+const { gerarLoginPage } = require('../components/gerarLoginPage');
+const { gerarErroLoginPage } = require('../components/gerarErroLoginPage');
+const { gerarHomePage } = require('../components/gerarHomePage'); // Importar o componente da página inicial
 
 const router = express.Router();
 

@@ -28,15 +28,4 @@ function gerarLoginPage() {
     return gerarHtmlBasico('Login - Mapa de Calor', conteudo);
 }
 
-function gerarErroLoginPage() {
-    const conteudo = `
-        <div class="card">
-            <h2 class="error-title">Credenciais Inválidas</h2>
-            <p class="card-text">Nome de usuário ou senha incorretos.</p>
-            <a href="/login" class="btn">Tentar Novamente</a>
-        </div>
-    `;
-    return gerarHtmlBasico('Erro de Login', conteudo);
-}
-
-module.exports = { gerarLoginPage, gerarErroLoginPage };
+module.exports = { gerarLoginPage };
