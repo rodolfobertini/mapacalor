@@ -1,4 +1,4 @@
-const { gerarRodape } = require('./footerComponent');
+const { gerarRodape } = require('./gerarRodape');
 
 function gerarHtmlBasico(titulo, conteudo, estilosExtras = '') {
     return `

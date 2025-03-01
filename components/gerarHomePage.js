@@ -1,4 +1,4 @@
-const { gerarHtmlBasico } = require('./htmlComponent');
+const { gerarHtmlBasico } = require('./gerarHtmlBasico');
 
 function gerarHomePage() {
     const conteudo = `

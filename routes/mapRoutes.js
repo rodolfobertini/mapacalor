@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const { getSalesData } = require('../services/mapService'); // Importar o serviço do banco
 const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils'); // Importar funções utilitárias
-const { gerarMapaPage } = require('../components/mapPageComponent');
-const { gerarQuadrantes } = require('../components/quadrantesComponent'); // Importar a nova função de componente
+const { gerarMapaPage } = require('../components/gerarMapaPage');
+const { gerarQuadrantes } = require('../components/gerarQuadrantes'); // Importar a nova função de componente
 const router = express.Router();
 
 // Servir arquivos estáticos da pasta 'public'

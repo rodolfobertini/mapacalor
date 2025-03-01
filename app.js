@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 const mapRoutes = require('./routes/mapRoutes');
 const path = require('path');
 const useragent = require('express-useragent'); // Importar o middleware useragent
-const { gerarLoginPage, gerarErroLoginPage } = require('./components/loginComponent');
+const { gerarLoginPage, gerarErroLoginPage } = require('./components/gerarLoginPage');
 const moment = require('moment-timezone'); // Importar a biblioteca moment-timezone
-const { gerarHomePage } = require('./components/homeComponent'); // Importar o componente homeComponent
+const { gerarHomePage } = require('./components/gerarHomePage'); // Importar o componente homeComponent
 
 const app = express();
 const PORT = process.env.PORT || 3000;

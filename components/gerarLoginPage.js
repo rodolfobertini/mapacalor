@@ -1,5 +1,5 @@
-const { gerarHtmlBasico } = require('./htmlComponent');
-const { gerarRodape } = require('./footerComponent');
+const { gerarHtmlBasico } = require('./gerarHtmlBasico');
+const { gerarRodape } = require('./gerarRodape');
 
 function gerarLoginPage() {
     const conteudo = `

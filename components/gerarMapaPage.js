@@ -1,7 +1,7 @@
-const { gerarHtmlBasico } = require('./htmlComponent');
-const { gerarMenu } = require('./mapMenu');
-const { gerarMapa } = require('./mapComponent');
-const { gerarRodape } = require('./footerComponent');
+const { gerarHtmlBasico } = require('./gerarHtmlBasico');
+const { gerarMenu } = require('./gerarMenu');
+const { gerarMapa } = require('./gerarMapa');
+const { gerarRodape } = require('./gerarRodape');
 
 function gerarMapaPage(lojaLat, lojaLon, quadrantes, ven_nrloja, gridSize, valorMinimo, startDate, endDate) {
     const conteudo = `
