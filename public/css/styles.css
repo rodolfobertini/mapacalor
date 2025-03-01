@@ -3,6 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh; /* Garantir que o body ocupe a altura total da viewport */
     background: radial-gradient(circle at calc(-50% + 50%) calc(-50% + 50%), rgb(182, 217, 225) 0%, rgba(182, 217, 225, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(-50% + 50%), rgb(172, 193, 200) 0%, rgba(172, 193, 200, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(50% + 50%), rgb(235, 191, 151) 0%, rgba(235, 191, 151, 0) 60%), radial-gradient(circle at calc(-50% + 50%) calc(50% + 50%), rgb(252, 240, 217) 0%, rgba(252, 240, 217, 0) 60%);
 }
 
@@ -239,11 +240,13 @@ body.login-page {
 /* Estilos para o card */
 .card {
     max-width: 400px;
-    margin: 50px auto;
+    margin: auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-body {
@@ -277,7 +280,6 @@ body.login-page {
 .btn-primary {
     background-color: #007bff;
 }
-
 
 /* Estilos para a página de erro */
 .error-card {
