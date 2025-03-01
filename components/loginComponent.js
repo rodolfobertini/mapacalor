@@ -32,8 +32,8 @@ function gerarErroLoginPage() {
     const conteudo = `
         <div class="card">
             <h2 class="error-title">Credenciais Inválidas</h2>
-            <p>Nome de usuário ou senha incorretos.</p>
-            <a href="/login" class="back-button">Tentar Novamente</a>
+            <p class="card-text">Nome de usuário ou senha incorretos.</p>
+            <a href="/login" class="btn">Tentar Novamente</a>
         </div>
     `;
     return gerarHtmlBasico('Erro de Login', conteudo);

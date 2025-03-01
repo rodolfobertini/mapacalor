@@ -289,6 +289,7 @@ body.login-page {
 .error-title {
     color: red;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .back-button {
