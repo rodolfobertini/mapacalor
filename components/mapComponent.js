@@ -1,9 +1,14 @@
 function gerarMapa(lojaLat, lojaLon, quadrantes) {
     let script = `
-        var map = L.map('map').setView([${lojaLat}, ${lojaLon}], 14);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { minZoom: 13.5,
-            maxZoom: 18
-        }).addTo(map);
+        var map = L.map('map', {
+            zoomSnap: 0.5,       // Permite zooms intermediários (ex: 13.0, 13.5, 14.0)    
+            zoomDelta: 0.5       // Altera o zoom em passos de 0.5 a cada interação
+}).setView([${lojaLat}, ${lojaLon}], 13.5);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
+    minZoom: 13.5,
+    maxZoom: 18
+}).addTo(map);
 
         // Adicionar marcador da loja
         L.circle([${lojaLat}, ${lojaLon}], {radius: 1000, fillOpacity: 0}).addTo(map);
@@ -44,7 +49,7 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
 
             var divIcon = L.divIcon({
                 className: 'custom-icon',
-                html: '<div class="quadInfo" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><p>R$${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<br>Qtd ${quadrante.numeroOcorrencias}<br>T.M.: R$${(quadrante.valorTotal / quadrante.numeroOcorrencias).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p></div>',
+                html: '<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">R$${quadrante.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<br>Qtd ${quadrante.numeroOcorrencias}<br>T.M.: R$${(quadrante.valorTotal / quadrante.numeroOcorrencias).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>',
                 iconSize: [Math.abs(${quadrante.lat1} - ${quadrante.lat3}) * 10000, Math.abs(${quadrante.lon1} - ${quadrante.lon3}) * 10000]
             });
 
