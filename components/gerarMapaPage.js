@@ -15,7 +15,7 @@ function gerarMapaPage(lojaLat, lojaLon, quadrantes, ven_nrloja, gridSize, valor
         `;
     } else {
         conteudo = `
-            <div style="display: flex;">
+            <div style="display: flex; width: 100%;">
                 <div style="width: 15%;">
                     ${gerarMenu(ven_nrloja, gridSize, valorMinimo, startDate, endDate)}
                 </div>
