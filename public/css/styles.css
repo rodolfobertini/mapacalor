@@ -11,14 +11,12 @@ body {
     width: 100%;
     padding: 5px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 100px;
+    justify-content: space-evenly;  
 }
 
 .map {
     width: 100%;
-    height: calc(100vh - 140px);
+    height: 100vh;
 }
 
 .legend-bar {
@@ -76,9 +74,8 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 40px;
+    height: 30px;
     padding: 5px;
-    background: radial-gradient(circle at calc(-50% + 50%) calc(-50% + 50%), rgb(182, 217, 225) 0%, rgba(182, 217, 225, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(-50% + 50%), rgb(172, 193, 200) 0%, rgba(172, 193, 200, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(50% + 50%), rgb(235, 191, 151) 0%, rgba(235, 191, 151, 0) 60%), radial-gradient(circle at calc(-50% + 50%) calc(50% + 50%), rgb(252, 240, 217) 0%, rgba(252, 240, 217, 0) 60%);
     z-index: 1000; /* Garante que o rodapé fique acima de outros elementos */
 }
 

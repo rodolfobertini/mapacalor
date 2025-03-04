@@ -9,15 +9,25 @@ function gerarMapaPage(lojaLat, lojaLon, quadrantes, ven_nrloja, gridSize, valor
 
     if (menuPosition === 'top') {
         conteudo = `
-            ${gerarMenu(ven_nrloja, gridSize, valorMinimo, startDate, endDate)}
-            ${gerarMapa(lojaLat, lojaLon, quadrantes)}
+            <div style="width: 100%;">
+                <div style="width: 10%;">
+                 <div style="display: flex; flex-direction: columm; ">   
+                    ${gerarMenu(ven_nrloja, gridSize, valorMinimo, startDate, endDate)}
+                 </div>
+                </div>
+                <div style="width: 90%;">
+                    ${gerarMapa(lojaLat, lojaLon, quadrantes)}
+                </div>
+            </div>
             ${gerarRodape()}
         `;
     } else {
         conteudo = `
-            <div style="display: flex; width: 100%;">
+            <div style="display: flex; width: 100%; flex-direction: row; ">
                 <div style="width: 15%;">
+                 <div style="display: flex; flex-direction: row; ">   
                     ${gerarMenu(ven_nrloja, gridSize, valorMinimo, startDate, endDate)}
+                 </div>
                 </div>
                 <div style="width: 85%;">
                     ${gerarMapa(lojaLat, lojaLon, quadrantes)}
