@@ -20,8 +20,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         L.marker([${lojaLat}, ${lojaLon}], {
             icon: L.icon({
                 iconUrl: '/icons/azilas-pin.png',
-                iconSize: [25, 40], 
-            })
+                iconSize: [25, 40],
+                iconAnchor: [12.5, 40],
+             })
         }).addTo(map).bindPopup("Azilados");
 
         // Adicionar legenda com barra de escala
