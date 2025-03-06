@@ -7,11 +7,42 @@ body {
     background: radial-gradient(circle at calc(-50% + 50%) calc(-50% + 50%), rgb(182, 217, 225) 0%, rgba(182, 217, 225, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(-50% + 50%), rgb(172, 193, 200) 0%, rgba(172, 193, 200, 0) 60%), radial-gradient(circle at calc(50% + 50%) calc(50% + 50%), rgb(235, 191, 151) 0%, rgba(235, 191, 151, 0) 60%), radial-gradient(circle at calc(-50% + 50%) calc(50% + 50%), rgb(252, 240, 217) 0%, rgba(252, 240, 217, 0) 60%);
 }
 
+.imgLogo {
+    width: 60px;
+    border-radius: 50%;
+    padding: 10px;
+}
 .menu {
-    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    background: rgba(101, 105, 109, 0.514);
+    padding: 5px;
+    margin: 3px;
+    width: auto;
+    height: auto;
+    align-content: center;
+    align-items: center;
+}
+.menuTop {
+    width: 90%;
     padding: 5px;
     display: flex;
-    justify-content: space-evenly;  
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.menuLeft {
+    width: 90%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .map {
@@ -28,17 +59,23 @@ body {
 }
 
 .form-container {
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    justify-content: center;
+    gap: 12px;
+    justify-content: space-between;
     width: 100%;
+    flex-direction: row;
 }
 
 .form-container label {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 13em;
+    height: 1.7em;
     align-items: center;
-    gap: 5px;
+    column-gap: 5px;
     font-size: 12px;
     font-weight: 600;
 }
@@ -48,9 +85,10 @@ body {
     font-size: 12px;
     font-weight: 200;
     border: 2px solid transparent;
-    width: 7em;
+    width: 8em;
     height: 1.7em;
     padding-left: 0.2em;
+    text-align: center;
     outline: none;
     overflow: hidden;
     background-color: #F3F3F3;
@@ -81,6 +119,8 @@ body {
 
 .form-container button {
     padding: 0px 8px;
+    height: 25px;
+    width: 100px;
     background: linear-gradient(to right, #3498db, #2980b9);
     border: none;
     border-radius: 5px;

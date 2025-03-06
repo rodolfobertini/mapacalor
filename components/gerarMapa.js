@@ -6,7 +6,7 @@ function gerarMapa(lojaLat, lojaLon, quadrantes) {
 }).setView([${lojaLat}, ${lojaLon}], 13.5);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
-    minZoom: 13.5,
+    minZoom: 13,
     maxZoom: 18
 }).addTo(map);
 
@@ -25,7 +25,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         }).addTo(map).bindPopup("Azilados");
 
         // Adicionar legenda com barra de escala
-        var legend = L.control({ position: "topright" });
+        var legend = L.control({ position: "bottomleft" });
         legend.onAdd = function () {
             var div = L.DomUtil.create("div", "info legend");
             div.innerHTML += '<div class="legend-bar" style="width: 200px; margin-bottom: 5px;"></div>';

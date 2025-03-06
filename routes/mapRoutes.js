@@ -77,7 +77,7 @@ router.get('/', async (req, res) => {
         });
 
         // Gerar HTML do mapa e formulário interativo
-        res.send(gerarMapaPage(lojaLat, lojaLon, quadrantes, ven_nrloja, gridSize, valorMinimo, startDate, endDate, menuPosition));
+        res.send(gerarMapaPage(lojaLat, lojaLon, quadrantes, ven_nrloja, gridSize, valorMinimo, startDate, endDate));
     } catch (err) {
         console.error('Erro ao gerar o mapa:', err);
         res.status(500).send('Erro ao gerar o mapa.');
