@@ -10,14 +10,18 @@ const moment = require('moment-timezone'); // Importar a biblioteca moment-timez
 const { gerarHomePage } = require('./components/gerarHomePage'); // Importar o componente homeComponent
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Configurar middleware de sessão
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET, // Certifique-se que é uma string longa e aleatória
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false, // Considere mudar para false se não precisar de sessões para todos os visitantes
+    cookie: {
+        httpOnly: true, // Protege contra XSS
+        secure: process.env.NODE_ENV === 'production', // Usar apenas em HTTPS
+        sameSite: 'lax' // Ajuda a proteger contra CSRF, considere 'lax' ou 'strict'
+    }
 }));
+
 
 // Configurar middleware de body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -73,5 +77,14 @@ app.use('/map', isAuthenticated, mapRoutes);
 
 // Rota para a página inicial
 app.use('/', isAuthenticated, mapRoutes);
+
+// Middleware de tratamento de erros global (deve ser o último)
+app.use((err, req, res, next) => {
+    const dataHora = moment().tz('America/Fortaleza').format('DD/MM/YY - HH:mm:ss');
+    console.error(`[${dataHora}] Erro não tratado:`, err.stack);
+    // Idealmente, você teria uma página de erro genérica aqui também
+    // Ex: res.status(500).send(gerarPaginaErroGenerica());
+    res.status(500).send('Ocorreu um erro inesperado no servidor.');
+});
 
 module.exports = app;
