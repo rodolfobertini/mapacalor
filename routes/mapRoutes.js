@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
-const { getSalesData } = require('../services/mapService'); // Importar o serviço do banco
-const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils'); // Importar funções utilitárias
+const { getSalesData } = require('../services/mapService');
+const { deslocarCoordenadas, gerarEscalaDeCores } = require('../utils/mapUtils');
 const { gerarMapaPage } = require('../components/gerarMapaPage');
-const { gerarQuadrantes } = require('../components/gerarQuadrantes'); // Importar a nova função de componente
+const { gerarQuadrantes } = require('../components/gerarQuadrantes');
 const router = express.Router();
 
 // Servir arquivos estáticos da pasta 'public'
@@ -52,10 +52,9 @@ router.get('/', async (req, res) => {
         // Valores padrão
         const { dataInicial, dataFinal } = obterIntervaloDatas();
         const ven_nrloja = req.query.ven_nrloja || 3;
-        const ven_status = req.query.ven_status || 0; // Fixo como padrão
+        const ven_status = req.query.ven_status || 0;
         const startDate = req.query.startDate || dataInicial;
         const endDate = req.query.endDate || dataFinal;
-        const menuPosition = req.query.menuPosition || 'top';
 
         // Obter os dados do banco
         const data = await getSalesData(startDate, endDate, ven_nrloja, ven_status);
@@ -64,20 +63,8 @@ router.get('/', async (req, res) => {
         const lojaLat = coordenadasLojas[ven_nrloja].lat;
         const lojaLon = coordenadasLojas[ven_nrloja].lon;
 
-        // Gerar os quadrantes
-        const quadrantes = gerarQuadrantes(data, lojaLat, lojaLon, gridSize, valorMinimo);
-
-        // Ordenar os quadrantes pelo valor total e gerar a escala de cores
-        quadrantes.sort((a, b) => a.valorTotal - b.valorTotal);
-        const escalaDeCores = gerarEscalaDeCores(quadrantes.length);
-
-        // Atribuir cores aos quadrantes com base na posição ordenada
-        quadrantes.forEach((quadrante, index) => {
-            quadrante.cor = escalaDeCores[index];
-        });
-
         // Gerar HTML do mapa e formulário interativo
-        res.send(gerarMapaPage(lojaLat, lojaLon, quadrantes, ven_nrloja, gridSize, valorMinimo, startDate, endDate));
+        res.send(gerarMapaPage(lojaLat, lojaLon, data, ven_nrloja, gridSize, valorMinimo, startDate, endDate));
     } catch (err) {
         console.error('Erro ao gerar o mapa:', err);
         res.status(500).send('Erro ao gerar o mapa.');

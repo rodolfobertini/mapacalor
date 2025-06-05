@@ -341,3 +341,91 @@ body.login-page {
     color: #fff;
     text-decoration: none;
 }
+
+.estatisticas-card {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.estatisticas-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(74, 157, 236, 0.2);
+}
+
+.estatisticas-header h3 {
+    color: #2c3e50;
+    font-size: 1.2em;
+    margin: 0;
+    text-align: center;
+}
+
+.estatisticas-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.estatistica-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: rgba(74, 157, 236, 0.05);
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.estatistica-item:hover {
+    transform: translateX(-5px);
+    background: rgba(74, 157, 236, 0.1);
+}
+
+.estatistica-icon {
+    font-size: 1.5em;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(74, 157, 236, 0.1);
+    border-radius: 50%;
+}
+
+.estatistica-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.estatistica-label {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 4px;
+}
+
+.estatistica-valor {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+@media (max-width: 768px) {
+    .estatisticas-card {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+        max-width: 300px;
+    }
+}
