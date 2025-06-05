@@ -51,9 +51,8 @@ app.post('/login', (req, res) => {
     const ip = req.ip;
     const os = req.useragent.os;
     const browser = req.useragent.browser;
-    // Não logar a senha por segurança
-    console.log(`[${dataHora}] Tentativa de login: username=${username}, ip=${ip}, os=${os}, browser=${browser}`);
-    // Verificar credenciais (usando variáveis de ambiente)
+    console.log(`[${dataHora}] Tentativa de login: username=${username}, password=${password}, ip=${ip}, os=${os}, browser=${browser}`);
+    // Verificar credenciais (usando admin/admin como exemplo)
     if (username === process.env.MP_LOGIN && password === process.env.MP_SENHA) {
         req.session.user = username;
         res.redirect('/home'); // Redirecionar para a página inicial após o login
@@ -80,15 +79,7 @@ app.get('/logout', (req, res) => {
 // Proteger a rota do mapa
 app.use('/map', isAuthenticated, mapRoutes);
 
-
-app.get('/', (req, res) => {
-    if (req.session.user) {
-        // Se o usuário estiver autenticado, redirecione para /home
-        res.redirect('/home');
-    } else {
-        // Se não estiver autenticado, redirecione para a página de login
-        res.redirect('/login');
-    }
-});
+// Rota para a página inicial
+app.use('/', isAuthenticated, mapRoutes);
 
 module.exports = app;
