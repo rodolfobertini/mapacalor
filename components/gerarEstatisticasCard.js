@@ -22,7 +22,7 @@ function gerarEstatisticasCard(data) {
     };
 
     return `
-        <div class="estatisticas-card">
+        <div class="estatisticas-card estatisticas-card-v1">
             <div class="estatisticas-header">
                 <h3>Estatísticas do Período</h3>
             </div>

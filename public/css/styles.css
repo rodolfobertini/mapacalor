@@ -429,3 +429,122 @@ body.login-page {
         max-width: 300px;
     }
 }
+
+/* Versão 1: Card de Estatísticas no canto inferior direito, com estilo similar ao menu */
+.estatisticas-card.estatisticas-card-v1 {
+    /* Posição */
+    top: auto; /* Sobrescreve o top: 20px original */
+    bottom: 20px;
+    right: 20px;
+    left: auto; /* Garante que não haja conflito com 'right' */
+    width: 300px; /* Mantém a largura original ou ajuste conforme necessário */
+
+    /* Estilo similar ao .menu */
+    background: rgba(101, 105, 109, 0.514); /* Mesmo fundo do .menu */
+    padding: 15px; /* Padding interno do card */
+    border-radius: 10px; /* O menu não tem, mas é comum para cards */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    
+    /* Remove/sobrescreve estilos do .estatisticas-card original que não se aplicam */
+    backdrop-filter: none;
+    border: none;
+
+    /* Ajustes de texto e elementos internos para o fundo escuro */
+    color: #f0f0f0; /* Cor de texto base clara */
+}
+
+.estatisticas-card.estatisticas-card-v1 .estatisticas-header h3 {
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.estatisticas-card.estatisticas-card-v1 .estatistica-label {
+    color: #d0d0d0;
+}
+
+.estatisticas-card.estatisticas-card-v1 .estatistica-valor {
+    color: #ffffff;
+}
+
+.estatisticas-card.estatisticas-card-v1 .estatistica-item {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.estatisticas-card.estatisticas-card-v1 .estatistica-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(-3px); 
+}
+
+.estatisticas-card.estatisticas-card-v1 .estatistica-icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff; /* Cor do ícone */
+}
+
+/* Versão 2: Card de Estatísticas anexado abaixo do menu, com mesma largura */
+.estatisticas-card.estatisticas-card-v2 {
+    /* Posição e Tamanho */
+    /* Ajuste este valor de 'top' conforme a altura real do seu menu.
+       Deve ser (altura do menu + margem superior do menu).
+       Ex: Se o menu (incluindo sua margem de 3px) ocupa 50px de altura, top seria ~50px.
+       O .menu original tem top:0 e margin:3px.
+    */
+    top: 60px; /* VALOR SUGESTIVO INICIAL - AJUSTE FINO NECESSÁRIO */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Mesma largura que o .menuTop (conteúdo do menu) */
+    max-width: none; /* Sobrescreve o max-width: 300px original se houver */
+    right: auto; /* Sobrescreve o right: 20px original */
+    bottom: auto; /* Sobrescreve o bottom original se houver */
+
+    /* Estilo similar ao .menu */
+    background: rgba(101, 105, 109, 0.514);
+    padding: 15px;
+    
+    /* Para parecer um container único com o menu: */
+    /* O .menu precisaria de border-radius: 8px 8px 0 0; (veja sugestão abaixo) */
+    border-radius: 0 0 8px 8px; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Sombra para dar profundidade */
+
+    /* Remove/sobrescreve estilos do .estatisticas-card original */
+    backdrop-filter: none;
+    border: none;
+
+    /* Ajustes de texto e elementos internos (similar à V1) */
+    color: #f0f0f0;
+}
+
+.estatisticas-card.estatisticas-card-v2 .estatisticas-header h3 {
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.estatisticas-card.estatisticas-card-v2 .estatistica-label {
+    color: #d0d0d0;
+}
+
+.estatisticas-card.estatisticas-card-v2 .estatistica-valor {
+    color: #ffffff;
+}
+
+.estatisticas-card.estatisticas-card-v2 .estatistica-item {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.estatisticas-card.estatisticas-card-v2 .estatistica-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(-3px);
+}
+
+.estatisticas-card.estatisticas-card-v2 .estatistica-icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* SUGESTÃO: Para a Versão 2, o menu principal (.menu) poderia ser ajustado para se integrar melhor: */
+/* Se você puder adicionar uma classe ao seu elemento de menu, por exemplo, 'menu-integrado-v2' */
+/*
+.menu.menu-integrado-v2 {
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 0; /* Remove a margem para "colar" com o card abaixo */
+    /* Ajuste o box-shadow se necessário para que não haja sombra entre o menu e o card */
+/*/
